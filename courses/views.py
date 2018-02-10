@@ -19,5 +19,6 @@ def main_page(request):
         "exam_list": exam_list,
         "title": "Main Page"
     }
+    #testing purpose for bot
 
     return render(request, "main.html", context)
