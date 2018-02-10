@@ -16,12 +16,12 @@ class Professor(models.Model):
 
 class Exam(models.Model):
 
-
     # 1 = Midterm1; 2 = Mid2; 3 = Quiz; 4 = Assignment; 5 = Final
     exam_type = models.IntegerField(null=False)
     course = models.ForeignKey(Course)
     professor = models.ForeignKey(Professor)
     created_at = models.DateTimeField(default=timezone.now())
+    file = models.FileField()
     # created_by = SOME USER
 
     def __str__(self):
