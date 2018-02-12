@@ -20,7 +20,8 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('courses.urls')),
+    url(r'^signup/', include('accounts.urls', namespace='signup')),
+    url(r'^', include('courses.urls', namespace='courses')),
 ]
 
 #FOR TESTING

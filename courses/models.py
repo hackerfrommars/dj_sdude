@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-
+from django.contrib.auth.models import User
 
 class Course(models.Model):
     name = models.CharField(max_length=100)
@@ -20,9 +20,9 @@ class Exam(models.Model):
     exam_type = models.IntegerField(null=False)
     course = models.ForeignKey(Course)
     professor = models.ForeignKey(Professor)
-    created_at = models.DateTimeField(default=timezone.now())
+    created_at = models.DateTimeField(auto_now_add=True)
     file = models.FileField()
-    # created_by = SOME USER
+    created_by = models.ForeignKey(User, null=False)
 
     def __str__(self):
         return "%s %s" %(self.course.name, self.exam_type)
@@ -35,11 +35,11 @@ class Feedback(models.Model):
     #     ""
     # }
     content = models.TextField()
-    created_at = models.DateTimeField(default=timezone.now())
+    created_at = models.DateTimeField(auto_now_add=True)
     course = models.ForeignKey(Course)
     professor = models.ForeignKey(Professor, null=True)
-    # created_by = some user
+    created_by = models.ForeignKey(User, null=False)
     # grade = "A" "A-" "B" "B+ etc"
 
     def __str__(self):
-        return "%s : %s" % (str(self.created_at), self.course.name)
+        return self.course.name
