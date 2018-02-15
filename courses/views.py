@@ -46,6 +46,8 @@ def home_page(request):
             })
             user.email_user(subject, message)
             return redirect('/signup/account_activation_sent')
+        else:
+            return HttpResponse("not valid form")
 
     else:
         login_form = LoginForm()
