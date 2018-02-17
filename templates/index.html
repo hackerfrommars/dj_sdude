@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <title>Main Page</title>
 </head>
+<style>
+    .signup_form {
+        background-color: yellow;
+    }
+    .login_form {
+        background-color: blue;
+    }
+
+</style>
 <body>
 This is a main page of SDUDE
+{% load widget_tweaks %}
+
 {% if user.is_authenticated %}
     <p> Welcome, {{ user.get_username }}  <a href="/logout">Logout</a> </p>
 {% else %}
@@ -21,7 +32,8 @@ This is a main page of SDUDE
     <h2>Log In</h2>
         <form id="login_form" method="post" action="/">
             {%	csrf_token	%}
-            {{ login_form.as_p }}
+            {{ login_form.username | add_class:"login_form"}} <br>
+            {{ login_form.password | add_class:"login_form" }} <br>
             <br>
             <input type="submit" name="action" value="Login">
     </form>
@@ -30,7 +42,12 @@ This is a main page of SDUDE
     <h2>Sign up</h2>
     <form method="post" action="/">
         {% csrf_token %}
-        {{ signup_form.as_p }}
+{#        {{ signup_form.as_p }}#}
+        {{ signup_form.username | add_class:"signup_form" }} <br>
+        {{ signup_form.email | add_class:"signup_form" }} <br>
+        {{ signup_form.password1 | add_class:"signup_form" }} <br>
+        {{ signup_form.password2 | add_class:"signup_form" }} <br>
+
         <input type="submit" name="action" value="Signup"/>
     </form>
 
