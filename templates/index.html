@@ -1,26 +1,38 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Main Page</title>
-</head>
-<style>
-    .signup_form {
-        background-color: yellow;
-    }
-    .login_form {
-        background-color: blue;
-    }
 
-</style>
-<body>
-This is a main page of SDUDE
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SDUDE</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet' %}" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/agency.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
 {% load widget_tweaks %}
 
 {% if user.is_authenticated %}
     <p> Welcome, {{ user.get_username }}  <a href="/logout">Logout</a> </p>
-{% else %}
-    <p> Welcome, new user please log in or signup</p>
+
 {% endif %}
 
 {% if user.is_authenticated %}
@@ -28,29 +40,344 @@ This is a main page of SDUDE
 {% endif %}
 
 {% if not user.is_authenticated %}
-    <br>
-    <h2>Log In</h2>
-        <form id="login_form" method="post" action="/">
-            {%	csrf_token	%}
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">SDUDE</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Registration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#page-top" id="login-button">Sign In</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+<div id="login-form">
+  <h1>Sign In</h1>
+  <span class="close-btn">
+    <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+  </span>
+
+  <form id="login_form" method="post" action="/">
+      {%  csrf_token  %}
+  <input type="text" placeholder="E-mail"
             {{ login_form.username | add_class:"login_form"}} <br>
+  <input type="password" placeholder="Password"
             {{ login_form.password | add_class:"login_form" }} <br>
-            <br>
-            <input type="submit" name="action" value="Login">
-    </form>
-
-
-    <h2>Sign up</h2>
-    <form method="post" action="/">
-        {% csrf_token %}
-{#        {{ signup_form.as_p }}#}
-        {{ signup_form.username | add_class:"signup_form" }} <br>
-        {{ signup_form.email | add_class:"signup_form" }} <br>
-        {{ signup_form.password1 | add_class:"signup_form" }} <br>
-        {{ signup_form.password2 | add_class:"signup_form" }} <br>
-
-        <input type="submit" name="action" value="Signup"/>
-    </form>
-
+    <input id ="login" type="submit" name="action" value="Login">
+    <div id="remember-container">
+      <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked"/>
+      <span id="remember">Remember me</span>
+      <span id="forgotten">Forgotten password</span>
+    </div>
+</form>
+</div>
 {% endif %}
-</body>
+<!-- Forgotten Password Container -->
+<div id="forgotten-container">
+   <h1>Forgotten password</h1>
+  <span class="close-btn">
+    <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+  </span>
+
+  <form id="get_pass">
+    <input type="email" name="email" placeholder="E-mail">
+    <a href="#" class="orange-btn">Get new password</a>
+</form>
+
+</div>
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+        <div class="intro-text">
+          <div class="intro-heading text-uppercase">Welcome to SDUDE!</div>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Services</h2>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+            </span>
+            <img src="{%static 'img/logos/exam.png'%}">
+            <h4 class="service-heading">Syllabuses and past exams</h4>
+            <p class="text-muted">Share and download syllabuses, past quizzes, midterms and finals.</p>
+          </div>
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+            </span>
+            <img src="{%static 'img/logos/question1.png'%}">
+            <h4 class="service-heading">Questions and Feedbacks</h4>
+            <p class="text-muted">You can ask any questions about university,courses,food,dormitory,teachers and so on. Also leave feeadback on subject and questions.</p>
+          </div>
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+            </span>
+            <img src="{%static 'img/logos/work.png'%}">
+            <h4 class="service-heading">Internship</h4>
+            <p class="text-muted">Do you search for internship? Here you can find actual intership, get news about new intership.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+
+
+    <!-- Team -->
+    <section class="bg-light" id="team">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+<!--             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+ -->          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle" src="{% static 'img/team/1.jpg' %}" alt="">
+              <h4>Akerke Makhmut</h4>
+              <p class="text-muted">Lead Designer</p>
+              <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle" src="{% static 'img/team/2.jpg' %}" alt="">
+              <h4>Yerbolat Amangeldi</h4>
+              <p class="text-muted">Lead Developer</p>
+              <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle" src="{% static 'img/team/3.jpg'%}" alt="">
+              <h4>Marzhan Bokenova</h4>
+              <p class="text-muted">Lead Scrum Master</p>
+              <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Registration</h2>
+            <h3 class="section-subheading text-muted">You have to sign up by your SDU mail and have to be student to access all privileges. But don't worry, it is anonymous.</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <form method="post" action="/">
+            {% csrf_token %}
+{#        {{ signup_form.as_p }}#}
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input class="form-control" id="name" type="mail" placeholder="Your name *" required data-validation-required-message="Please enter your name" {{ signup_form.username | add_class:"signup_form" }}         
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="email" type="text" placeholder="Your SDU mail *" required data-validation-required-message="Please enter SDU mail"  {{ signup_form.email | add_class:"signup_form" }}         
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="email" type="password" placeholder="Your Password *" required data-validation-required-message="Please enter your password"  {{ signup_form.password1 | add_class:"signup_form" }}   
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="phone" type="password" placeholder="Confirm Your Password *" required data-validation-required-message="Please enter your confirm password"   {{ signup_form.password2 | add_class:"signup_form" }}    
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="right">
+                      <p style="text-align: center; color: #495e7b; bottom: 20px; top:0px; position: relative; font-weight: bold; font-size: 22px; border:1px solid #495e7b; padding-top: 10px; padding-bottom: 10px; ">Please Note</p>
+                      <p style="text-align: center; color: #495e7b; font-size: 18px;position: relative; top:10px; padding-bottom: 80px; padding-left:10px; padding-right:10px;">You have to sign up with your SDU mail, otherwise your accout will be deleted without notification. This is done to restrict access only to SDU student.</p>
+                      <p class="help-block text-danger"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                  <div id="success"></div>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit" name="action" value="Signup">Register</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Kaskelen 2018</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">&copy; sdude.org</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'js/contact_me.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/agency.min.js' %}"></script>
+<script>
+    $('#login-button').click(function(){
+
+  $('#login-button').fadeIn("slow",function(){
+
+    $("#login-form").fadeIn();
+
+
+  });
+});
+
+$(".close-btn").click(function(){
+  
+  $("#login-form, #forgotten-container").fadeOut(800, function(){
+    $("#login-button").fadeIn(800);
+  });
+});
+
+/* Forgotten Password */
+$('#forgotten').click(function(){
+  $("#login-form").fadeOut(function(){
+    $("#forgotten-container").fadeIn();
+  });
+});
+</script>
+  </body>
+
 </html>

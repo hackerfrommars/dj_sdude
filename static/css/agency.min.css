@@ -1,0 +1,205 @@
+body{
+	overflow-x:hidden;font-family:'Roboto Slab','Helvetica Neue',
+Helvetica,Arial,sans-serif}
+
+.text-primary{
+	color:#fed136!important}
+
+section{
+	padding:100px 0;
+}
+
+section h2.section-heading{
+	font-size:40px;
+	margin-top:0;
+	margin-bottom:15px;
+}
+section h3.section-subheading {
+  font-size: 25px;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 75px;
+  text-transform: none;
+  color: #495e7b;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@media (min-width:768px)
+{section{padding:150px 0}}
+.btn{
+	font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700
+}
+.btn-xl{
+	font-size:18px;
+	padding:10px 20px;
+	color: #495e7b;
+}
+.btn-primary{
+    background-color:  rgba(255, 255, 255, 0.9);
+	border-color:#FFFFFF
+}
+.btn-primary:focus,.btn-primary:hover{
+	background-color:#495e7b!important;
+	border-color:#495e7b!important;color:#FFFFFF
+}
+.btn-primary:active,.btn-primary:focus{
+		box-shadow:#000000!important
+}
+::-moz-selection{background:#fed136;text-shadow:none}
+::selection{background:#fed136;text-shadow:none}
+img::selection{background:0 0}
+img::-moz-selection{background:0 0}
+#mainNav{
+	background-color:#212529
+}
+#mainNav .navbar-toggler{
+	font-size:14px;
+	right:0;
+	padding:13px;
+	text-transform:uppercase;
+	color:#495e7b;
+	border:0;
+	background-color:#ffffff;
+	font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif}
+#mainNav .navbar-brand{
+	color:#495e7b;
+	font-family:'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
+}
+#mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover{
+		color:#FFFFFF;
+		background-color: #000000;
+}
+#mainNav .navbar-nav .nav-item .nav-link{
+	font-size:90%;
+	font-weight:400;
+	padding:.75em 0;
+	letter-spacing:1px;
+	color:#495e7b;
+	font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
+}
+#mainNav .navbar-nav .nav-item .nav-link:hover{
+		color:#FFFFFF;
+		background-color: #000000;
+}
+@media (min-width:992px){
+	#mainNav{
+		padding-top:25px;
+		padding-bottom:25px;
+		-webkit-transition:padding-top .3s,padding-bottom .3s;
+		-moz-transition:padding-top .3s,padding-bottom .3s;
+		transition:padding-top .3s,padding-bottom .3s;
+		border:none;background-color:transparent
+	}
+	#mainNav .navbar-brand{
+		font-size:1.75em;
+		-webkit-transition:all .3s;
+		-moz-transition:all .3s;
+		transition:all .3s
+	}
+	#mainNav .navbar-nav .nav-item .nav-link{
+		padding:1.1em 1em!important
+	}
+	#mainNav.navbar-shrink{
+			padding-top:0;
+			padding-bottom:0;
+			background-color:#000000
+	}
+	#mainNav.navbar-shrink .navbar-brand{
+		font-size:1.25em;
+		padding:12px 0;
+	}
+}
+header.masthead{
+	text-align:center;
+	color:#fff;
+	background-image:url(../img/header-bg.jpg);
+	background-repeat:no-repeat;
+	background-attachment:scroll;
+	background-position:center center;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover}
+header.masthead .intro-text{
+	padding-top:150px;
+	padding-bottom:100px}
+header.masthead .intro-text .intro-heading {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 50px;
+  margin-bottom: 25px;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+@media (min-width:768px)
+{header.masthead .intro-text{
+	padding-top:300px;
+	padding-bottom:200px}
+header.masthead .intro-text .intro-heading {
+	font-size:70px;
+	font-weight:700;
+	line-height:75px;
+	color:#ffffff;
+	margin-bottom:100px;
+	margin-left: 100px;
+	font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
+}
+}
+.service-heading{
+	margin:15px 0;
+	text-transform:none
+}
+
+.team-member{margin-bottom:50px;text-align:center}.team-member img{width:225px;height:225px;border:7px solid #fff}
+.team-member h4{margin-top:25px;margin-bottom:0;text-transform:none}.team-member p{margin-top:0}
+section#contact{
+	background-color:#495e7b;
+	background-image:url(../img/registrationonline.jpg);
+	background-repeat:no-repeat;
+	background-attachment:scroll;
+	background-position:center center;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover}r;
+  background-size: cover;
+}
+section#contact .subheading{color:#fff}
+.right{
+	background-color: #ffffff;
+	border: 1px solid #495e7b;
+	border-radius: 5px 5px 5px 5px;
+}
+section#contact .form-group{margin-bottom:25px}
+section#contact .form-group input,section#contact .form-group textarea{
+	padding:20px
+}
+section#contact .form-group input.form-control{
+	height:auto
+}
+section#contact .form-group textarea.form-control{
+	height:248px
+}
+section#contact .form-control:focus{
+	border-color:#fed136;box-shadow:none
+	}
+section#contact ::-webkit-input-placeholder{
+	font-weight:700;color:#ced4da;font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
+}
+section#contact :-moz-placeholder{
+	font-weight:700;color:#ced4da;font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
+}
+section#contact ::-moz-placeholder{
+	font-weight:700;color:#ced4da;font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
+	}
+section#contact :-ms-input-placeholder{
+	font-weight:700;color:#ffffff;font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
+}
+footer{
+	padding:25px 0;text-align:center
+}
+footer span.copyright{font-size:90%;line-height:40px;text-transform:none;font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif}
+footer ul.quicklinks{font-size:90%;line-height:40px;margin-bottom:0;text-transform:none;font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif}ul.social-buttons{margin-bottom:0}ul.social-buttons li a{font-size:20px;line-height:40px;display:block;width:40px;height:40px;-webkit-transition:all .3s;-moz-transition:all .3s;transition:all .3s;color:#fff;border-radius:100%;outline:0;background-color:#212529}ul.social-buttons li a:active,ul.social-buttons li a:focus,ul.social-buttons li a:hover{background-color:#fed136}
+
+
+
+
