@@ -30,10 +30,6 @@
   <body id="page-top">
 {% load widget_tweaks %}
 
-{% if user.is_authenticated %}
-    <p> Welcome, {{ user.get_username }}  <a href="/logout">Logout</a> </p>
-
-{% endif %}
 
 {% if user.is_authenticated %}
     This is a link to see new <a href="/main/">courses</a>
@@ -77,11 +73,11 @@
 
   <form id="login_form" method="post" action="/">
       {%  csrf_token  %}
-  <input type="text" placeholder="E-mail">
-            {{ login_form.username | add_class:"login_form"}} <br>
-  <input type="password" placeholder="Password">
-            {{ login_form.password | add_class:"login_form" }} <br>
-    <input id ="login" type="submit" name="action" value="Login">
+  <input type="text" placeholder="E-mail"
+            {{ login_form.username | add_class:"login_form"}} 
+  <input type="password" placeholder="Password"
+            {{ login_form.password | add_class:"login_form" }} 
+    <button class="button" type="submit" name="action" value="Login" style="vertical-align:middle"><span>log in </span></button>
     <div id="remember-container">
       <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked"/>
       <span id="remember">Remember me</span>
@@ -99,7 +95,7 @@
 
   <form id="get_pass">
     <input type="email" name="email" placeholder="E-mail">
-    <a href="#" class="orange-btn">Get new password</a>
+    <button class="button" type="submit" style="vertical-align:middle"><span>get new password</span></button>
 </form>
 
 </div>
