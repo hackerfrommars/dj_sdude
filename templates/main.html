@@ -5,7 +5,21 @@
     <title>{{ title}}</title>
 </head>
 <body>
-    <!-- For testing purposes -->
+
+    <script>
+        var arr = [
+            {% for course in course_list %}
+                {% if not forloop.first %},{% endif %}
+                "{{ course.name }}"
+            {% endfor %}
+        ];
+    </script>
+
+
+    <div style="background-color: #005cbf">
+        <input type="text" onkeyup="changeInput(this.value)">
+        <div id="result"></div>
+    </div>
 
     <b>Professors list</b> <br>
     {% for prof in prof_list %}
@@ -48,7 +62,21 @@
             <input type="submit" name="submit" value="Create Post">
     </form>
 
+    <script>
+        function matchPeople(input) {
+          var reg = new RegExp(input.split('').join('\\w*').replace(/\W/, ""), 'i');
+          return arr.filter(function(person) {
+            if (person.match(reg)) {
+              return person;
+            }
+          });
+        }
 
+        function changeInput(val) {
+          var autoCompleteResult = matchPeople(val);
+          document.getElementById("result").innerHTML = autoCompleteResult;
+        }
+    </script>
 
 </body>
 </html>
