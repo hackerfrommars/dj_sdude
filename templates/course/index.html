@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course</title>
+</head>
+<body>
+
+<form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+        {%  csrf_token  %}
+        {%  for hidden in form.hidden_fields %}
+                {{ hidden }}
+        {%  endfor %}
+        {%  for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ label_tag }}
+                {{ field }}<br>
+        {% endfor %}
+        <br>
+        <input type="submit" name="submit" value="Create Post">
+</form>
+
+{% for exam in exam_list %}
+    <div>
+        name: {{ exam.course.name }} <br>
+        file_name: {{ exam.file.name }} <br>
+        created_at: {{ exam.created_at | timesince}} ago <br>
+        <br>
+    </div>
+{% endfor %}
+</body>
+</html>
