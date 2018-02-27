@@ -15,12 +15,12 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  width: 300px;
-  height: 300px;
+  width: 25%;
+  height: 40%;
   border-radius: 5px;
   box-shadow: 1px 1px 50px #000;
   display: none;
-  background: white;
+  background: #F5F3EE;
 }
 
 .close-btn{
@@ -51,25 +51,26 @@
   position: relative;
   margin-top: 0px;
   text-align: center;
-  font-size: 30px;
+  font-size: 2.5vw;
   color: #495e7b;
   text-shadow: 3px 3px 10px #fff;
 }
 
 /* Inputs */
-form input,
-.login-form{
+form input{
   font-family: 'Open Sans Condensed', sans-serif;
   text-decoration: none;
-  position: relative;
-  width: 80%;
+  position: all;
+  width: 70%;
+  top:20px;
   display: block;
-  margin: 5px auto;
-  font-size: 17px;
+  margin: 10px auto;
+  font-size: 1.5vw;
   color: #fff;
   padding: 8px;
   border-radius: 6px;
   border: none;
+  opacity: 0.7;
   background: #495e7b;
   -webkit-transition: all 2s ease-in-out;
   -moz-transition: all 2s ease-in-out;
@@ -82,6 +83,50 @@ form input:focus{
   box-shadow: 3px 3px 10px #333;
   background:  rgba(255, 255, 255, 0.9);
   color: black;
+}
+.button {
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-decoration: none;
+  position: all;
+  width: 70%;
+  top:20px;
+  display: block;
+  margin: 10px auto;
+  font-size: 1.5vw;
+  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: #495e7b;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: 20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 /* Placeholders */
@@ -110,14 +155,14 @@ form a:hover{
 
 #remember-container{
   position: relative;
-  margin: -5px 20px;
+  margin: 5px 20px;
 }
 
 .checkbox {
-  position: relative;
+  position: all;
   cursor: pointer;
 	-webkit-appearance: none;
-	padding: 5px;
+	padding: 0px;
 	border-radius: 4px;
   background: #495e7b;
 	display: inline-block;
@@ -128,6 +173,8 @@ form a:hover{
 .checkbox:checked:active {
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
     background: #495e7b;
+      position: all;
+
 
 }
 
@@ -135,20 +182,22 @@ form a:hover{
   background: #495e7b;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.5);
 	color: #fff;
+    position: all;
+
 }
 
 .checkbox:checked:after {
 	content: '\2714';
 	font-size: 10px;
 	position: absolute;
-	top: 0px;
+	top: 9px;
 	left: 4px;
 	color: #fff;
 }
 
 #remember{
   position: absolute;
-  font-size: 12px;
+  font-size: 1vw;
   font-family: 'Hind', sans-serif;
   color: #495e7b;
   top: 7px;
@@ -159,13 +208,13 @@ form a:hover{
   position: relative;
   margin-top: 20px;
   text-align: center;
-  font-size: 15px;
+  font-size: 2vw;
   color: #495e7b;
   text-shadow: 3px 3px 10px #fff;
 }
 #forgotten{
   position: absolute;
-  font-size: 12px;
+  font-size: 1vw;
   font-family: 'Hind', sans-serif;
   color: #495e7b;
   right: 0px;
@@ -178,7 +227,7 @@ form a:hover{
 }
 
 #forgotten:hover{
-  font-size: 15px;
+  font-size: 1.5vw;
 }
 
 #forgotten-container{
@@ -188,53 +237,10 @@ form a:hover{
   right: 0;
   bottom: 0;
   margin: auto;
-  width: 260px;
-  height: 180px;
+  width: 25%;
+  height: 30%;
   border-radius: 10px;
   background: white;
   box-shadow: 1px 1px 50px #000;
   display: none;
-}
-.get_pass{
-  font-family: 'Open Sans Condensed', sans-serif;
-  text-decoration: none;
-  position: relative;
-  width: 80%;
-  display: block;
-  margin: 5px auto;
-  font-size: 17px;
-  color: #fff;
-  padding: 8px;
-  border-radius: 6px;
-  border: none;
-  background: #495e7b;
-  -webkit-transition: all 2s ease-in-out;
-  -moz-transition: all 2s ease-in-out;
-  -o-transition: all 2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.get_pass:focus{
-  outline: none;
-  box-shadow: 3px 3px 10px #333;
-  background:  rgba(255, 255, 255, 0.9);
-  color: black;
-}
-.orange-btn{
-  font-family: 'Open Sans Condensed', sans-serif;
-  text-decoration: none;
-  position: relative;
-  width: 80%;
-  display: block;
-  margin: 10px auto;
-  font-size: 17px;
-  color: #fff;
-  padding: 8px;
-  border-radius: 6px;
-  border: none;
-  background: #495e7b;
-  -webkit-transition: all 2s ease-in-out;
-  -moz-transition: all 2s ease-in-out;
-  -o-transition: all 2s ease-in-out;
-  transition: all 0.2s ease-in-out; 
 }
