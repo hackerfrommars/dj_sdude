@@ -29,3 +29,4 @@ def activate(request, uidb64, token):
 
 def account_activation_sent(request):
     return HttpResponse("Confirm Your account")
+

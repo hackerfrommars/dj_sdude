@@ -1,13 +1,167 @@
+{% load staticfiles%}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title}}</title>
-</head>
-<body>
-    <!-- For testing purposes -->
 
-    <b>Professors list</b> <br>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SDUDE coursepage</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet' %}" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/main_style.css' %}" rel="stylesheet">
+        <link href="{% static 'css/window_ass.css' %}" rel="stylesheet">
+
+
+    
+    <link href="{% static 'vendor/bootstrap-chosen.css' %}" rel="stylesheet" />
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="#">SDUDE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+            <li class="nav-item">
+            <div class="dropdown">
+              <a class="nav-link" href="/logout" ><img src="{% static 'img/logos/settings.png' %}"></a>
+              <div class="dropdown-content">
+              <a href="#">change password</a>
+              <a href="#">notifications</a>
+              <a href="#">log out</a>
+              </div>
+            </div>
+            </li>
+            <li class="nav-item">
+              <form>
+          <select class="chosen-select" style="width:250px;" onchange="location = this.options[this.selectedIndex].value;">
+            {% for course in course_list %}
+            <option value="/courses/{{ course.id }}">{{ course.name }}</option>
+            {% endfor %}
+          </select>
+        </form>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container-full">
+
+      <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+        <div class="my-4" >
+        <p></p><br>
+        <div id="main" class="container" >
+  <div class="row">
+    
+<!-- Mixins-->
+<!-- Pen Title-->
+
+<div class="container">
+  <div class="card alt">
+    <div class="toggle">
+          <div class="btn-group">
+
+        <button class="btn" onclick="first()" >Syllabus</button>
+        <button class="btn" onclick="second()">Assignment</button>
+        <button class="btn" onclick="three()">Quiz</button>  
+        <button class="btn" onclick="four()" >Midterm</button>
+        <button class="btn" onclick="five()">Final</button>
+        <button class="btn" onclick="six()">FeedBack</button>  
+  </div>  
+    </div>
+    <h1 class="title">Register
+      <div class="close"></div>
+    </h1>
+    <form>
+      <div class="input-container">
+        <input type="text" id="Username" required="required"/>
+        <label for="Username">Username</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="password" id="Password" required="required"/>
+        <label for="Password">Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="password" id="Repeat Password" required="required"/>
+        <label for="Repeat Password">Repeat Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="button-container">
+        <button><span>Next</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  </div>
+</div>
+  
+        <p></p><br>
+
+          <h1 style="top:20px;">Subject Name
+          </h1>
+
+          <!-- Blog Post -->
+          <div class="card mb-4" >
+<div class="btn-group">
+
+<button class="button" onclick="first()" >Syllabus</button>
+<button class="button" onclick="second()">Assignment</button>
+<button class="button" onclick="three()">Quiz</button>  
+<button class="button" onclick="four()" >Midterm</button>
+<button class="button" onclick="five()">Final</button>
+<button class="button" onclick="six()">FeedBack</button>  
+</div>   
+       <div class="card-body">
+              <h2 class="card-title" id="title">Click on any tab to view resources</h2>
+              <div id="myfirst">
+              </div>
+              <div id="mysecond">
+              </div>
+              <div id="mythree">
+              </div>
+              <div id="myfour">
+              </div>
+              <div id="myfive">
+              </div>
+              <div id="mysix">
+              </div>
+            </div>
+            <div class="card-footer text-muted">
+              Posted on January 1, 2017 by
+            </div>
+          </div>
+
+
+         <!--  <b>Professors list</b> <br>
     {% for prof in prof_list %}
         <div>
         {{ prof.name }}
@@ -32,23 +186,181 @@
             <br>
         </div>
     {% endfor %}
+ -->
 
 
-    <form id="post_form" method="post" action="/main/" enctype="multipart/form-data">
-            {%	csrf_token	%}
-            {%	for	hidden in form.hidden_fields %}
-                    {{ hidden }}
-            {%	endfor %}
-            {%	for	field in form.visible_fields %}
-                    {{ field.errors }}
-                    {{ label_tag }}
-                    {{ field }}<br>
-            {% endfor %}
-            <br>
-            <input type="submit" name="submit" value="Create Post">
-    </form>
+</div>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Kaskelen 2018 &copy; sdude.org</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'js/contact_me.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/agency.min.js' %}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
+    <script>
+$(document).ready(function(){
+$('.toggle').on('click', function() {
+  $('.container').stop().addClass('active');
+});
+
+$('.close').on('click', function() {
+  $('.container').stop().removeClass('active');
+});
+
+});
+
+    var syl = document.getElementById("myfirst");
+    var ass = document.getElementById("mysecond");
+    var quiz = document.getElementById("mythree");
+    var mid = document.getElementById("myfour");
+    var fin = document.getElementById("myfive");
+    var feed = document.getElementById("mysix");
+    var tit = document.getElementById("mysix");
+
+
+function first() {
+    if (syl.style.display === "none") {
+        syl.style.display = "block";
+        document.getElementById("title").innerHTML = "Syllabus";
+        document.getElementById("myfirst").innerHTML = "Hello first";
+
+
+        ass.style.display = "none";
+        quiz.style.display = "none";
+        mid.style.display = "none";
+        fin.style.display = "none";
+        feed.style.display = "none";
+        
+
+
+    } else {
+        syl.style.display = "none";
+    }
+}
+function second() {
+    if (ass.style.display === "none") {
+        ass.style.display = "block";
+        document.getElementById("title").innerHTML = "Assignment";
+          document.getElementById("mysecond").innerHTML = "Hello second";
+
+
+        syl.style.display = "none";
+        quiz.style.display = "none";
+        mid.style.display = "none";
+        fin.style.display = "none";
+        feed.style.display = "none";
+
+    } else {
+        ass.style.display = "none";
+    }
+}
+function three() {
+    if (quiz.style.display === "none") {
+        quiz.style.display = "block";
+        document.getElementById("title").innerHTML = "Quiz";
+          document.getElementById("mythree").innerHTML = "Hello three";
+
+
+        ass.style.display = "none";
+        syl.style.display = "none";
+        mid.style.display = "none";
+        fin.style.display = "none";
+        feed.style.display = "none";
+
+    } else {
+        quiz.style.display = "none";
+    }
+}
+function four() {
+    if (mid.style.display === "none") {
+        mid.style.display = "block";
+        document.getElementById("title").innerHTML = "Midterm";
+        document.getElementById("myfour").innerHTML = "Hello four";
+
+
+        ass.style.display = "none";
+        quiz.style.display = "none";
+        syl.style.display = "none";
+        fin.style.display = "none";
+        feed.style.display = "none";
+
+
+    } else {
+        mid.style.display = "none";
+    }
+}
+function five() {
+    if (fin.style.display === "none") {
+        fin.style.display = "block";
+        document.getElementById("title").innerHTML = "Final";
+          document.getElementById("myfive").innerHTML = "Hello five";
+
+
+        ass.style.display = "none";
+        quiz.style.display = "none";
+        mid.style.display = "none";
+        syl.style.display = "none";
+        feed.style.display = "none";
+
+    } else {
+        fin.style.display = "none";
+    }
+}
+function six() {
+    if (feed.style.display === "none") {
+        feed.style.display = "block";
+        document.getElementById("title").innerHTML = "FeedBack";
+          document.getElementById("mysix").innerHTML = "Hello six";
+
+
+        ass.style.display = "none";
+        quiz.style.display = "none";
+        mid.style.display = "none";
+        fin.style.display = "none";
+        syl.style.display = "none";
+
+    } else {
+        feed.style.display = "none";
+    }
+}
+
+    $('.chosen-select').chosen();
+    </script>
 
 
 
-</body>
+   
+
+
+
+  </body>
+
 </html>
+
