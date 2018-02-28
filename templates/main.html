@@ -56,7 +56,7 @@
               <form>
           <select class="chosen-select" style="width:250px;" onchange="location = this.options[this.selectedIndex].value;">
             {% for course in course_list %}
-            <option value="/">{{ course.name }}</option>
+            <option value="/courses/{{ course.id }}">{{ course.name }}</option>
             {% endfor %}
           </select>
         </form>
@@ -188,20 +188,7 @@
     {% endfor %}
  -->
 
-<!--     <form id="post_form" method="post" action="/main/" enctype="multipart/form-data">
-            {%  csrf_token  %}
-            {%  for hidden in form.hidden_fields %}
-                    {{ hidden }}
-            {%  endfor %}
-            {%  for field in form.visible_fields %}
-                    {{ field.errors }}
-                    {{ label_tag }}
-                    {{ field }}<br>
-            {% endfor %}
-            <br>
-            <input type="submit" name="submit" value="Create Post">
-    </form>
- -->
+
 </div>
         </div>
 
