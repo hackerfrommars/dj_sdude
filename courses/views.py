@@ -47,7 +47,8 @@ def home_page(request):
             user.email_user(subject, message)
             return redirect('/signup/account_activation_sent')
         else:
-            return HttpResponse("not valid form")
+            return redirect('/') 
+            # HttpResponse("not valid form")
 
     else:
         login_form = LoginForm()
@@ -80,3 +81,22 @@ def main_page(request):
         exam_form = ExamForm()
         context['form'] = exam_form
     return render(request, "main.html", context)
+
+@login_required(login_url='/')
+def list_course(request, id):
+    exam_list = Exam.objects.filter(course=id)
+    context = {
+        "exam_list": exam_list,
+        "course_id": id
+    }
+    if request.method == 'POST':
+        exam_form = ExamForm(request.POST, request.FILES)
+        if exam_form.is_valid():
+            ins = exam_form.save(commit=False)
+            ins.created_by = request.user
+            ins.save()
+            return redirect('/courses/' + id + "/")
+    else:
+        exam_form = ExamForm()
+        context['form'] = exam_form
+    return render(request, "course/index.html", context)
