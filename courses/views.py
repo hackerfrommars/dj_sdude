@@ -1,6 +1,6 @@
 from django.shortcuts import render, render_to_response, redirect
 from django.utils import timezone
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse, HttpResponseRedirect
 from .models import Professor, Exam, Course
 from .forms import ExamForm
 from django.contrib.auth.decorators import login_required
@@ -94,8 +94,9 @@ def list_course(request, id):
         if exam_form.is_valid():
             ins = exam_form.save(commit=False)
             ins.created_by = request.user
+            ins.course = Course.objects.get(id=id)
             ins.save()
-            return redirect('/courses/' + id + "/")
+            return HttpResponseRedirect('/courses/%s'%id)
     else:
         exam_form = ExamForm()
         context['form'] = exam_form
