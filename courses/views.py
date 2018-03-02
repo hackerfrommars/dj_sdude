@@ -84,12 +84,16 @@ def main_page(request):
 @login_required(login_url='/')
 def list_course(request, id):
     exam_list = Exam.objects.filter(course=id)
+    prof_list = Professor.objects.all()
+    course_list = Course.objects.all()
     course = Course.objects.get(id=id)
     feedback_list = Feedback.objects.filter(course=id)
     context = {
         "exam_list": exam_list,
+        "course_id": id,
+        'prof_list': prof_list,
+        "course_list": course_list
         "feedback_list": feedback_list,
-        "course_id": id
     }
 
     if request.method == 'POST' and request.POST['action'] == 'Add Exam':

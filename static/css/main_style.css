@@ -84,8 +84,8 @@ body {
 }
 .btn-group .btn {
   display: inline-block;
-  padding: 15px 25px;
-  font-size: 1.99vw;
+  padding: 10px 25px;
+  font-size: 1.2vw;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
@@ -93,8 +93,7 @@ body {
   color: #343A40;
   background-color: #fff;
   border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 5px #999;
   border: 1px solid #495e7b;
 }
 
@@ -104,8 +103,8 @@ body {
 }
 
 .btn-group .btn:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
+  background-color: #343A40;
+  box-shadow: 0 3px #666;
   transform: translateY(4px);
 }
 
