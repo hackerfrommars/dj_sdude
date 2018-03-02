@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Course, Professor, Exam
+from .models import Course, Professor, Exam, Feedback
 
 class CourseAdmin(admin.ModelAdmin):
     list_display = ["name"]
@@ -21,6 +21,14 @@ class ExamAdmin(admin.ModelAdmin):
     class Meta:
         model = Exam
 
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ["content", "course"]
+
+    class Meta:
+        model = Feedback
+
+
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Professor, ProfessorAdmin)
 admin.site.register(Exam, ExamAdmin)
+admin.site.register(Feedback, FeedbackAdmin)

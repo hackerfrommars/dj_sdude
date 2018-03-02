@@ -17,8 +17,26 @@
                 {{ field }}<br>
         {% endfor %}
         <br>
-        <input type="submit" name="submit" value="Create Post">
+        <input type="submit" name="action" value="Add Exam">
 </form>
+
+<br>
+<br>
+
+<form id="post_form" method="post" action="/courses/{{ course_id }}/">
+        {%  csrf_token  %}
+        {%  for hidden in feedback_form.hidden_fields %}
+                {{ hidden }}
+        {%  endfor %}
+        {%  for field in feedback_form.visible_fields %}
+                {{ field.errors }}
+                {{ label_tag }}
+                {{ field }}<br>
+        {% endfor %}
+        <br>
+        <input type="submit" name="action" value="Add Feedback">
+</form>
+
 
 {% for exam in exam_list %}
     <div>
@@ -28,5 +46,13 @@
         <br>
     </div>
 {% endfor %}
+
+{#{% for feedback in feedback_list %}#}
+{#    <div>#}
+{#        content: {{ feedback.content }}#}
+{#        professor: {{ feedback.professor.name }}#}
+{#        time: {{ feedback.created_at | timesince }}#}
+{#    </div>#}
+{#{% endfor %}#}
 </body>
 </html>
