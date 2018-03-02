@@ -99,26 +99,70 @@
         <button class="btn" onclick="six()" id="add_feed">Add FeedBack</button>  
         
 <!-- add menu javascript -->
-<form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
-        <div id="login-form">
-          <h1>Syllabus</h1>
-            <!-- <select class="chosen-teacher" style="width: 200px;" >
-              {% for prof in prof_list %}
-                <option >{{ prof.name }}</option>
-              {% endfor %}
-            </select> -->
-            {%  csrf_token  %}
-           <div id="exam">         {{ form.exam_type|attr:"value:1"|add_class:"hidden_exam"}} </div>
-           {{ form.professor }}
-           {{ form.file }}
+        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
+            <div id="login-form">
 
-    <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-    <button class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></button>
-      
-    </div>
-    </form>
+                                                         <h1>Syllabus</h1>
 
-    <!-- end ADD exam-->
+                    <!-- <select class="chosen-teacher" style="width: 200px;" >
+                      {% for prof in prof_list %}
+                        <option >{{ prof.name }}</option>
+                      {% endfor %}
+                    </select> -->
+                    {%  csrf_token  %}
+                    <div id="exam">         {{ form.exam_type|attr:"value:1"|add_class:"hidden_exam"}} </div>
+                    {{ form.professor }}
+                    {{ form.file }}
+
+            <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
+            <button class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></button>
+              
+            </div>
+        </form>
+
+        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
+            <div id="login-form">
+
+                                                         <h1>Syllabus</h1>
+                                                         
+                    <!-- <select class="chosen-teacher" style="width: 200px;" >
+                      {% for prof in prof_list %}
+                        <option >{{ prof.name }}</option>
+                      {% endfor %}
+                    </select> -->
+                    {%  csrf_token  %}
+                    <div id="exam">         {{ form.exam_type|attr:"value:1"|add_class:"hidden_exam"}} </div>
+                    {{ form.professor }}
+                    {{ form.file }}
+
+            <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
+            <button class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></button>
+              
+            </div>
+        </form>
+
+        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
+            <div id="login-form">
+
+                                                         <h1>Syllabus</h1>
+                                                         
+                    <!-- <select class="chosen-teacher" style="width: 200px;" >
+                      {% for prof in prof_list %}
+                        <option >{{ prof.name }}</option>
+                      {% endfor %}
+                    </select> -->
+                    {%  csrf_token  %}
+                    <div id="exam">         {{ form.exam_type|attr:"value:1"|add_class:"hidden_exam"}} </div>
+                    {{ form.professor }}
+                    {{ form.file }}
+
+            <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
+            <button class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></button>
+              
+            </div>
+        </form>
+
+<!-- end ADD exam-->
 
 </div>
 
@@ -140,27 +184,65 @@
 </div>   
        <div class="card-body">
               <h2 class="card-title" id="title">Click on any tab to view resources</h2>
-              <div id="myfirst">
+              
+          <div id="myfirst">
               {% for exam in exam_list %}
-    <div>
-        name: {{ exam.course.name }} <br>
-        file_name: {{ exam.file.name }} <br>
-        created_at: {{ exam.created_at | timesince}} ago <br>
-        <br>
-    </div>
-{% endfor %}
-              </div>
-              <div id="mysecond">
-              </div>
-              <div id="mythree">
-              </div>
-              <div id="myfour">
-              </div>
-              <div id="myfive">
-              </div>
-              <div id="mysix">
-              </div>
-            </div>
+                {% if exam.exam_type == 1 %}
+                  name: {{ exam.course.name }} <br>
+                  file_name: {{ exam.file.name }} <br>
+                  created_at: {{ exam.created_at | timesince}} ago <br><br>
+                {% endif %}
+              {% endfor %}
+          </div>
+          <div id="mysecond">
+              {% for exam in exam_list %}
+                {% if exam.exam_type == 2 %}
+                  type: {{ exam.exam_type }}
+                  name: {{ exam.course.name }} <br>
+                  file_name: {{ exam.file.name }} <br>
+                  created_at: {{ exam.created_at | timesince}} ago <br><br>
+                {% endif %}
+              {% endfor %}
+          </div>
+          <div id="mythree">
+              {% for exam in exam_list %}
+                {% if exam.exam_type == 3 %}
+                    type: {{ exam.exam_type }}
+                    name: {{ exam.course.name }} <br>
+                    file_name: {{ exam.file.name }} <br>
+                    created_at: {{ exam.created_at | timesince}} ago <br><br>
+                  {% endif %}
+              {% endfor %}
+          </div>
+          <div id="myfour">
+              {% for exam in exam_list %}
+                {% if exam.exam_type == 4 %}
+                    type: {{ exam.exam_type }}
+                    name: {{ exam.course.name }} <br>
+                    file_name: {{ exam.file.name }} <br>
+                    created_at: {{ exam.created_at | timesince}} ago <br><br>
+                  {% endif %}
+              {% endfor %}
+          </div>
+          <div id="myfive">
+              {% for exam in exam_list %}
+                {% if exam.exam_type == 5 %}
+                    type: {{ exam.exam_type }}
+                    name: {{ exam.course.name }} <br>
+                    file_name: {{ exam.file.name }} <br>
+                    created_at: {{ exam.created_at | timesince}} ago <br><br>
+                  {% endif %}
+              {% endfor %}
+          </div>
+          <div id="mysix">
+              {% for exam in exam_list %}
+              name: {{ exam.course.name }} <br>
+              file_name: {{ exam.file.name }} <br>
+              created_at: {{ exam.created_at | timesince}} ago <br>
+              <br>
+              {% endfor %}
+          </div>
+        </div>
             <div class="card-footer text-muted">
               Posted on January 1, 2017 by
             </div>
@@ -378,7 +460,6 @@ function first() {
     if (syl.style.display === "none") {
         syl.style.display = "block";
         document.getElementById("title").innerHTML = "Syllabus";
-        document.getElementById("myfirst").innerHTML = "Hello first";
 
 
         ass.style.display = "none";
@@ -397,7 +478,6 @@ function second() {
     if (ass.style.display === "none") {
         ass.style.display = "block";
         document.getElementById("title").innerHTML = "Assignment";
-          document.getElementById("mysecond").innerHTML = "Hello second";
 
 
         syl.style.display = "none";
@@ -414,7 +494,6 @@ function three() {
     if (quiz.style.display === "none") {
         quiz.style.display = "block";
         document.getElementById("title").innerHTML = "Quiz";
-          document.getElementById("mythree").innerHTML = "Hello three";
 
 
         ass.style.display = "none";
@@ -431,7 +510,6 @@ function four() {
     if (mid.style.display === "none") {
         mid.style.display = "block";
         document.getElementById("title").innerHTML = "Midterm";
-        document.getElementById("myfour").innerHTML = "Hello four";
 
 
         ass.style.display = "none";
@@ -449,7 +527,6 @@ function five() {
     if (fin.style.display === "none") {
         fin.style.display = "block";
         document.getElementById("title").innerHTML = "Final";
-          document.getElementById("myfive").innerHTML = "Hello five";
 
 
         ass.style.display = "none";
@@ -466,7 +543,6 @@ function six() {
     if (feed.style.display === "none") {
         feed.style.display = "block";
         document.getElementById("title").innerHTML = "FeedBack";
-          document.getElementById("mysix").innerHTML = "Hello six";
 
 
         ass.style.display = "none";
