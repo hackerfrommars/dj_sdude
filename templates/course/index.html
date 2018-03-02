@@ -1,32 +1,576 @@
+{% load staticfiles%}
+{% load widget_tweaks %}
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Course</title>
-</head>
-<body>
 
-<form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
-        {%  csrf_token  %}
-        {%  for hidden in form.hidden_fields %}
-                {{ hidden }}
-        {%  endfor %}
-        {%  for field in form.visible_fields %}
-                {{ field.errors }}
-                {{ label_tag }}
-                {{ field }}<br>
-        {% endfor %}
-        <br>
-        <input type="submit" name="submit" value="Create Post">
-</form>
+  <head>
 
-{% for exam in exam_list %}
-    <div>
-        name: {{ exam.course.name }} <br>
-        file_name: {{ exam.file.name }} <br>
-        created_at: {{ exam.created_at | timesince}} ago <br>
-        <br>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SDUDE coursepage</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet' %}" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/main_style.css' %}" rel="stylesheet">
+        <link href="{% static 'css/window_ass.css' %}" rel="stylesheet">
+
+    
+    <link href="{% static 'vendor/bootstrap-chosen.css' %}" rel="stylesheet" />
+        <link href="{% static 'vendor/bootstrap-teacher.css' %}" rel="stylesheet" />
+
+
+  </head>
+  
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="#">SDUDE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+            <li class="nav-item">
+            <div class="dropdown">
+              <a class="nav-link" href="/logout" ><img src="{% static 'img/logos/settings.png' %}"></a>
+              <div class="dropdown-content">
+              <a href="#">change password</a>
+              <a href="#">notifications</a>
+              <a href="#">log out</a>
+              </div>
+            </div>
+            </li>
+            <li class="nav-item">
+              <form>
+          <select class="chosen-select" style="width:250px;" onchange="location = this.options[this.selectedIndex].value;">
+            {% for course in course_list %}
+            <option value="/courses/{{ course.id }}">{{ course.name }}</option>
+            {% endfor %}
+          </select>
+        </form>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container-full">
+
+      <div class="row">
+
+        <div class="col-md-8">
+        <div class="my-4" >
+        <p></p><br>
+        <div id="main" class="container" >
+  <div class="row">
+    
+
+
+
+
+  </div>
+</div>
+      <!-- ADD exams -->
+
+<div class="btn-group">
+
+        <button class="btn" onclick="first()" id="add_syl">Add Syllabus</button>
+        <button class="btn" onclick="second()" id="add_ass">Add Assignment</button>
+        <button class="btn" onclick="three()" id="add_quiz">Add Quiz</button>  
+        <button class="btn" onclick="four()" id="add_mid">Add Midterm</button>
+        <button class="btn" onclick="five()" id="add_fin">Add Final</button>
+        <button class="btn" onclick="six()" id="add_feed">Add FeedBack</button>  
+        
+<!-- add menu javascript -->
+        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
+            <div id="login-form">
+
+                                                         <h1>Syllabus</h1>
+
+                    <!-- <select class="chosen-teacher" style="width: 200px;" >
+                      {% for prof in prof_list %}
+                        <option >{{ prof.name }}</option>
+                      {% endfor %}
+                    </select> -->
+                    {%  csrf_token  %}
+                    <div id="exam">         {{ form.exam_type|attr:"value:1"|add_class:"hidden_exam"}} </div>
+                    {{ form.professor }}
+                    {{ form.file }}
+
+            <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
+            <button class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></button>
+              
+            </div>
+        </form>
+
+        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
+            <div id="login-form">
+
+                                                         <h1>Syllabus</h1>
+                                                         
+                    <!-- <select class="chosen-teacher" style="width: 200px;" >
+                      {% for prof in prof_list %}
+                        <option >{{ prof.name }}</option>
+                      {% endfor %}
+                    </select> -->
+                    {%  csrf_token  %}
+                    <div id="exam">         {{ form.exam_type|attr:"value:1"|add_class:"hidden_exam"}} </div>
+                    {{ form.professor }}
+                    {{ form.file }}
+
+            <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
+            <button class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></button>
+              
+            </div>
+        </form>
+
+        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
+            <div id="login-form">
+
+                                                         <h1>Syllabus</h1>
+                                                         
+                    <!-- <select class="chosen-teacher" style="width: 200px;" >
+                      {% for prof in prof_list %}
+                        <option >{{ prof.name }}</option>
+                      {% endfor %}
+                    </select> -->
+                    {%  csrf_token  %}
+                    <div id="exam">         {{ form.exam_type|attr:"value:1"|add_class:"hidden_exam"}} </div>
+                    {{ form.professor }}
+                    {{ form.file }}
+
+            <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
+            <button class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></button>
+              
+            </div>
+        </form>
+
+<!-- end ADD exam-->
+
+</div>
+
+
+  </div> 
+          <h1 style="top:20px;">Subject Name
+          </h1>
+
+          <!-- Blog Post -->
+          <div class="card mb-4" >
+<div class="btn-group">
+
+<button class="button" onclick="first()" >Syllabus</button>
+<button class="button" onclick="second()">Assignment</button>
+<button class="button" onclick="three()">Quiz</button>  
+<button class="button" onclick="four()" >Midterm</button>
+<button class="button" onclick="five()">Final</button>
+<button class="button" onclick="six()">FeedBack</button>  
+</div>   
+       <div class="card-body">
+              <h2 class="card-title" id="title">Click on any tab to view resources</h2>
+              
+          <div id="myfirst">
+              {% for exam in exam_list %}
+                {% if exam.exam_type == 1 %}
+                  name: {{ exam.course.name }} <br>
+                  file_name: {{ exam.file.name }} <br>
+                  created_at: {{ exam.created_at | timesince}} ago <br><br>
+                {% endif %}
+              {% endfor %}
+          </div>
+          <div id="mysecond">
+              {% for exam in exam_list %}
+                {% if exam.exam_type == 2 %}
+                  type: {{ exam.exam_type }}
+                  name: {{ exam.course.name }} <br>
+                  file_name: {{ exam.file.name }} <br>
+                  created_at: {{ exam.created_at | timesince}} ago <br><br>
+                {% endif %}
+              {% endfor %}
+          </div>
+          <div id="mythree">
+              {% for exam in exam_list %}
+                {% if exam.exam_type == 3 %}
+                    type: {{ exam.exam_type }}
+                    name: {{ exam.course.name }} <br>
+                    file_name: {{ exam.file.name }} <br>
+                    created_at: {{ exam.created_at | timesince}} ago <br><br>
+                  {% endif %}
+              {% endfor %}
+          </div>
+          <div id="myfour">
+              {% for exam in exam_list %}
+                {% if exam.exam_type == 4 %}
+                    type: {{ exam.exam_type }}
+                    name: {{ exam.course.name }} <br>
+                    file_name: {{ exam.file.name }} <br>
+                    created_at: {{ exam.created_at | timesince}} ago <br><br>
+                  {% endif %}
+              {% endfor %}
+          </div>
+          <div id="myfive">
+              {% for exam in exam_list %}
+                {% if exam.exam_type == 5 %}
+                    type: {{ exam.exam_type }}
+                    name: {{ exam.course.name }} <br>
+                    file_name: {{ exam.file.name }} <br>
+                    created_at: {{ exam.created_at | timesince}} ago <br><br>
+                  {% endif %}
+              {% endfor %}
+          </div>
+          <div id="mysix">
+              {% for exam in exam_list %}
+              name: {{ exam.course.name }} <br>
+              file_name: {{ exam.file.name }} <br>
+              created_at: {{ exam.created_at | timesince}} ago <br>
+              <br>
+              {% endfor %}
+          </div>
+        </div>
+            <div class="card-footer text-muted">
+              Posted on January 1, 2017 by
+            </div>
+          </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+         <!--  <b>Professors list</b> <br>
+    {% for prof in prof_list %}
+        <div>
+        {{ prof.name }}
+        </div>
+    {% endfor %}
+    <hr>
+
+    <b>Courses list</b> <br>
+    {% for course in course_list %}
+        <div>
+        {{ course.name }}
+        </div>
+    {% endfor %}
+    <hr>
+
+    <b>Exams</b> <br>
+    {% for exam in exam_list %}
+        <div>
+            name: {{ exam.course.name }} <br>
+            file_name: {{ exam.file.name }} <br>
+            created_at: {{ exam.created_at | timesince}} ago <br>
+            <br>
+        </div>
+    {% endfor %}
+ -->
+
+
+</div>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
     </div>
-{% endfor %}
-</body>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Kaskelen 2018 &copy; sdude.org</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'js/contact_me.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/agency.min.js' %}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
+    <script>
+
+
+    // add syllabus
+  $('#add_syl').click(function(){
+
+  $('#add_syl').fadeIn("slow",function(){
+
+    $("#login-form").fadeIn();
+    $(".chosen-teacher").fadeIn();
+    $(".chosen-teacher").chosen();
+
+
+
+
+  });
+});
+
+$(".cancel").click(function(){
+  $("#login-form").fadeOut(100);
+    $(".chosen-teacher").fadeOut(8);
+    $(".chosen-teacher").chosen("destroy");
+});
+
+// add assignment
+$('#add_ass').click(function(){
+
+  $('#add_ass').fadeIn("slow",function(){
+
+    $("#login-form").fadeIn();
+    $(".chosen-teacher").fadeIn();
+    $(".chosen-teacher").chosen();
+
+
+
+
+  });
+});
+
+$(".cancel").click(function(){
+  $("#login-form").fadeOut(100);
+    $(".chosen-teacher").fadeOut(8);
+    $(".chosen-teacher").chosen("destroy");
+});
+
+// add quiz
+$('#add_quiz').click(function(){
+
+  $('#add_quiz').fadeIn("slow",function(){
+
+    $("#login-form").fadeIn();
+    $(".chosen-teacher").fadeIn();
+    $(".chosen-teacher").chosen();
+
+
+
+
+  });
+});
+
+$(".cancel").click(function(){
+  $("#login-form").fadeOut(100);
+    $(".chosen-teacher").fadeOut(8);
+    $(".chosen-teacher").chosen("destroy");
+});
+
+// add midterm
+$('#add_mid').click(function(){
+
+  $('#add_mid').fadeIn("slow",function(){
+
+    $("#login-form").fadeIn();
+    $(".chosen-teacher").fadeIn();
+    $(".chosen-teacher").chosen();
+
+
+
+
+  });
+});
+
+$(".cancel").click(function(){
+  $("#login-form").fadeOut(100);
+    $(".chosen-teacher").fadeOut(8);
+    $(".chosen-teacher").chosen("destroy");
+});
+
+// add final
+$('#add_fin').click(function(){
+
+  $('#add_fin').fadeIn("slow",function(){
+
+    $("#login-form").fadeIn();
+    $(".chosen-teacher").fadeIn();
+    $(".chosen-teacher").chosen();
+
+
+
+
+  });
+});
+
+$(".cancel").click(function(){
+  $("#login-form").fadeOut(100);
+    $(".chosen-teacher").fadeOut(8);
+    $(".chosen-teacher").chosen("destroy");
+});
+
+
+    // add feedback
+$('#add_feed').click(function(){
+
+  $('#add_feed').fadeIn("slow",function(){
+
+    $("#login-form").fadeIn();
+    $(".chosen-teacher").fadeIn();
+    $(".chosen-teacher").chosen();
+
+
+
+
+  });
+});
+
+$(".cancel").click(function(){
+  $("#login-form").fadeOut(100);
+    $(".chosen-teacher").fadeOut(8);
+    $(".chosen-teacher").chosen("destroy");
+});
+
+// show exam
+    var syl = document.getElementById("myfirst");
+    var ass = document.getElementById("mysecond");
+    var quiz = document.getElementById("mythree");
+    var mid = document.getElementById("myfour");
+    var fin = document.getElementById("myfive");
+    var feed = document.getElementById("mysix");
+    var tit = document.getElementById("mysix");
+
+
+function first() {
+    if (syl.style.display === "none") {
+        syl.style.display = "block";
+        document.getElementById("title").innerHTML = "Syllabus";
+
+
+        ass.style.display = "none";
+        quiz.style.display = "none";
+        mid.style.display = "none";
+        fin.style.display = "none";
+        feed.style.display = "none";
+        
+
+
+    } else {
+        syl.style.display = "none";
+    }
+}
+function second() {
+    if (ass.style.display === "none") {
+        ass.style.display = "block";
+        document.getElementById("title").innerHTML = "Assignment";
+
+
+        syl.style.display = "none";
+        quiz.style.display = "none";
+        mid.style.display = "none";
+        fin.style.display = "none";
+        feed.style.display = "none";
+
+    } else {
+        ass.style.display = "none";
+    }
+}
+function three() {
+    if (quiz.style.display === "none") {
+        quiz.style.display = "block";
+        document.getElementById("title").innerHTML = "Quiz";
+
+
+        ass.style.display = "none";
+        syl.style.display = "none";
+        mid.style.display = "none";
+        fin.style.display = "none";
+        feed.style.display = "none";
+
+    } else {
+        quiz.style.display = "none";
+    }
+}
+function four() {
+    if (mid.style.display === "none") {
+        mid.style.display = "block";
+        document.getElementById("title").innerHTML = "Midterm";
+
+
+        ass.style.display = "none";
+        quiz.style.display = "none";
+        syl.style.display = "none";
+        fin.style.display = "none";
+        feed.style.display = "none";
+
+
+    } else {
+        mid.style.display = "none";
+    }
+}
+function five() {
+    if (fin.style.display === "none") {
+        fin.style.display = "block";
+        document.getElementById("title").innerHTML = "Final";
+
+
+        ass.style.display = "none";
+        quiz.style.display = "none";
+        mid.style.display = "none";
+        syl.style.display = "none";
+        feed.style.display = "none";
+
+    } else {
+        fin.style.display = "none";
+    }
+}
+function six() {
+    if (feed.style.display === "none") {
+        feed.style.display = "block";
+        document.getElementById("title").innerHTML = "FeedBack";
+
+
+        ass.style.display = "none";
+        quiz.style.display = "none";
+        mid.style.display = "none";
+        fin.style.display = "none";
+        syl.style.display = "none";
+
+    } else {
+        feed.style.display = "none";
+    }
+}
+
+
+// search ajax
+    $(".chosen-select").fadeIn().chosen();
+
+//end
+
+    </script>
+
+
+
+   
+
+
+
+  </body>
+
 </html>
+
