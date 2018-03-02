@@ -24,9 +24,10 @@
     <link href="{% static 'css/main_style.css' %}" rel="stylesheet">
         <link href="{% static 'css/window_ass.css' %}" rel="stylesheet">
 
-
     
     <link href="{% static 'vendor/bootstrap-chosen.css' %}" rel="stylesheet" />
+        <link href="{% static 'vendor/bootstrap-teacher.css' %}" rel="stylesheet" />
+
 
   </head>
 
@@ -72,60 +73,64 @@
 
       <div class="row">
 
-        <!-- Blog Entries Column -->
         <div class="col-md-8">
         <div class="my-4" >
         <p></p><br>
         <div id="main" class="container" >
   <div class="row">
     
-<!-- Mixins-->
-<!-- Pen Title-->
 
-<div class="container">
-  <div class="card alt">
-    <div class="toggle">
-          <div class="btn-group">
 
-        <button class="btn" onclick="first()" >Syllabus</button>
-        <button class="btn" onclick="second()">Assignment</button>
-        <button class="btn" onclick="three()">Quiz</button>  
-        <button class="btn" onclick="four()" >Midterm</button>
-        <button class="btn" onclick="five()">Final</button>
-        <button class="btn" onclick="six()">FeedBack</button>  
-  </div>  
+
+
+  </div>
+</div>
+      <!-- ADD exams -->
+
+<div class="btn-group">
+
+        <button class="btn" onclick="first()" id="add_syl">Add Syllabus</button>
+        <button class="btn" onclick="second()" id="add_ass">Add Assignment</button>
+        <button class="btn" onclick="three()" id="add_quiz">Add Quiz</button>  
+        <button class="btn" onclick="four()" id="add_mid">Add Midterm</button>
+        <button class="btn" onclick="five()" id="add_fin">Add Final</button>
+        <button class="btn" onclick="six()" id="add_feed">Add FeedBack</button>  
+        
+<!-- add menu javascript -->
+<form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
+        <div id="login-form">
+          <h1>Syllabus</h1>
+            <select class="chosen-teacher" style="width: 200px;" >
+              {% for prof in prof_list %}
+              <option >{{ prof.name }}</option>
+              {% endfor %}
+            </select>
+            {%  csrf_token  %}
+        {%  for hidden in form.hidden_fields %}
+                {{ hidden }}
+        {%  endfor %}
+        {%  for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ label_tag }}
+                {{ field }}<br>
+        {% endfor %}
+
+
+            
+
+        
+    <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
+    <button class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></button>
+      
     </div>
-    <h1 class="title">Register
-      <div class="close"></div>
-    </h1>
-    <form>
-      <div class="input-container">
-        <input type="text" id="Username" required="required"/>
-        <label for="Username">Username</label>
-        <div class="bar"></div>
-      </div>
-      <div class="input-container">
-        <input type="password" id="Password" required="required"/>
-        <label for="Password">Password</label>
-        <div class="bar"></div>
-      </div>
-      <div class="input-container">
-        <input type="password" id="Repeat Password" required="required"/>
-        <label for="Repeat Password">Repeat Password</label>
-        <div class="bar"></div>
-      </div>
-      <div class="button-container">
-        <button><span>Next</span></button>
-      </div>
     </form>
-  </div>
+
+    <!-- end ADD exam-->
+
 </div>
 
-  </div>
-</div>
-  
-        <p></p><br>
 
+  </div> 
           <h1 style="top:20px;">Subject Name
           </h1>
 
@@ -160,7 +165,13 @@
             </div>
           </div>
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
          <!--  <b>Professors list</b> <br>
     {% for prof in prof_list %}
         <div>
@@ -225,17 +236,136 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
     <script>
-$(document).ready(function(){
-$('.toggle').on('click', function() {
-  $('.container').stop().addClass('active');
+
+
+    // add syllabus
+  $('#add_syl').click(function(){
+
+  $('#add_syl').fadeIn("slow",function(){
+
+    $("#login-form").fadeIn();
+    $(".chosen-teacher").fadeIn();
+    $(".chosen-teacher").chosen();
+
+
+
+
+  });
 });
 
-$('.close').on('click', function() {
-  $('.container').stop().removeClass('active');
+$(".cancel").click(function(){
+  $("#login-form").fadeOut(100);
+    $(".chosen-teacher").fadeOut(8);
+    $(".chosen-teacher").chosen("destroy");
 });
 
+// add assignment
+$('#add_ass').click(function(){
+
+  $('#add_ass').fadeIn("slow",function(){
+
+    $("#login-form").fadeIn();
+    $(".chosen-teacher").fadeIn();
+    $(".chosen-teacher").chosen();
+
+
+
+
+  });
 });
 
+$(".cancel").click(function(){
+  $("#login-form").fadeOut(100);
+    $(".chosen-teacher").fadeOut(8);
+    $(".chosen-teacher").chosen("destroy");
+});
+
+// add quiz
+$('#add_quiz').click(function(){
+
+  $('#add_quiz').fadeIn("slow",function(){
+
+    $("#login-form").fadeIn();
+    $(".chosen-teacher").fadeIn();
+    $(".chosen-teacher").chosen();
+
+
+
+
+  });
+});
+
+$(".cancel").click(function(){
+  $("#login-form").fadeOut(100);
+    $(".chosen-teacher").fadeOut(8);
+    $(".chosen-teacher").chosen("destroy");
+});
+
+// add midterm
+$('#add_mid').click(function(){
+
+  $('#add_mid').fadeIn("slow",function(){
+
+    $("#login-form").fadeIn();
+    $(".chosen-teacher").fadeIn();
+    $(".chosen-teacher").chosen();
+
+
+
+
+  });
+});
+
+$(".cancel").click(function(){
+  $("#login-form").fadeOut(100);
+    $(".chosen-teacher").fadeOut(8);
+    $(".chosen-teacher").chosen("destroy");
+});
+
+// add final
+$('#add_fin').click(function(){
+
+  $('#add_fin').fadeIn("slow",function(){
+
+    $("#login-form").fadeIn();
+    $(".chosen-teacher").fadeIn();
+    $(".chosen-teacher").chosen();
+
+
+
+
+  });
+});
+
+$(".cancel").click(function(){
+  $("#login-form").fadeOut(100);
+    $(".chosen-teacher").fadeOut(8);
+    $(".chosen-teacher").chosen("destroy");
+});
+
+
+    // add feedback
+$('#add_feed').click(function(){
+
+  $('#add_feed').fadeIn("slow",function(){
+
+    $("#login-form").fadeIn();
+    $(".chosen-teacher").fadeIn();
+    $(".chosen-teacher").chosen();
+
+
+
+
+  });
+});
+
+$(".cancel").click(function(){
+  $("#login-form").fadeOut(100);
+    $(".chosen-teacher").fadeOut(8);
+    $(".chosen-teacher").chosen("destroy");
+});
+
+// show exam
     var syl = document.getElementById("myfirst");
     var ass = document.getElementById("mysecond");
     var quiz = document.getElementById("mythree");
@@ -351,7 +481,12 @@ function six() {
     }
 }
 
-    $('.chosen-select').chosen();
+
+// search ajax
+    $(".chosen-select").fadeIn().chosen();
+
+//end
+
     </script>
 
 
