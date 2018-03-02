@@ -22,7 +22,7 @@ class ExamAdmin(admin.ModelAdmin):
         model = Exam
 
 class FeedbackAdmin(admin.ModelAdmin):
-    list_display = ["content", "course"]
+    list_display = ["content", "course", "grade", "professor", "created_by"]
 
     class Meta:
         model = Feedback

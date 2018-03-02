@@ -92,11 +92,11 @@ def list_course(request, id):
         "exam_list": exam_list,
         "course_id": id,
         'prof_list': prof_list,
-        "course_list": course_list
+        "course_list": course_list,
         "feedback_list": feedback_list,
     }
 
-    if request.method == 'POST' and request.POST['action'] == 'Add Exam':
+    if request.method == 'POST' and request.POST['submit'] == 'Create Post':
         exam_form = ExamForm(request.POST, request.FILES)
         if exam_form.is_valid():
             ins = exam_form.save(commit=False)
@@ -105,7 +105,7 @@ def list_course(request, id):
             ins.save()
             return HttpResponseRedirect('/courses/%s' %id)
 
-    elif request.method == 'POST' and request.POST['action'] == 'Add Feedback':
+    elif request.method == 'POST' and request.POST['submit'] == 'Add Feedback':
         feedback_form = FeedbackForm(request.POST)
         if feedback_form.is_valid():
             ins = feedback_form.save(commit=False)
