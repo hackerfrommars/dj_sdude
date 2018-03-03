@@ -16,6 +16,10 @@ from django.contrib.sites.shortcuts import get_current_site
 
 
 def home_page(request):
+
+    if request.user.is_authenticated():
+        return redirect('/main')
+
     context = {}
     if request.method=='POST' and request.POST['action'] == 'Login':
         login_form=LoginForm(request.POST)
