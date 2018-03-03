@@ -29,12 +29,25 @@ class Exam(models.Model):
 
 
 class Feedback(models.Model):
+    GRADES = (
+        ('A', 'A'),
+        ('A-', 'A-'),
+        ('B+', 'B+'),
+        ('B', 'B'),
+        ('B-', 'B-'),
+        ('C+', 'C+'),
+        ('C', 'C'),
+        ('C-', 'C-'),
+        ('D+', 'D+'),
+        ('D', 'D'),
+        ('F', 'F'))
+
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     course = models.ForeignKey(Course)
     professor = models.ForeignKey(Professor, null=True)
     created_by = models.ForeignKey(User, null=False)
-    grade = models.CharField(max_length=3)
+    grade = models.CharField(max_length=2, choices=GRADES)
 
     def __str__(self):
         return self.course.name
