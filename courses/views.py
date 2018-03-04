@@ -104,6 +104,7 @@ def list_course(request, id):
             ins.course = course
             ins.save()
             return HttpResponseRedirect('/courses/%s' %id)
+    
 
     elif request.method == 'POST' and request.POST['submit'] == 'Add Feedback':
         feedback_form = FeedbackForm(request.POST)
