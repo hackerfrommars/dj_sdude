@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'courses',
     'accounts',
+    'internship',
 
     #external apps
     'widget_tweaks',

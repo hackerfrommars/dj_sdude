@@ -258,7 +258,7 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <form method="post" id="form_id" action="/">
+            <form  method="post" id="form_id" onsubmit="return do_something()" action="/" >
             {% csrf_token %}
 {#        {{ signup_form.as_p }}#}
               <div class="row">
@@ -268,9 +268,11 @@
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="email" type="text" placeholder="Your SDU mail *" required data-validation-required-message="Please enter SDU mail"  {{ signup_form.email | add_class:"signup_form" }}         
+                    <input class="form-control"  id="email" type="text" placeholder="Your SDU mail *" required data-validation-required-message="Please enter SDU mail"  {{ signup_form.email | add_class:"signup_form" }}         
                     <p class="help-block text-danger"></p>
-                    <p id="message" style="margin-top: 50px;"></p>
+                    <!-- <p id="message" style="margin-top: 50px;"></p> -->
+                     <span class="msg success" style="display: none;">A valid email address!</span>
+
                   </div>
                   <div class="form-group">
                     <input class="form-control" id="email" type="password" placeholder="Your Password *" required data-validation-required-message="Please enter your password"  {{ signup_form.password1 | add_class:"signup_form" }}   
@@ -293,7 +295,7 @@
                 <div class="clearfix"></div>
                 <div class="col-lg-12 text-center">
                   <div id="success"></div>
-                  <button id="sendMessageButton" onclick="myFunction()" class="btn btn-primary btn-xl text-uppercase" type="submit" name="action" value="Signup">Register</button>
+                  <button id="sendMessageButton"  class="btn btn-primary btn-xl text-uppercase" type="submit" name="action" value="Signup">Register</button>
                 </div>
               </div>
             </form>
@@ -379,24 +381,20 @@ $('#forgotten').click(function(){
   });
 });
 
-function myFunction() {
-    var message, x;
-    message = document.getElementById("message");
-    message.innerHTML = "";
-    
-    
-    x = document.getElementById("email").value;
-    try { 
-        if(x != "@stu.sdu.edu.kz")  throw "empty";
-        
-    }
-    catch(err) {
-        message.innerHTML = "Input is " + err;
-         // alert("Input is"+err);
 
-    }
+
+function do_something(){
+  var email = document.getElementById('email');
+  var filter = /^([a-zA-Z0-9_\.\-])+\@stu\.sdu\.edu\.kz+$/;
+  if (filter.test(email.value)) {
+  return true;}
+
+   alert('Please provide a valid email address');
+   return false; // don't submit the form
 }
 
+
+</script>
 </script>
   </body>
 
