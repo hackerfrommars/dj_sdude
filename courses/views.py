@@ -107,7 +107,11 @@ def list_course(request, id):
             ins.created_by = request.user
             ins.course = course
             ins.save()
-            return HttpResponseRedirect('/courses/%s' %id)
+            exam_form = ExamForm()
+            feedback_form = FeedbackForm()
+            context['form'] = exam_form
+            context['feedback_form'] = feedback_form
+            return redirect('/courses/%s' %id)
 
     elif request.method == 'POST' and request.POST['submit'] == 'Add Feedback':
         feedback_form = FeedbackForm(request.POST)
@@ -116,7 +120,11 @@ def list_course(request, id):
             ins.created_by = request.user
             ins.course = course
             ins.save()
-            return HttpResponseRedirect('/courses/%s' %id)
+            exam_form = ExamForm()
+            feedback_form = FeedbackForm()
+            context['form'] = exam_form
+            context['feedback_form'] = feedback_form
+            return redirect('/courses/%s' %id)
     else:
         exam_form = ExamForm()
         feedback_form = FeedbackForm()
