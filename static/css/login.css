@@ -15,12 +15,15 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  width: 25%;
+  width: 29%;
   height: 40%;
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: 1px 1px 50px #000;
   display: none;
   background: #F5F3EE;
+  opacity: 0.95;
+  padding-top: 7px;
+  padding-bottom: 5px;
 }
 
 .close-btn{
@@ -58,19 +61,19 @@
 
 /* Inputs */
 form input{
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Helvetica,Arial', sans-serif;
   text-decoration: none;
   position: all;
   width: 70%;
   top:20px;
   display: block;
   margin: 10px auto;
-  font-size: 1.5vw;
+  font-size: 1.4vw;
   color: #fff;
   padding: 8px;
   border-radius: 6px;
   border: none;
-  opacity: 0.7;
+  opacity: 0.8;
   background: #495e7b;
   -webkit-transition: all 2s ease-in-out;
   -moz-transition: all 2s ease-in-out;
@@ -85,19 +88,23 @@ form input:focus{
   color: black;
 }
 .button {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: Helvetica,Arial, sans-serif;
   text-decoration: none;
   position: all;
-  width: 70%;
+  width: 26%;
+  height: 33px;
   top:20px;
   display: block;
   margin: 10px auto;
-  font-size: 1.5vw;
+  font-size: 1.45vw;
   color: #fff;
   padding: 8px;
+  padding-bottom: 4px;
   border-radius: 6px;
   border: none;
   background: #495e7b;
+  opacity: 0.8;
+
   -webkit-transition: all 2s ease-in-out;
   -moz-transition: all 2s ease-in-out;
   -o-transition: all 2s ease-in-out;
