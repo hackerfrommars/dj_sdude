@@ -565,12 +565,14 @@ function six() {
     </script>
 
 
-
-   
-
-
+<form method="post" action="/courses/{{ course_id }}/">
+    {%  csrf_token  %}
+    {{ feedback_form.professor }}
+    {{ feedback_form.grade }}
+    {{ feedback_form.content }}
+    <button type="submit" name="submit" value="Add Feedback">Add Feedback</button>
+</form>
 
   </body>
-
 </html>
 
