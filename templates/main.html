@@ -45,11 +45,11 @@
             <li class="nav-item active">
             <li class="nav-item">
             <div class="dropdown">
-              <a class="nav-link" href="/logout" ><img src="{% static 'img/logos/settings.png' %}"></a>
+              <a class="nav-link" href="#" ><img src="{% static 'img/logos/settings.png' %}"></a>
               <div class="dropdown-content">
               <a href="#">change password</a>
               <a href="#">notifications</a>
-              <a href="#">log out</a>
+              <a href="/logout">log out</a>
               </div>
             </div>
             </li>
@@ -97,33 +97,7 @@
         <button class="btn" onclick="six()" id="add_feed">Add FeedBack</button>  
         
 <!-- add menu javascript -->
-<form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
-        <div id="login-form">
-          <h1>Syllabus</h1>
-            <select class="chosen-teacher" style="width: 200px;" >
-              {% for prof in prof_list %}
-              <option >{{ prof.name }}</option>
-              {% endfor %}
-            </select>
-            {%  csrf_token  %}
-        {%  for hidden in form.hidden_fields %}
-                {{ hidden }}
-        {%  endfor %}
-        {%  for field in form.visible_fields %}
-                {{ field.errors }}
-                {{ label_tag }}
-                {{ field }}<br>
-        {% endfor %}
 
-
-            
-
-        
-    <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-    <button class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></button>
-      
-    </div>
-    </form>
 
     <!-- end ADD exam-->
 

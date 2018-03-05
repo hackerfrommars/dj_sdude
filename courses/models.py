@@ -29,17 +29,12 @@ class Exam(models.Model):
 
 
 class Feedback(models.Model):
-    # grades = {
-    #     "A" : 1,
-    #     "A-" : 2,
-    #     ""
-    # }
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     course = models.ForeignKey(Course)
     professor = models.ForeignKey(Professor, null=True)
     created_by = models.ForeignKey(User, null=False)
-    # grade = "A" "A-" "B" "B+ etc"
+    grade = models.CharField(max_length=3)
 
     def __str__(self):
         return self.course.name
