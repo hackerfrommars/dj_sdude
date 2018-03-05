@@ -1,5 +1,5 @@
-/* Login container */
-#login-form{
+/* add exams form style */
+#syllabuses, #assignments, #quizes, #midterms, #finals{
   position: absolute;
   top: 150px;
   left: 0;
@@ -11,28 +11,72 @@
   border-radius: 5px;
   box-shadow: 1px 1px 50px #000;
   display: none;
-  background: #F5F3EE;
+  background: #fff;
   z-index: 1;
   opacity: 0.95;
   padding-left: 10px;
 
 
 }
-
-
-
-/* Heading */
-#login-form h1{
+#syllabuses h1, #assignments h1, #quizes h1, #midterms h1, #finals h1{
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   position: relative;
   margin-top: 0px;
   text-align: center;
-  font-size: 2vw;
+  font-size: 2.5vw;
   color: #495e7b;
+  text-shadow: 3px 3px 10px #fff;
+}
+
+/*это пока не используется но он нужен
+*/
+#syllabuses .chosen-teacher{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border-radius: 5px;
+  background-color: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  display: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    opacity: 1;
+
+}
+
+
+
+/* feedback form style*/
+#feedbacks{
+  position: absolute;
+  top: 250px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 70%;
+  height: 750%;
+  border-radius: 5px;
+  box-shadow: 1px 1px 50px #000;
+  display: none;
+  background: #495e7b;
+  z-index: 1;
+        opacity: .95;
+
+
+}
+#feedbacks h1{
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  position: relative;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 2vw;
+  color: #fff;
   text-shadow: 3px 3px 10px #fff;
   padding-top: 5px;
 }
-#login-form .chosen-teacher{
+#feedbacks .chosen-teacher{
   position: absolute;
   top: 0;
   left: 0;
@@ -50,13 +94,15 @@
 
 }
 
+
 #create {
   font-family: 'Open Sans Condensed', sans-serif;
   text-decoration: none;
   position: absolute;
   width: 15%;
-  top:180px;
-  right: 20px;
+  height: 15%;
+  top:65%;
+  right: 5%;
   display: block;
   margin: 10px auto;
   font-size: 1.2vw;
@@ -71,6 +117,7 @@
   transition: all 0.2s ease-in-out;
 }
 
+/*add exam and feedback form style*/
 #create span {
   cursor: pointer;
   display: inline-block;
@@ -95,13 +142,16 @@
   opacity: 1;
   right: 0;
 }
+
+/*close javascript add exam form style*/
 .cancel {
   font-family: 'Open Sans Condensed', sans-serif;
   text-decoration: none;
-  position: absolute;
+    position: absolute;
   width: 15%;
-  top:180px;
-  right: 140px;
+  height: 15%;
+  top:65%;
+  right: 25%;
   display: block;
   margin: 10px auto;
   font-size: 1.2vw;
@@ -140,31 +190,12 @@
   opacity: 1;
   right: 0;
 }
-.chosen-select{
-  width: 100px;
-  display: none;
-}
-#exam{
+
+/*//это чтобы все данные предметов были невидимы при первом запуске страницы
+*/
+#exam, #myfirst, #mysecond, #mythree, #myfour, #myfive, #mysix  {
       display: none;
     }
-#myfirst {
-  display: none;
-}
-#mysecond {
-  display: none;
-}
-#mythree {
-  display: none;
-}
-#myfour {
-  display: none;
-}
-#myfive {
-  display: none;
-}
-#mysix {
-  display: none;
-}
 
 h1{
   font-size: 2.7vw;

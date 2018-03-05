@@ -8,3 +8,8 @@ class ExamForm(forms.ModelForm):
         fields = ('exam_type', 'professor', 'file')
 
 
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ('professor', 'grade', 'content')
+
