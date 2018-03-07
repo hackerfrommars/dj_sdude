@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from .models import Professor, Exam, Course, Feedback
 from .forms import ExamForm, FeedbackForm
+from internship.models import Internship
 from django.contrib.auth.decorators import login_required
 from accounts.forms import LoginForm, SignUpForm
 from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
@@ -65,10 +66,11 @@ def home_page(request):
 @login_required(login_url='/')
 def main_page(request):
     course_list = Course.objects.all()
-
+    internship_list = Internship.objects.all().order_by('created_at')[:5][::-1]
     context = {
         "course_list": course_list,
-        "title": "Main Page"
+        "title": "Main Page",
+        "internship_list": internship_list
     }
 
     if request.method == 'POST':

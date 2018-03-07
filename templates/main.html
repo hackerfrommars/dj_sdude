@@ -168,6 +168,12 @@
 </form>
 
 
+  {% for internship in internship_list %}
+      <b>{{ internship.title }}</b><br>
+      <i>{{ internship.created_at }}</i><br>
+      <p>{{ internship.content }}</p>
+      <br>
+  {% endfor %}
 
 
   </body>
