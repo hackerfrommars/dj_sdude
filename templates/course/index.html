@@ -15,6 +15,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet' %}" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -93,9 +94,9 @@
 
                                                          <h1>Syllabus</h1>
 
-                    <!-- <select class="chosen-teacher" style="width: 200px;" >
+                    <!-- <select class="chosen-teacher" style="width: 200px;"  >
                       {% for prof in prof_list %}
-                        <option >{{ prof.name }}</option>
+                        <option value="{{ form.professor.value }}}">{{ prof.name }}</option>
                       {% endfor %}
                     </select> -->
                     {%  csrf_token  %}

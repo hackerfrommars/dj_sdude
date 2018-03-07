@@ -1,3 +1,49 @@
+.container-full{
+    left: 18%;
+    position: relative;
+}
+.btn-group .button {
+    background-color: #495e7b; /* Green */
+    color: white;
+    text-align: center;
+    font-size: 1.2vw;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    padding: 12px 37.2px;
+    border: 0.5px solid white;
+    border-radius: 5px 5px 5px 5px;
+    position: relative;
+    font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+
+}
+
+.btn-group .button:hover {
+    background-color: #343A40;
+}
+.btn-group .btn {
+  display: inline-block;
+  padding: 10px 21px;
+  font-size: 1.2vw;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #343A40;
+  background-color: #fff;
+  border: none;
+  box-shadow: 0 5px #999;
+  border: 1px solid #495e7b;
+  font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+
+}
+
+.btn-group .btn:hover {
+    background-color: #495e7b;
+    color:white;
+}
+
+
 /* add exams form style */
 #syllabuses, #assignments, #quizes, #midterms, #finals{
   position: absolute;
