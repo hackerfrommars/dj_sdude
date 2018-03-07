@@ -488,10 +488,12 @@ function six() {
 //end
 
     </script>
+<form method="POST" action="/main/">
+    {% csrf_token %}
+    {{ password_change_form.as_p }}
+    <button class="button" type="submit"><span>Change Password</span></button>
+</form>
 
-
-
-   
 
 
 
