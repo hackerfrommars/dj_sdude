@@ -161,11 +161,19 @@
 
     </script>
     <script src="{% static 'js/internship.js'%}" ></script>
+<form method="POST" action="/main/">
+    {% csrf_token %}
+    {{ password_change_form.as_p }}
+    <button class="button" type="submit"><span>Change Password</span></button>
+</form>
 
 
-
-   
-
+  {% for internship in internship_list %}
+      <b>{{ internship.title }}</b><br>
+      <i>{{ internship.created_at }}</i><br>
+      <p>{{ internship.content }}</p>
+      <br>
+  {% endfor %}
 
 
   </body>

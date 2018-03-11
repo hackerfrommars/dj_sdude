@@ -3,9 +3,12 @@ from django.utils import timezone
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from .models import Professor, Exam, Course, Feedback
 from .forms import ExamForm, FeedbackForm
+from internship.models import Internship
 from django.contrib.auth.decorators import login_required
 from accounts.forms import LoginForm, SignUpForm
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib import messages
 
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode
@@ -63,26 +66,25 @@ def home_page(request):
 @login_required(login_url='/')
 def main_page(request):
     course_list = Course.objects.all()
-    prof_list = Professor.objects.all()
-    exam_list = Exam.objects.all()
-
+    internship_list = Internship.objects.all().order_by('created_at')[:5][::-1]
     context = {
         "course_list": course_list,
-        "prof_list": prof_list,
-        "exam_list": exam_list,
-        "title": "Main Page"
+        "title": "Main Page",
+        "internship_list": internship_list
     }
 
     if request.method == 'POST':
-        exam_form = ExamForm(request.POST, request.FILES)
-        if exam_form.is_valid():
-            ins = exam_form.save(commit=False)
-            ins.created_by = request.user
-            ins.save()
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
             return redirect('/')
+        else:
+            messages.error(request, 'Please correct the error below.')
     else:
-        exam_form = ExamForm()
-        context['form'] = exam_form
+        form = PasswordChangeForm(request.user)
+        context['password_change_form'] = form
     return render(request, "main.html", context)
 
 @login_required(login_url='/')
