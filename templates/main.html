@@ -13,6 +13,9 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
 
     <!-- Custom fonts for this template -->
     <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet' %}" type="text/css">
@@ -22,7 +25,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
     <link href="{% static 'css/main_style.css' %}" rel="stylesheet">
-        <link href="{% static 'css/window_ass.css' %}" rel="stylesheet">
+        <link href="{% static 'css/internship_style.css' %}" rel="stylesheet">
 
     
     <link href="{% static 'vendor/bootstrap-chosen.css' %}" rel="stylesheet" />
@@ -45,11 +48,11 @@
             <li class="nav-item active">
             <li class="nav-item">
             <div class="dropdown">
-              <a class="nav-link" href="/logout" ><img src="{% static 'img/logos/settings.png' %}"></a>
+              <a class="nav-link" href="#" ><img src="{% static 'img/logos/settings.png' %}"></a>
               <div class="dropdown-content">
               <a href="#">change password</a>
               <a href="#">notifications</a>
-              <a href="#">log out</a>
+              <a href="/logout">log out</a>
               </div>
             </div>
             </li>
@@ -68,146 +71,59 @@
       </div>
     </nav>
 
-    <!-- Page Content -->
-    <div class="container-full">
+  
 
-      <div class="row">
+      
+<div class="container" id="internship">
+  <h2>List of Internship</h2>
+  <div class="list-group">
+    <a href="#" class="list-group-item">
+    <div id="show_more">
+      <img src="{% static 'img/logos/more.png'%}" id="show_more">
+    </div>
+      <h4 class="list-group-item-heading">Internship Company name</h4>
+      <p class="list-group-item-text">Short description about internship</p>
+    </a>
+    <a href="#" class="list-group-item">
+    <div id="show_more">
+      <img src="{% static 'img/logos/more.png'%}" id="show_more">
+    </div>
+      <h4 class="list-group-item-heading">Internship Company name</h4>
+      <p class="list-group-item-text">Short description about internship</p>
+    </a>
+    <a href="#" class="list-group-item">
+    <div id="show_more">
+      <img src="{% static 'img/logos/more.png'%}" id="show_more">
+    </div>
+      <h4 class="list-group-item-heading">Internship Company name</h4>
+      <p class="list-group-item-text">Short description about internship</p>
+    </a>
+    
+    
+  </div>
+</div>   
 
-        <div class="col-md-8">
-        <div class="my-4" >
-        <p></p><br>
-        <div id="main" class="container" >
-  <div class="row">
+<form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
+              <div id="internship_info">
+
+                                                           <h1>internship</h1>
+
+                      <!-- <select class="chosen-teacher" style="width: 200px;" >
+                        {% for prof in prof_list %}
+                          <option >{{ prof.name }}</option>
+                        {% endfor %}
+                      </select> -->
+                      
+
+              <p class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></p>
+                
+              </div>  
+          </form>
     
 
 
 
 
-  </div>
-</div>
-      <!-- ADD exams -->
-
-<div class="btn-group">
-
-        <button class="btn" onclick="first()" id="add_syl">Add Syllabus</button>
-        <button class="btn" onclick="second()" id="add_ass">Add Assignment</button>
-        <button class="btn" onclick="three()" id="add_quiz">Add Quiz</button>  
-        <button class="btn" onclick="four()" id="add_mid">Add Midterm</button>
-        <button class="btn" onclick="five()" id="add_fin">Add Final</button>
-        <button class="btn" onclick="six()" id="add_feed">Add FeedBack</button>  
-        
-<!-- add menu javascript -->
-<form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
-        <div id="login-form">
-          <h1>Syllabus</h1>
-            <select class="chosen-teacher" style="width: 200px;" >
-              {% for prof in prof_list %}
-              <option >{{ prof.name }}</option>
-              {% endfor %}
-            </select>
-            {%  csrf_token  %}
-        {%  for hidden in form.hidden_fields %}
-                {{ hidden }}
-        {%  endfor %}
-        {%  for field in form.visible_fields %}
-                {{ field.errors }}
-                {{ label_tag }}
-                {{ field }}<br>
-        {% endfor %}
-
-
-            
-
-        
-    <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-    <button class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></button>
-      
-    </div>
-    </form>
-
-    <!-- end ADD exam-->
-
-</div>
-
-
-  </div> 
-          <h1 style="top:20px;">Subject Name
-          </h1>
-
-          <!-- Blog Post -->
-          <div class="card mb-4" >
-<div class="btn-group">
-
-<button class="button" onclick="first()" >Syllabus</button>
-<button class="button" onclick="second()">Assignment</button>
-<button class="button" onclick="three()">Quiz</button>  
-<button class="button" onclick="four()" >Midterm</button>
-<button class="button" onclick="five()">Final</button>
-<button class="button" onclick="six()">FeedBack</button>  
-</div>   
-       <div class="card-body">
-              <h2 class="card-title" id="title">Click on any tab to view resources</h2>
-              <div id="myfirst">
-              </div>
-              <div id="mysecond">
-              </div>
-              <div id="mythree">
-              </div>
-              <div id="myfour">
-              </div>
-              <div id="myfive">
-              </div>
-              <div id="mysix">
-              </div>
-            </div>
-            <div class="card-footer text-muted">
-              Posted on January 1, 2017 by
-            </div>
-          </div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-         <!--  <b>Professors list</b> <br>
-    {% for prof in prof_list %}
-        <div>
-        {{ prof.name }}
-        </div>
-    {% endfor %}
-    <hr>
-
-    <b>Courses list</b> <br>
-    {% for course in course_list %}
-        <div>
-        {{ course.name }}
-        </div>
-    {% endfor %}
-    <hr>
-
-    <b>Exams</b> <br>
-    {% for exam in exam_list %}
-        <div>
-            name: {{ exam.course.name }} <br>
-            file_name: {{ exam.file.name }} <br>
-            created_at: {{ exam.created_at | timesince}} ago <br>
-            <br>
-        </div>
-    {% endfor %}
- -->
-
-
-</div>
-        </div>
-
-      </div>
-      <!-- /.row -->
-
-    </div>
-    <!-- /.container -->
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
@@ -235,252 +151,8 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
+
     <script>
-
-
-    // add syllabus
-  $('#add_syl').click(function(){
-
-  $('#add_syl').fadeIn("slow",function(){
-
-    $("#login-form").fadeIn();
-    $(".chosen-teacher").fadeIn();
-    $(".chosen-teacher").chosen();
-
-
-
-
-  });
-});
-
-$(".cancel").click(function(){
-  $("#login-form").fadeOut(100);
-    $(".chosen-teacher").fadeOut(8);
-    $(".chosen-teacher").chosen("destroy");
-});
-
-// add assignment
-$('#add_ass').click(function(){
-
-  $('#add_ass').fadeIn("slow",function(){
-
-    $("#login-form").fadeIn();
-    $(".chosen-teacher").fadeIn();
-    $(".chosen-teacher").chosen();
-
-
-
-
-  });
-});
-
-$(".cancel").click(function(){
-  $("#login-form").fadeOut(100);
-    $(".chosen-teacher").fadeOut(8);
-    $(".chosen-teacher").chosen("destroy");
-});
-
-// add quiz
-$('#add_quiz').click(function(){
-
-  $('#add_quiz').fadeIn("slow",function(){
-
-    $("#login-form").fadeIn();
-    $(".chosen-teacher").fadeIn();
-    $(".chosen-teacher").chosen();
-
-
-
-
-  });
-});
-
-$(".cancel").click(function(){
-  $("#login-form").fadeOut(100);
-    $(".chosen-teacher").fadeOut(8);
-    $(".chosen-teacher").chosen("destroy");
-});
-
-// add midterm
-$('#add_mid').click(function(){
-
-  $('#add_mid').fadeIn("slow",function(){
-
-    $("#login-form").fadeIn();
-    $(".chosen-teacher").fadeIn();
-    $(".chosen-teacher").chosen();
-
-
-
-
-  });
-});
-
-$(".cancel").click(function(){
-  $("#login-form").fadeOut(100);
-    $(".chosen-teacher").fadeOut(8);
-    $(".chosen-teacher").chosen("destroy");
-});
-
-// add final
-$('#add_fin').click(function(){
-
-  $('#add_fin').fadeIn("slow",function(){
-
-    $("#login-form").fadeIn();
-    $(".chosen-teacher").fadeIn();
-    $(".chosen-teacher").chosen();
-
-
-
-
-  });
-});
-
-$(".cancel").click(function(){
-  $("#login-form").fadeOut(100);
-    $(".chosen-teacher").fadeOut(8);
-    $(".chosen-teacher").chosen("destroy");
-});
-
-
-    // add feedback
-$('#add_feed').click(function(){
-
-  $('#add_feed').fadeIn("slow",function(){
-
-    $("#login-form").fadeIn();
-    $(".chosen-teacher").fadeIn();
-    $(".chosen-teacher").chosen();
-
-
-
-
-  });
-});
-
-$(".cancel").click(function(){
-  $("#login-form").fadeOut(100);
-    $(".chosen-teacher").fadeOut(8);
-    $(".chosen-teacher").chosen("destroy");
-});
-
-// show exam
-    var syl = document.getElementById("myfirst");
-    var ass = document.getElementById("mysecond");
-    var quiz = document.getElementById("mythree");
-    var mid = document.getElementById("myfour");
-    var fin = document.getElementById("myfive");
-    var feed = document.getElementById("mysix");
-    var tit = document.getElementById("mysix");
-
-
-function first() {
-    if (syl.style.display === "none") {
-        syl.style.display = "block";
-        document.getElementById("title").innerHTML = "Syllabus";
-        document.getElementById("myfirst").innerHTML = "Hello first";
-
-
-        ass.style.display = "none";
-        quiz.style.display = "none";
-        mid.style.display = "none";
-        fin.style.display = "none";
-        feed.style.display = "none";
-        
-
-
-    } else {
-        syl.style.display = "none";
-    }
-}
-function second() {
-    if (ass.style.display === "none") {
-        ass.style.display = "block";
-        document.getElementById("title").innerHTML = "Assignment";
-          document.getElementById("mysecond").innerHTML = "Hello second";
-
-
-        syl.style.display = "none";
-        quiz.style.display = "none";
-        mid.style.display = "none";
-        fin.style.display = "none";
-        feed.style.display = "none";
-
-    } else {
-        ass.style.display = "none";
-    }
-}
-function three() {
-    if (quiz.style.display === "none") {
-        quiz.style.display = "block";
-        document.getElementById("title").innerHTML = "Quiz";
-          document.getElementById("mythree").innerHTML = "Hello three";
-
-
-        ass.style.display = "none";
-        syl.style.display = "none";
-        mid.style.display = "none";
-        fin.style.display = "none";
-        feed.style.display = "none";
-
-    } else {
-        quiz.style.display = "none";
-    }
-}
-function four() {
-    if (mid.style.display === "none") {
-        mid.style.display = "block";
-        document.getElementById("title").innerHTML = "Midterm";
-        document.getElementById("myfour").innerHTML = "Hello four";
-
-
-        ass.style.display = "none";
-        quiz.style.display = "none";
-        syl.style.display = "none";
-        fin.style.display = "none";
-        feed.style.display = "none";
-
-
-    } else {
-        mid.style.display = "none";
-    }
-}
-function five() {
-    if (fin.style.display === "none") {
-        fin.style.display = "block";
-        document.getElementById("title").innerHTML = "Final";
-          document.getElementById("myfive").innerHTML = "Hello five";
-
-
-        ass.style.display = "none";
-        quiz.style.display = "none";
-        mid.style.display = "none";
-        syl.style.display = "none";
-        feed.style.display = "none";
-
-    } else {
-        fin.style.display = "none";
-    }
-}
-function six() {
-    if (feed.style.display === "none") {
-        feed.style.display = "block";
-        document.getElementById("title").innerHTML = "FeedBack";
-          document.getElementById("mysix").innerHTML = "Hello six";
-
-
-        ass.style.display = "none";
-        quiz.style.display = "none";
-        mid.style.display = "none";
-        fin.style.display = "none";
-        syl.style.display = "none";
-
-    } else {
-        feed.style.display = "none";
-    }
-}
-
 
 // search ajax
     $(".chosen-select").fadeIn().chosen();
@@ -488,11 +160,20 @@ function six() {
 //end
 
     </script>
+    <script src="{% static 'js/internship.js'%}" ></script>
+<form method="POST" action="/main/">
+    {% csrf_token %}
+    {{ password_change_form.as_p }}
+    <button class="button" type="submit"><span>Change Password</span></button>
+</form>
 
 
-
-   
-
+  {% for internship in internship_list %}
+      <b>{{ internship.title }}</b><br>
+      <i>{{ internship.created_at }}</i><br>
+      <p>{{ internship.content }}</p>
+      <br>
+  {% endfor %}
 
 
   </body>
