@@ -1,3 +1,5 @@
+import os
+from django.conf import settings
 from django.shortcuts import render, render_to_response, redirect
 from django.utils import timezone
 from django.http import Http404, HttpResponse, HttpResponseRedirect
@@ -133,3 +135,15 @@ def list_course(request, id):
         context['form'] = exam_form
         context['feedback_form'] = feedback_form
     return render(request, "course/index.html", context)
+
+@login_required(login_url='/')
+def download(request, name):
+    file_path = os.path.join(settings.MEDIA_ROOT, name)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type='application/pdf')
+            response['Content-Disposition'] = 'attachment;filename='+os.path.basename(file_path)
+            return response
+    raise Http404
+
+
