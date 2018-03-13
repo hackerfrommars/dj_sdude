@@ -1,19 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
 {% load staticfiles%}
-<!DOCTYPE html>
-<html lang="en">
 
-  <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>SDUDE coursepage</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 
 
 
@@ -24,159 +16,144 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
-    <link href="{% static 'css/main_style.css' %}" rel="stylesheet">
-        <link href="{% static 'css/internship_style.css' %}" rel="stylesheet">
-
-    
-    <link href="{% static 'vendor/bootstrap-chosen.css' %}" rel="stylesheet" />
-        <link href="{% static 'vendor/bootstrap-teacher.css' %}" rel="stylesheet" />
 
 
-  </head>
-
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="#">SDUDE</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-            <li class="nav-item">
-            <div class="dropdown">
-              <a class="nav-link" href="#" ><img src="{% static 'img/logos/settings.png' %}"></a>
-              <div class="dropdown-content">
-              <a href="#">change password</a>
-              <a href="#">notifications</a>
-              <a href="/logout">log out</a>
-              </div>
-            </div>
-            </li>
-            <li class="nav-item">
-              <form>
-          <select class="chosen-select" style="width:250px;" onchange="location = this.options[this.selectedIndex].value;">
-            {% for course in course_list %}
-            <option value="/courses/{{ course.id }}">{{ course.name }}</option>
-            {% endfor %}
-          </select>
-        </form>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </nav>
 
   
+<div class="parent-container">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+<button class="button" onclick="top()">TOP questions</button>
+<button class="button" onclick="hot()">HOT questions</button>
 
-      
-<div class="container" id="internship">
-  <h2>List of Internship</h2>
-  <div class="list-group">
-    <a href="#" class="list-group-item">
-    <div id="show_more">
-      <img src="{% static 'img/logos/more.png'%}" id="show_more">
-    </div>
-      <h4 class="list-group-item-heading">Internship Company name</h4>
-      <p class="list-group-item-text">Short description about internship</p>
-    </a>
-    <a href="#" class="list-group-item">
-    <div id="show_more">
-      <img src="{% static 'img/logos/more.png'%}" id="show_more">
-    </div>
-      <h4 class="list-group-item-heading">Internship Company name</h4>
-      <p class="list-group-item-text">Short description about internship</p>
-    </a>
-    <a href="#" class="list-group-item">
-    <div id="show_more">
-      <img src="{% static 'img/logos/more.png'%}" id="show_more">
-    </div>
-      <h4 class="list-group-item-heading">Internship Company name</h4>
-      <p class="list-group-item-text">Short description about internship</p>
-    </a>
-    
-    
-  </div>
-</div>   
-
-<form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
-              <div id="internship_info">
-
-                                                           <h1>internship</h1>
-
-                      <!-- <select class="chosen-teacher" style="width: 200px;" >
-                        {% for prof in prof_list %}
-                          <option >{{ prof.name }}</option>
-                        {% endfor %}
-                      </select> -->
-                      
-
-              <p class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></p>
-                
-              </div>  
-          </form>
-    
-
-
-
-
-
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Kaskelen 2018 &copy; sdude.org</p>
+<h2 class="card-title" id="title"></h2>
+  <div id="hot_questions">
+  <div class="panel-group" >
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#hot1">HOT questions 1</a>
+        </h4>
       </div>
-      <!-- /.container -->
-    </footer>
+      <div id="hot1" class="panel-collapse collapse">
+        <div class="panel-body">HOT answer1</div>
+        <div class="panel-footer">HOT answer1</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#hot2">HOT questions 2</a>
+        </h4>
+      </div>
+      <div id="hot2" class="panel-collapse collapse">
+        <div class="panel-body">HOT answer2</div>
+        <div class="panel-footer">HOT answer2</div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="top_questions">
+  <div class="panel-group" >
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#test1">top questions 1</a>
+        </h4>
+      </div>
+      <div id="test1" class="panel-collapse collapse">
+        <div class="panel-body">top answer1</div>
+        <div class="panel-footer">top answer1</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#test2">top questions 2</a>
+        </h4>
+      </div>
+      <div id="test2" class="panel-collapse collapse">
+        <div class="panel-body">top answer2</div>
+        <div class="panel-footer">top answer2</div>
+      </div>
+    </div>
+  </div>
+  </div>
 
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+            </div>
+        </div>
+    </div>
 
-    <!-- Contact form JavaScript -->
-    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
-    <script src="{% static 'js/contact_me.js' %}"></script>
+    
+    <div class="container" id="internship">
+        <div class="row">
+            <div class="col">
+<div class="list-group" style="max-height: 395px; overflow: hidden;">
+      <a href="#" class="list-group-item" style="background-color: #495e7b;">
+                <h3>Internship</h3>
+      </a>
+            <div id="show_more">
+            {% for internship in internship_list %}
+                    <a href="#" class="list-group-item">
+                               <h4 class="list-group-item-heading"><b>{{ internship.title }}</b></h4>
+                                  <img src="{% static 'img/logos/more_main.png'%}">
+                               <p class="list-group-item-text"><p>{{ internship.content }}</p></p>
+                               <i>{{ internship.created_at }}</i>
+                    </a>
+            {% endfor %}
+            </div>
+      
+  </div>
+  <a href='{% url "internship:main" %}' class="list-group-item" style="background-color: #495e7b; height: 50px;">
+                <h2>View All Intership</h2>
+      </a>
+<!--             internship detail with javascript -->
+                  
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <div id="internship_info">
+
+                        <a href="#" class="list-group-item">
+                                   <h4 class="list-group-item-heading"><b>{{ internship_list.0.title }}</b></h4>
+                                      <img src="{% static 'img/logos/more_main.png'%}">
+                                   <p class="list-group-item-text"><p>{{ internship_list.0.content }}</p></p>
+                                   <i>{{ internship_list.0.created_at }}</i>
+                        </a>
+                                        <p class="cancel" type="submit" style="vertical-align:middle">
+                                        <span>cancel</span></p>
+                  </div> 
+  
+
+  
+    
+    
+
+    
 
     <!-- Custom scripts for this template -->
     <script src="{% static 'js/agency.min.js' %}"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link href="{% static 'css/main_style.css' %}" rel="stylesheet">
 
     <script>
 
-// search ajax
-    $(".chosen-select").fadeIn().chosen();
 
-//end
-
+$('button').on('click', function(){
+    $('button').removeClass('selected');
+    $(this).addClass('selected');
+});
     </script>
-    <script src="{% static 'js/internship.js'%}" ></script>
-<form method="POST" action="/main/">
-    {% csrf_token %}
-    {{ password_change_form.as_p }}
-    <button class="button" type="submit"><span>Change Password</span></button>
-</form>
-
-
-  {% for internship in internship_list %}
-      <b>{{ internship.title }}</b><br>
-      <i>{{ internship.created_at }}</i><br>
-      <p>{{ internship.content }}</p>
-      <br>
-  {% endfor %}
-
-
-  </body>
-
-</html>
+    <script src="{% static 'js/mainpage.js'%}" ></script>
+{% endblock %}
 
