@@ -1,8 +1,13 @@
 
+{% load index %}
 
+{{ internship_list | get_title:0 }}<br>
+{{ internship_list | get_content:0 }}<br>
+{{ internship_list | get_created_at:0 }}<br>
 
-{#{% for internship in internship_list %}#}
-{#    <b>{{ internship.title }}</b><br>#}
-{#    <i>{{ internship.created_at | timesince }}</i><br>#}
-{#    <p>{{ internship.content }}</p><br>#}
-{#{% endfor %}#}
+<hr>
+{% for internship in internship_list %}
+    <b>{{ internship.title }}</b><br>
+    <i>{{ internship.created_at | timesince }}</i><br>
+    <p>{{ internship.content }}</p><br>
+{% endfor %}
