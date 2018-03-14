@@ -4,30 +4,46 @@
 {% load widget_tweaks %}
 
 
+
       <link href="{% static 'css/window_ass.css' %}" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!--  button add bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 
 
     <!-- Page Content -->
-    <div class="container-full">
-      <div class="row">
-        <div class="col-md-8">
-           <div class="my-4" >
-            <p></p><br>
-               <div id="main" class="container" >
-               <div class="row">
-           </div>
-        </div>
+    <div class="container">
+      
       <!-- ADD exams -->
 
-      <div class="btn-group">
+  <div class="btn-group btn-group-justified" style=" width: 75%; left:13%; height: 40px; top:10px;" id="add_button">
+          <a class="enviaPedido btn btn-sm"  id="add_syl">
+            <span class="visible-xs-block">Add<br>Syllabus</span>
+            <span class="hidden-xs">Add Syllabus</span></a>
+          <a class="enviaPedido btn btn-sm"  id="add_ass">
+            <span class="visible-xs-block">Add<br>Assignment</span>
+            <span class="hidden-xs">Add Assignment</span></a>
+          <a class="enviaPedido btn btn-sm"  id="add_quiz">
+            <span class="visible-xs-block">Add<br>Quiz</span>
+            <span class="hidden-xs">Add Quiz</span></a>
+          <a class="enviaPedido btn btn-sm"  id="add_mid">
+            <span class="visible-xs-block">Add<br>Mid</span>
+            <span class="hidden-xs">Add Mid</span></a>
+          <a class="enviaPedido btn btn-sm"  id="add_fin">
+            <span class="visible-xs-block">Add<br>Final</span>
+            <span class="hidden-xs">Add Final</span></a>
+          <a class="enviaPedido btn btn-sm"  id="add_feed">
+            <span class="visible-xs-block">Add<br>FeedBack</span>
+            <span class="hidden-xs">Add FeedBack</span></a>
 
-          <button class="btn"  id="add_syl">Add Syllabus</button>
-          <button class="btn"  id="add_ass">Add Assignment</button>
-          <button class="btn"  id="add_quiz">Add Quiz</button>  
-          <button class="btn"  id="add_mid">Add Midterm</button>
-          <button class="btn"  id="add_fin">Add Final</button>
-          <button class="btn"  id="add_feed">Add FeedBack</button>  
+  </div> 
+            <h1>Subject Name</h1>
+
           
 <!-- add menu javascript -->
 <!--   syllabus javascript-->  
@@ -50,8 +66,7 @@
 
 
             <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-            <p class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></p>
-              
+<p class="cancel" >cancel</p>                
             </div>  
         </form>
 <!--   assignment javascript-->  
@@ -72,8 +87,7 @@
                     {{ form.file }}
 
             <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-            <p class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></p>
-              
+<p class="cancel" >cancel</p>                
             </div>  
         </form>
 
@@ -94,8 +108,7 @@
                       {{ form.file }}
 
               <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-              <p class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></p>
-                
+<p class="cancel" >cancel</p>                  
               </div>  
           </form>
           
@@ -117,8 +130,7 @@
                       {{ form.file }}
 
               <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-              <p class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></p>
-                
+<p class="cancel" >cancel</p>                  
               </div>  
           </form>
   <!--   final javascript-->  
@@ -139,8 +151,7 @@
                       {{ form.file }}
 
               <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-              <p class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></p>
-                
+              <p class="cancel" >cancel</p>                  
               </div>  
           </form>
   <!--   feedback javascript-->  
@@ -157,27 +168,36 @@
                     <textarea rows="4" cols="50" form="usrform" style="position: absolute; left: 20px; top:80px;  width: 90%; height: 40%; text-align: left; background-color: #fff; color: #000" placeholder="Write your feedback about this course"  {{ feedback_form.content }} ></textarea>
 
                     <button id="create" type="submit" name="submit" value="Add Feedback" style="position: absolute;top: 70%; right: 5%;background-color: #fff; color: #000; width: 15%; height: 12%;"><span>Add</span></button>
-                            <p class="cancel" type="submit" style="vertical-align:middle; position: absolute;top: 70%; right: 25%; width: 15%; height: 12%;"><span>cancel</span></p>  
+                            <p class="cancel_f" >cancel</p>  
               </div>  
           </form>
           
 
 <!-- end ADD exam-->
 
-      </div>
-    </div> 
 
-          <h1 style="top:20px;">Subject Name</h1>
 
     <div class="card mb-4" >
-      <div class="btn-group">
-            <button class="button" onclick="first()" >Syllabus</button>
-            <button class="button" onclick="second()">Assignment</button>
-            <button class="button" onclick="three()">Quiz</button>  
-            <button class="button" onclick="four()" >Midterm</button>
-            <button class="button" onclick="five()">Final</button>
-            <button class="button" onclick="six()">FeedBack</button>  
-      </div>   
+      <div class="btn-group btn-group-justified" style="height: 50px; text-align: center;" id="show_button">
+          <a class="enviaPedido btn btn-sm"  onclick="first()">
+            <span class="visible-xs-block">Syllabus</span>
+            <span class="hidden-xs">Syllabus</span></a>
+          <a class="enviaPedido btn btn-sm"   onclick="second()">
+            <span class="visible-xs-block">Assignment</span>
+            <span class="hidden-xs">Assignment</span></a>
+          <a class="enviaPedido btn btn-sm"   onclick="three()">
+            <span class="visible-xs-block">Quiz</span>
+            <span class="hidden-xs">Quiz</span></a>
+          <a class="enviaPedido btn btn-sm"   onclick="four()">
+            <span class="visible-xs-block">Mid</span>
+            <span class="hidden-xs">Mid</span></a>
+          <a class="enviaPedido btn btn-sm"   onclick="five()">
+            <span class="visible-xs-block">Final</span>
+            <span class="hidden-xs">Final</span></a>
+          <a class="enviaPedido btn btn-sm"   onclick="six()">
+            <span class="visible-xs-block">FeedBack</span>
+            <span class="hidden-xs">FeedBack</span></a>
+  </div>  
       <div class="card-body">
               <h2 class="card-title" id="title">Click on any tab to view resources</h2>
                   <div id="myfirst">
@@ -253,20 +273,9 @@
   <!-- /.row -->
 </div>
 <!-- /.container -->
+      </div>
 
 
-    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
-    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
-
-    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
-    <script src="{% static 'js/contact_me.js' %}"></script>
-
-    <script src="{% static 'js/agency.min.js' %}"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
     <script src="{% static 'js/course_js.js'%}" ></script>
 

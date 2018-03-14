@@ -1,65 +1,62 @@
-.container-full{
-    left: 18%;
-    position: relative;
-}
-.btn-group .button {
-    background-color: #495e7b; /* Green */
-    color: white;
-    text-align: center;
-    font-size: 1.2vw;
-    cursor: pointer;
-    outline: none;
-    display: inline-block;
-    padding: 12px 37.2px;
-    border: 0.5px solid white;
-    border-radius: 5px 5px 5px 5px;
-    position: relative;
-    font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
-
-}
-
-.btn-group .button:hover {
-    background-color: #343A40;
-}
-.btn-group .btn {
-  display: inline-block;
-  padding: 10px 21px;
-  font-size: 1.2vw;
+#add_button .btn {
   cursor: pointer;
   text-align: center;
-  text-decoration: none;
-  outline: none;
+  color: #343A40;
+  background-color: #495e7b;
+  border: 1px solid #495e7b;
+  box-shadow: 0 5px #999;
+  font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+#add_button .btn:hover {
+    background-color: #fff;
+}
+#add_button .btn span {
+  font-size: 1.1vw;
+}
+#show_button .btn{
+  cursor: pointer;
+  text-align: center;
   color: #343A40;
   background-color: #fff;
-  border: none;
-  box-shadow: 0 5px #999;
   border: 1px solid #495e7b;
+  box-shadow: 0 5px #999;
   font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
-
 }
 
-.btn-group .btn:hover {
+#show_button .btn:hover {
     background-color: #495e7b;
-    color:white;
+}
+#show_button .btn span {
+  font-size: 1.3vw;
 }
 
+.card {
+  position: relative;
+  width: 75%;
+  left: 13%;
+}
+.container h1 {
+  position: all;
+  top:20px;
+  left: 13%;
+  font-size: 2.5vw;
+  margin-bottom:  40px;
+}
 
 /* add exams form style */
 #syllabuses, #assignments, #quizes, #midterms, #finals{
-  position: absolute;
-  top: 250px;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
+  top: 25%;
   margin: auto;
-  width: 70%;
-  height: 600%;
+  width: 40%;
+  height: 200px;
   border-radius: 5px;
   box-shadow: 1px 1px 50px #000;
   display: none;
   background: #fff;
   z-index: 1;
-        opacity: .95;
+  opacity: .95;
 
 
 }
@@ -94,14 +91,11 @@
 
 /* feedback form style*/
 #feedbacks{
-  position: absolute;
-  top: 250px;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
+  top: 25%;
   margin: auto;
-  width: 70%;
-  height: 750%;
+  width: 40%;
+  height: 280px;
   border-radius: 5px;
   box-shadow: 1px 1px 50px #000;
   display: none;
@@ -141,7 +135,7 @@
   text-decoration: none;
   position: absolute;
   width: 15%;
-  height: 15%;
+  height: 18%;
   top:65%;
   right: 5%;
   display: block;
@@ -185,17 +179,18 @@
 }
 
 /*close javascript add exam form style*/
-.cancel {
+.cancel_f {
   font-family: 'Open Sans Condensed', sans-serif;
   text-decoration: none;
     position: absolute;
+    text-align: center;
   width: 15%;
-  height: 15%;
-  top:65%;
+  height: 9%;
+  top:72%;
   right: 25%;
   display: block;
   margin: 10px auto;
-  font-size: 1.2vw;
+  font-size: 1vw;
   color: #495e7b;
   padding: 8px;
   border-radius: 6px;
@@ -207,30 +202,43 @@
   transition: all 0.2s ease-in-out;
 }
 
-.cancel span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
 
-.cancel span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: 20px;
-  transition: 0.5s;
-}
-
-.cancel:hover span {
+.cancel_f:hover  {
   padding-right: 25px;
+  background-color: #343A40;
+  color: #fff;
+}
+.cancel {
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-decoration: none;
+  position: absolute;
+  text-align: center;
+  width: 15%;
+  height: 12%;
+  top:69%;
+  right: 25%;
+  display: block;
+  margin: 10px auto;
+  font-size: 1vw;
+  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: #343A40;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
-.cancel:hover span:after {
-  opacity: 1;
-  right: 0;
+
+.cancel:hover  {
+  padding-right: 25px;
+  background-color: #fff;
+  color: #495e7b;
+  border: 1px solid #343A40;
 }
+
 
 /*//это чтобы все данные предметов были невидимы при первом запуске страницы
 */
