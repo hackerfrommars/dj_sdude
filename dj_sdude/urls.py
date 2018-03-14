@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^signup/', include('accounts.urls', namespace='signup')),
     url(r'^internship/', include('internship.urls', namespace='internship')),
+    url(r'^question/', include('questions.urls', namespace='questions')),
     url(r'^', include('courses.urls', namespace='courses')),
 ]
 
