@@ -19,14 +19,13 @@ from accounts.tokens import account_activation_token
 from django.contrib.sites.shortcuts import get_current_site
 
 
-
 def home_page(request):
 
     if request.user.is_authenticated():
         return redirect('/main')
 
     context = {}
-    if request.method=='POST' and request.POST['action'] == 'Login':
+    if request.method == 'POST' and request.POST['action'] == 'Login':
         login_form=LoginForm(request.POST)
         if login_form.is_valid():
             username = login_form.cleaned_data.get('username')
@@ -65,6 +64,7 @@ def home_page(request):
         context['signup_form'] = signup_form
         return render(request, "index.html", context)
 
+
 @login_required(login_url='/')
 def main_page(request):
     course_list = Course.objects.all()
@@ -88,6 +88,7 @@ def main_page(request):
         form = PasswordChangeForm(request.user)
         context['password_change_form'] = form
     return render(request, "main.html", context)
+
 
 @login_required(login_url='/')
 def list_course(request, id):
@@ -135,6 +136,7 @@ def list_course(request, id):
         context['form'] = exam_form
         context['feedback_form'] = feedback_form
     return render(request, "course/index.html", context)
+
 
 @login_required(login_url='/')
 def download(request, name):
