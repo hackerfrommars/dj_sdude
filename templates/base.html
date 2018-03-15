@@ -61,8 +61,7 @@
 </nav>
 
 <!--     password detail with javascript -->
-
-<div id="myModal" class="modal">
+ <form method="POST" action="/main/"><div id="myModal" class="modal">
 
   
 
@@ -73,12 +72,12 @@
     {{ password_change_form.old_password }}
     {{ password_change_form.new_password1 }}
     {{ password_change_form.new_password2 }}
-    <button  type="submit">change password</button>
+    <button  type="submit" value="Change Password">change password</button>
     <p  type="submit">cancel</p>
   </div>
 
 </div>
-
+</form>
 {% block content %}
 {% endblock%}
 
