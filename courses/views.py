@@ -130,9 +130,20 @@ def list_course(request, id):
             context['form'] = exam_form
             context['feedback_form'] = feedback_form
             return redirect('/courses/%s' %id)
+    if request.method == 'POST' and request.POST['submit'] == 'Change Password':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('/')
+        else:
+            messages.error(request, 'Please correct the error below.')
     else:
         exam_form = ExamForm()
         feedback_form = FeedbackForm()
+        form = PasswordChangeForm(request.user)
+        context['password_change_form'] = form
         context['form'] = exam_form
         context['feedback_form'] = feedback_form
     return render(request, "course/index.html", context)
