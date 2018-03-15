@@ -5,13 +5,13 @@
 
 
 
-      <link href="{% static 'css/window_ass.css' %}" rel="stylesheet">
+  <link href="{% static 'css/window_ass.css' %}" rel="stylesheet">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
  <!--  button add bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
 
 
 
@@ -21,7 +21,7 @@
       
       <!-- ADD exams -->
 
-  <div class="btn-group btn-group-justified" style=" width: 75%; left:13%; height: 40px; top:10px;" id="add_button">
+  <div class="btn-group btn-group-justified" style=" position: relative; width: 75%; left:13%; height: auto; top:10px;" id="add_button">
           <a class="enviaPedido btn btn-sm"  id="add_syl">
             <span class="visible-xs-block">Add<br>Syllabus</span>
             <span class="hidden-xs">Add Syllabus</span></a>
@@ -47,7 +47,6 @@
           
 <!-- add menu javascript -->
 <!--   syllabus javascript-->  
-       <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
             <div id="syllabuses">
 
                                                          <h1>Syllabus</h1>
@@ -68,7 +67,6 @@
             <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
 <p class="cancel" >cancel</p>                
             </div>  
-        </form>
 <!--   assignment javascript-->  
 
         <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
@@ -178,7 +176,7 @@
 
 
     <div class="card mb-4" >
-      <div class="btn-group btn-group-justified" style="height: 50px; text-align: center;" id="show_button">
+      <div class="btn-group btn-group-justified" style="position: relative; height: auto; text-align: center;" id="show_button">
           <a class="enviaPedido btn btn-sm"  onclick="first()">
             <span class="visible-xs-block">Syllabus</span>
             <span class="hidden-xs">Syllabus</span></a>
@@ -199,7 +197,7 @@
             <span class="hidden-xs">FeedBack</span></a>
   </div>  
       <div class="card-body">
-              <h2 class="card-title" id="title">Click on any tab to view resources</h2>
+              <h2 class="card-title" id="title" style="font-size: 2vw;">Click on any tab to view resources</h2>
                   <div id="myfirst">
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 1 %}
