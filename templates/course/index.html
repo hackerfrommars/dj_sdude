@@ -85,7 +85,8 @@
                     <div id="exam">         {{ form.exam_type|attr:"value:2"}} </div>
                     {{ form.professor }}
                     {{ form.file }}
-
+                    {{ form.year }}
+                    {{ form.semester }}
             <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
 <p class="cancel" >cancel</p>                
             </div>  
@@ -201,9 +202,10 @@
       <div class="card-body">
               <h2 class="card-title" id="title">Click on any tab to view resources</h2>
                   <div id="myfirst">
+                      <p id="tex"><b>Professor FileName Year Term Download</p>
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 1 %}
-                          <p id="tex"><b>Professor FileName Year Term Download</p>
+                          
                           </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
                           <p id="forth">{{ exam.created_at | timesince}} ago</p>
                           <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>

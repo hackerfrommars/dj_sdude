@@ -38,6 +38,7 @@
   position: relative;
   width: 75%;
   left: 13%;
+
 }
 .container h1 {
   position: all;
@@ -45,6 +46,7 @@
   left: 13%;
   font-size: 2.5vw;
   margin-bottom:  40px;
+  
 }
 
 /* add exams form style */
@@ -250,7 +252,7 @@
       display: none;
       border-style: outset;
       padding-left: 5px;
-      padding-bottom: 10px;
+      
 
     }
 #first, #second, #third, #forth, #fifth{
@@ -261,6 +263,7 @@
   margin-right: 25px;
   width: 130px;
   height: 23px;
+
 
 }
 #tex{
