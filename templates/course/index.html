@@ -1,95 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
 {% load staticfiles%}
 {% load widget_tweaks %}
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SDUDE coursepage</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet' %}" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    
-    <link href="{% static 'css/main_style.css' %}" rel="stylesheet">
-    <link href="{% static 'css/window_ass.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/bootstrap-chosen.css' %}" rel="stylesheet" />
-
-</head>
+  <link href="{% static 'css/window_ass.css' %}" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!--  button add bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
-<body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="#">SDUDE</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-            <li class="nav-item">
-            <div class="dropdown">
-              <a class="nav-link" href="#" ><img src="{% static 'img/logos/settings.png' %}"></a>
-              <div class="dropdown-content">
-              <a href="#">change password</a>
-              <a href="#">notifications</a>
-              <a href="/logout">log out</a>
-              </div>
-            </div>
-            </li>
-            <li class="nav-item">
-              <form>
-          <select class="chosen-select" style="width:250px;" onchange="location = this.options[this.selectedIndex].value;">
-            {% for course in course_list %}
-            <option value="/courses/{{ course.id }}">{{ course.name }}</option>
-            {% endfor %}
-          </select>
-        </form>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+
 
 
     <!-- Page Content -->
-    <div class="container-full">
-      <div class="row">
-        <div class="col-md-8">
-           <div class="my-4" >
-            <p></p><br>
-               <div id="main" class="container" >
-               <div class="row">
-           </div>
-        </div>
+    <div class="container">
+      
       <!-- ADD exams -->
 
-      <div class="btn-group">
+  <div class="btn-group btn-group-justified" style=" position: relative; width: 75%; left:13%; height: auto; top:10px;" id="add_button">
+          <a class="enviaPedido btn btn-sm"  id="add_syl">
+            <span class="visible-xs-block">Add<br>Syllabus</span>
+            <span class="hidden-xs">Add Syllabus</span></a>
+          <a class="enviaPedido btn btn-sm"  id="add_ass">
+            <span class="visible-xs-block">Add<br>Assignment</span>
+            <span class="hidden-xs">Add Assignment</span></a>
+          <a class="enviaPedido btn btn-sm"  id="add_quiz">
+            <span class="visible-xs-block">Add<br>Quiz</span>
+            <span class="hidden-xs">Add Quiz</span></a>
+          <a class="enviaPedido btn btn-sm"  id="add_mid">
+            <span class="visible-xs-block">Add<br>Mid</span>
+            <span class="hidden-xs">Add Mid</span></a>
+          <a class="enviaPedido btn btn-sm"  id="add_fin">
+            <span class="visible-xs-block">Add<br>Final</span>
+            <span class="hidden-xs">Add Final</span></a>
+          <a class="enviaPedido btn btn-sm"  id="add_feed">
+            <span class="visible-xs-block">Add<br>FeedBack</span>
+            <span class="hidden-xs">Add FeedBack</span></a>
 
-          <button class="btn"  id="add_syl">Add Syllabus</button>
-          <button class="btn"  id="add_ass">Add Assignment</button>
-          <button class="btn"  id="add_quiz">Add Quiz</button>  
-          <button class="btn"  id="add_mid">Add Midterm</button>
-          <button class="btn"  id="add_fin">Add Final</button>
-          <button class="btn"  id="add_feed">Add FeedBack</button>  
+  </div> 
+            <h1 style="margin-top: 80px; margin-left: 150px;">Subject Name</h1>
+
           
 <!-- add menu javascript -->
 <!--   syllabus javascript-->  
-       <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
+        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
+
             <div id="syllabuses">
 
                                                          <h1>Syllabus</h1>
@@ -108,10 +67,9 @@
 
 
             <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-            <p class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></p>
-              
+<p class="cancel" >cancel</p>                
             </div>  
-        </form>
+</form>
 <!--   assignment javascript-->  
 
         <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
@@ -128,10 +86,11 @@
                     <div id="exam">         {{ form.exam_type|attr:"value:2"}} </div>
                     {{ form.professor }}
                     {{ form.file }}
+                    {{ form.year }}
+                    {{ form.semester }}
 
             <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-            <p class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></p>
-              
+<p class="cancel" >cancel</p>                
             </div>  
         </form>
 
@@ -149,11 +108,12 @@
                       {%  csrf_token  %}
                       <div id="exam">         {{ form.exam_type|attr:"value:3"}} </div>
                       {{ form.professor }}
-                      {{ form.file }}
+                    {{ form.file }}
+                    {{ form.year }}
+                    {{ form.semester }}
 
               <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-              <p class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></p>
-                
+<p class="cancel" >cancel</p>                  
               </div>  
           </form>
           
@@ -172,11 +132,12 @@
                       {%  csrf_token  %}
                       <div id="exam">         {{ form.exam_type|attr:"value:4"}} </div>
                       {{ form.professor }}
-                      {{ form.file }}
+                    {{ form.file }}
+                    {{ form.year }}
+                    {{ form.semester }}
 
               <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-              <p class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></p>
-                
+<p class="cancel" >cancel</p>                  
               </div>  
           </form>
   <!--   final javascript-->  
@@ -194,11 +155,12 @@
                       {%  csrf_token  %}
                       <div id="exam">         {{ form.exam_type|attr:"value:5"|add_class:"hidden_exam"}} </div>
                       {{ form.professor }}
-                      {{ form.file }}
+                    {{ form.file }}
+                    {{ form.year }}
+                    {{ form.semester }}
 
               <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-              <p class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></p>
-                
+              <p class="cancel" >cancel</p>                  
               </div>  
           </form>
   <!--   feedback javascript-->  
@@ -215,85 +177,106 @@
                     <textarea rows="4" cols="50" form="usrform" style="position: absolute; left: 20px; top:80px;  width: 90%; height: 40%; text-align: left; background-color: #fff; color: #000" placeholder="Write your feedback about this course"  {{ feedback_form.content }} ></textarea>
 
                     <button id="create" type="submit" name="submit" value="Add Feedback" style="position: absolute;top: 70%; right: 5%;background-color: #fff; color: #000; width: 15%; height: 12%;"><span>Add</span></button>
-                            <p class="cancel" type="submit" style="vertical-align:middle; position: absolute;top: 70%; right: 25%; width: 15%; height: 12%;"><span>cancel</span></p>  
+                            <p class="cancel_f" >cancel</p>  
               </div>  
           </form>
           
 
 <!-- end ADD exam-->
 
-      </div>
-    </div> 
 
-          <h1 style="top:20px;">Subject Name</h1>
 
     <div class="card mb-4" >
-      <div class="btn-group">
-            <button class="button" onclick="first()" >Syllabus</button>
-            <button class="button" onclick="second()">Assignment</button>
-            <button class="button" onclick="three()">Quiz</button>  
-            <button class="button" onclick="four()" >Midterm</button>
-            <button class="button" onclick="five()">Final</button>
-            <button class="button" onclick="six()">FeedBack</button>  
-      </div>   
+      <div class="btn-group btn-group-justified" style="position: relative; height: auto; text-align: center;" id="show_button">
+          <a class="enviaPedido btn btn-sm"  onclick="first()">
+            <span class="visible-xs-block">Syllabus</span>
+            <span class="hidden-xs">Syllabus</span></a>
+          <a class="enviaPedido btn btn-sm"   onclick="second()">
+            <span class="visible-xs-block">Assignment</span>
+            <span class="hidden-xs">Assignment</span></a>
+          <a class="enviaPedido btn btn-sm"   onclick="three()">
+            <span class="visible-xs-block">Quiz</span>
+            <span class="hidden-xs">Quiz</span></a>
+          <a class="enviaPedido btn btn-sm"   onclick="four()">
+            <span class="visible-xs-block">Mid</span>
+            <span class="hidden-xs">Mid</span></a>
+          <a class="enviaPedido btn btn-sm"   onclick="five()">
+            <span class="visible-xs-block">Final</span>
+            <span class="hidden-xs">Final</span></a>
+          <a class="enviaPedido btn btn-sm"   onclick="six()">
+            <span class="visible-xs-block">FeedBack</span>
+            <span class="hidden-xs">FeedBack</span></a>
+  </div>  
       <div class="card-body">
-              <h2 class="card-title" id="title">Click on any tab to view resources</h2>
+              <h2 class="card-title" id="title" style="font-size: 2vw;">Click on any tab to view resources</h2>
                   <div id="myfirst">
+                      <p id="tex"><b>Professor FileName Year Term Download</p>
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 1 %}
                           name: {{ exam.course.name }} <br>
                           file_name: {{ exam.file.name }}<a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a><br>
                           created_at: {{ exam.created_at | timesince}} ago <br><br>
+                          
+                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
+                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
+                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                          
                         {% endif %}
                       {% endfor %}
                   </div>
                   <div id="mysecond">
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 2 %}
-                          type: {{ exam.exam_type }}
-                          name: {{ exam.course.name }} <br>
-                          file_name: {{ exam.file.name }} <br>
-                          created_at: {{ exam.created_at | timesince}} ago <br><br>
+                          <p id="tex"><b>Professor FileName Year Term Download</p>
+                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
+                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
+                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                          
                         {% endif %}
                       {% endfor %}
                   </div>
                   <div id="mythree">
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 3 %}
-                            type: {{ exam.exam_type }}
-                            name: {{ exam.course.name }} <br>
-                            file_name: {{ exam.file.name }} <br>
-                            created_at: {{ exam.created_at | timesince}} ago <br><br>
+                            <p id="tex"><b>Professor FileName Year Term Download</p>
+                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
+                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
+                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                          
                           {% endif %}
                       {% endfor %}
                   </div>
                   <div id="myfour">
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 4 %}
-                            type: {{ exam.exam_type }}
-                            name: {{ exam.course.name }} <br>
-                            file_name: {{ exam.file.name }} <br>
-                            created_at: {{ exam.created_at | timesince}} ago <br><br>
+                            <p id="tex"><b>Professor FileName Year Term Download</p>
+                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
+                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
+                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                          
                           {% endif %}
                       {% endfor %}
                   </div>
                   <div id="myfive">
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 5 %}
-                            type: {{ exam.exam_type }}
-                            name: {{ exam.course.name }} <br>
-                            file_name: {{ exam.file.name }} <br>
-                            created_at: {{ exam.created_at | timesince}} ago <br><br>
+                            <p id="tex"><b>Professor FileName Year Term Download</p>
+                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
+                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
+                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                          
                           {% endif %}
                       {% endfor %}
                   </div>
                   <div id="mysix">
+                      
                       {% for feedback in feedback_list %}
-                      name: {{ feedback.course.name }} <br>
-                      content: {{ feedback.content }} <br>
-                      grade: {{ feedback.grade }} <br>
-                      created_at: {{ feedback.created_at | timesince}} ago <br>
+                      <p>content: {{ feedback.content }} </p><br>
+                      <p>Grade: {{ feedback.grade }} <br>
+                      Created at: {{ feedback.created_at | timesince}} ago </p><br>
                       <br>
+
+                          
                       {% endfor %}
                   </div>
                 </div>
@@ -311,30 +294,10 @@
   <!-- /.row -->
 </div>
 <!-- /.container -->
-
-    <!-- Footer -->
-          <footer class="py-5 bg-dark">
-            <div class="container">
-              <p class="m-0 text-center text-white">Kaskelen 2018 &copy; sdude.org</p>
-            </div>
-            <!-- /.container -->
-          </footer>
+      </div>
 
 
-    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
-    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
-
-    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
-    <script src="{% static 'js/contact_me.js' %}"></script>
-
-    <script src="{% static 'js/agency.min.js' %}"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
     <script src="{% static 'js/course_js.js'%}" ></script>
-
-  </body>
-</html>
+    
+  {% endblock %}

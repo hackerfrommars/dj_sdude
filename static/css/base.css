@@ -1,0 +1,120 @@
+
+#mainNav .navbar-brand{
+	color:#495e7b;
+	font-size: 2vw;
+	font-family:'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
+}
+#mainNav .navbar-nav .nav-item .nav-link{
+	font-size:100%;
+	font-weight:400;
+	padding:.80em 0;
+	letter-spacing:1px;
+	color:#495e7b;
+	font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	cursor: pointer;
+}
+#mainNav .navbar-nav .nav-item .nav-link:hover{
+		color:#FFFFFF;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    top:0px;
+    right: -2800%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 70%;
+    top:50px;
+    left:-65px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 170px;
+}
+
+.dropdown-content a {
+    color: #495e7b;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #495e7b;color:white;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+#password_detail{
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 40%;
+  height: 60%;
+  border-radius: 5px;
+  box-shadow: 1px 1px 50px #000;
+  display: none;
+  background: #343A40;
+  z-index: 1;
+        opacity: .95;
+
+
+}
+#password_detail h1{
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  position: relative;
+  margin-top: 0px;
+  text-align: center;
+  font-size: 2.5vw;
+  color: #fff;
+  text-shadow: 3px 3px 10px #fff;
+}
+
+.close {
+  font-family: 'Open Sans Condensed', sans-serif;
+  position: absolute;
+  width: 15%;
+  height: 10%;
+  top:65%;
+  right: 25%;
+  display: block;
+  margin: 10px auto;
+  font-size: 1.2vw;
+  color: #495e7b;
+  padding: 8px;
+  border-radius: 5px 5px 5px 5px;
+  
+}
+
+.close  {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.close :after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: 20px;
+}
+
+.close:hover  {
+  padding-right: 25px;
+    color: #fff;
+
+}
+
+.close:hover :after {
+  opacity: 1;
+      color: #fff;
+
+  right: 10px;
+}

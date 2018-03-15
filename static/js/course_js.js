@@ -68,9 +68,11 @@ $(".cancel").click(function(){
   $("#quizes").fadeOut(100);
   $("#midterms").fadeOut(100);
   $("#finals").fadeOut(100);
-  $("#feedbacks").fadeOut(100);
   $(".chosen-teacher").fadeOut(8);
   $(".chosen-teacher").chosen("destroy");
+});
+$(".cancel_f").click(function(){
+  $("#feedbacks").fadeOut(100);
 });
 //end of cancel add exams
 
