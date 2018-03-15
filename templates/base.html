@@ -56,7 +56,7 @@
             </div>
             </li>
             <li class="nav-item">
-              <form>
+              <form id="formo">
           <select class="chosen-select" style="width:250px;" onchange="location = this.options[this.selectedIndex].value;">
             {% for course in course_list %}
             <option value="/courses/{{ course.id }}">{{ course.name }}</option>
