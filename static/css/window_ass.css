@@ -54,7 +54,7 @@
 /* add exams form style */
 #syllabuses, #assignments, #quizes, #midterms, #finals{
   position: relative;
-  top: 25%;
+  top: 15%;
   margin: auto;
   /*margin-top: 300px;*/
   width: 40%;

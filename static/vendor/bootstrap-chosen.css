@@ -1,12 +1,6 @@
 
 
-.chosen-container {
-  display: inline-block;
-  font-size: 14px;
-  position: absolute;
-  right: 350px;
-  top: 25px;
-  vertical-align: middle; }
+
   .chosen-container .chosen-drop {
     background: #fff;
     border: 1px solid #ccc;
