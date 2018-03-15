@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'courses',
     'accounts',
     'internship',
+    'questions',
 
     #external apps
     'widget_tweaks',

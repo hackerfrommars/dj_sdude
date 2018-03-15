@@ -205,6 +205,9 @@
                       <p id="tex"><b>Professor FileName Year Term Download</p>
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 1 %}
+                          name: {{ exam.course.name }} <br>
+                          file_name: {{ exam.file.name }}<a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a><br>
+                          created_at: {{ exam.created_at | timesince}} ago <br><br>
                           
                           </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
                           <p id="forth">{{ exam.created_at | timesince}} ago</p>
