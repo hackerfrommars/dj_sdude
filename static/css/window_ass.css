@@ -6,6 +6,8 @@
   border: 1px solid #495e7b;
   box-shadow: 0 5px #999;
   font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  height: 45px;
+  /*margin-right: 2px;*/
 }
 
 #add_button .btn:hover {
@@ -22,6 +24,7 @@
   border: 1px solid #495e7b;
   box-shadow: 0 5px #999;
   font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  /*height: 30px;*/
 }
 
 #show_button .btn:hover {
@@ -49,6 +52,7 @@
   position: relative;
   top: 25%;
   margin: auto;
+  /*margin-top: 300px;*/
   width: 40%;
   height: 200px;
   border-radius: 5px;
@@ -244,4 +248,23 @@
 */
 #exam, #myfirst, #mysecond, #mythree, #myfour, #myfive, #mysix  {
       display: none;
+      border-style: outset;
+      padding-left: 5px;
+      padding-bottom: 10px;
+
     }
+#first, #second, #third, #forth, #fifth{
+   float:left;
+  border: 1.5px solid;
+  font-weight: normal;
+  border-radius: 3px;
+  margin-right: 25px;
+  width: 130px;
+  height: 23px;
+
+}
+#tex{
+  word-spacing: 105px;
+
+}
+
