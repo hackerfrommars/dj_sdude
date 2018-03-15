@@ -69,11 +69,10 @@
   <div class="modal-content">
     <span class="close">&times;</span>
     {% csrf_token %}
-    {{ password_change_form.old_password }}
-    {{ password_change_form.new_password1 }}
-    {{ password_change_form.new_password2 }}
+    {{ password_change_form.old_password }}<br>
+    {{ password_change_form.new_password1 }}<br>
+    {{ password_change_form.new_password2 }}<br>
     <button  type="submit" value="Change Password">change password</button>
-    <p  type="submit">cancel</p>
   </div>
 
 </div>
