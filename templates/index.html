@@ -254,7 +254,7 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <form method="post" action="/">
+            <form method="post" action="/" onsubmit="return do_something()">
             {% csrf_token %}
 {#        {{ signup_form.as_p }}#}
               <div class="row">
@@ -264,7 +264,7 @@
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="email" type="text" placeholder="Your SDU mail *" required data-validation-required-message="Please enter SDU mail"  {{ signup_form.email | add_class:"signup_form" }}         
+                    <input class="form-control" id="emaill" type="text" placeholder="Your SDU mail *" required data-validation-required-message="Please enter SDU mail"  {{ signup_form.email | add_class:"signup_form" }}         
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
@@ -373,6 +373,19 @@ $('#forgotten').click(function(){
     $("#forgotten-container").fadeIn();
   });
 });
+function do_something(){
+var email = document.getElementById('emaill');
+var filter = /^([a-zA-Z0-9_\.\-])+\@stu\.sdu\.edu\.kz+$/;
+if (filter.test(email.value)) {
+// alert('Please provide a valid email address');
+
+// Do your stuff here
+return true; // submit the form
+}
+alert('Please provide a valid email address');
+return false; // don't submit the form
+}
+
 </script>
   </body>
 

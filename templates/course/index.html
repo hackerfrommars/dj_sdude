@@ -42,7 +42,7 @@
             <span class="hidden-xs">Add FeedBack</span></a>
 
   </div> 
-            <h1>Subject Name</h1>
+            <h1 style="margin-top: 80px; margin-left: 150px;">Subject Name</h1>
 
           
 <!-- add menu javascript -->
@@ -210,61 +210,69 @@
       <div class="card-body">
               <h2 class="card-title" id="title" style="font-size: 2vw;">Click on any tab to view resources</h2>
                   <div id="myfirst">
+                      <p id="tex"><b>Professor FileName Year Term Download</p>
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 1 %}
-                          name: {{ exam.course.name }} <br>
-                          download: <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a><br>
-                          created_at: {{ exam.created_at | timesince}} ago <br><br>
+                          
+                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
+                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
+                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                          
                         {% endif %}
                       {% endfor %}
                   </div>
                   <div id="mysecond">
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 2 %}
-                          type: {{ exam.exam_type }}
-                          name: {{ exam.course.name }} <br>
-                          file_name: {{ exam.file.name }} <br>
-                          created_at: {{ exam.created_at | timesince}} ago <br><br>
+                          <p id="tex"><b>Professor FileName Year Term Download</p>
+                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
+                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
+                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                          
                         {% endif %}
                       {% endfor %}
                   </div>
                   <div id="mythree">
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 3 %}
-                            type: {{ exam.exam_type }}
-                            name: {{ exam.course.name }} <br>
-                            file_name: {{ exam.file.name }} <br>
-                            created_at: {{ exam.created_at | timesince}} ago <br><br>
+                            <p id="tex"><b>Professor FileName Year Term Download</p>
+                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
+                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
+                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                          
                           {% endif %}
                       {% endfor %}
                   </div>
                   <div id="myfour">
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 4 %}
-                            type: {{ exam.exam_type }}
-                            name: {{ exam.course.name }} <br>
-                            file_name: {{ exam.file.name }} <br>
-                            created_at: {{ exam.created_at | timesince}} ago <br><br>
+                            <p id="tex"><b>Professor FileName Year Term Download</p>
+                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
+                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
+                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                          
                           {% endif %}
                       {% endfor %}
                   </div>
                   <div id="myfive">
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 5 %}
-                            type: {{ exam.exam_type }}
-                            name: {{ exam.course.name }} <br>
-                            file_name: {{ exam.file.name }} <br>
-                            created_at: {{ exam.created_at | timesince}} ago <br><br>
+                            <p id="tex"><b>Professor FileName Year Term Download</p>
+                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
+                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
+                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                          
                           {% endif %}
                       {% endfor %}
                   </div>
                   <div id="mysix">
                       {% for feedback in feedback_list %}
-                      name: {{ feedback.course.name }} <br>
-                      content: {{ feedback.content }} <br>
-                      grade: {{ feedback.grade }} <br>
-                      created_at: {{ feedback.created_at | timesince}} ago <br>
+                      <p>content: {{ feedback.content }} </p><br>
+                      <p>Grade: {{ feedback.grade }} <br>
+                      Created at: {{ feedback.created_at | timesince}} ago </p><br>
                       <br>
+
+                          
                       {% endfor %}
                   </div>
                 </div>
@@ -287,5 +295,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
     <script src="{% static 'js/course_js.js'%}" ></script>
-
+    
   {% endblock %}
