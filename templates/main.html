@@ -22,8 +22,8 @@
           <div class="col-lg-12">
               <div class="row">
                 <div class="col-md-8">
-                <button class="button" onclick="tops()">TOP questions</button>
-            <button class="button" onclick="hot()">HOT questions</button>
+                <button class="button" onclick="tops()"><h4>TOP questions</h4></button>
+            <button class="button" onclick="hot()"><h4>HOT questions</h4></button>
                   <h2 class="card-title" id="title"></h2>
   <div id="hot_questions">
   <div class="panel-group" >
@@ -102,16 +102,16 @@
       
   </div>
   <a href='{% url "internship:main" %}' class="list-group-item" style="background-color: #495e7b; height: 50px;">
-                <h2>View All Intership</h2>
+                <h5>View All Intership</h5>
       </a>
 <!--             internship detail with javascript -->
 <div id="internship_info">
 
                         <a href="#" class="list-group-item">
-                                   <h4 class="list-group-item-heading"><b>{{ internship_list.0.title }}</b></h4>
+                                   <h4 class="list-group-item-heading"><b>{{ internship_list.1.title }}</b></h4>
                                       <img src="{% static 'img/logos/more_main.png'%}">
-                                   <p class="list-group-item-text"><p>{{ internship_list.0.content }}</p></p>
-                                   <i>{{ internship_list.0.created_at }}</i>
+                                   <p class="list-group-item-text"><p>{{ internship_list.1.content }}</p></p>
+                                   <i>{{ internship_list.1.created_at }}</i>
                         </a>
                                         <p class="cancel" type="submit" style="vertical-align:middle">
                                         <span>cancel</span></p>
