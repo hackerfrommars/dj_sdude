@@ -21,7 +21,7 @@
       
       <!-- ADD exams -->
 
-  <div class="btn-group btn-group-justified" style=" position: relative; width: 75%; left:13%; height: auto; top:10px;" id="add_button">
+  <div class="btn-group btn-group-justified" style=" position: relative; width: 75%; left:13%; height: auto; top:90px;" id="add_button">
           <a class="enviaPedido btn btn-sm"  id="add_syl">
             <span class="visible-xs-block">Add<br>Syllabus</span>
             <span class="hidden-xs">Add Syllabus</span></a>
@@ -42,7 +42,7 @@
             <span class="hidden-xs">Add FeedBack</span></a>
 
   </div> 
-            <h1 style="margin-top: 80px; margin-left: 150px;">Subject Name</h1>
+            <h1 style="margin-top: 120px; margin-left: 150px;">Subject Name</h1>
 
           
 <!-- add menu javascript -->
@@ -208,19 +208,22 @@
             <span class="hidden-xs">FeedBack</span></a>
   </div>  
       <div class="card-body">
-              <h2 class="card-title" id="title" style="font-size: 2vw;">Click on any tab to view resources</h2>
-                  <div id="myfirst">
-                      <p id="tex"><b>Professor FileName Year Term Download</p>
+              <h2 class="card-title" id="title" style="font-size: 2vw; ">Click on any tab to view resources</h2>
+               <div id="mnmn">
+                  <div  id="myfirst" >
+                      <p id="tex"><b>Professor FileName YearTerm Download</p>
+                       
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 1 %}
-                          name: {{ exam.course.name }} <br>
-                          file_name: {{ exam.file.name }}<a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a><br>
-                          created_at: {{ exam.created_at | timesince}} ago <br><br>
                           
-                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
-                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
                           
+                          </b><p id="first">{{ exam.professor }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                        
+                          <p id="forth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                          
+                              
+
+       
                         {% endif %}
                       {% endfor %}
                   </div>
@@ -279,8 +282,10 @@
                           
                       {% endfor %}
                   </div>
-                </div>
-                <div class="card-footer text-muted">Posted on January 1, 2017 by</div>
+         
+               <!-- </div> -->
+                <div  class="card-footer text-muted" >Posted on January 1, 2018 by</div>
+            </div>
     </div>
 <br>
 <br>
