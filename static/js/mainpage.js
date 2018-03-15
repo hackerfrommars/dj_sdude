@@ -1,6 +1,9 @@
   // show more information about internship
+  var $ = jQuery;
+
   $('#show_more').click(function(){
   $('#show_more').fadeIn(function(){
+  console.log('show_more');
 
     $("#internship_info").fadeIn();
   });
@@ -19,6 +22,8 @@ function hot() {
 		hot_q.style.display = "block";
 		document.getElementById("title").innerHTML = "HOT questions";
 		top_q.style.display = "none";
+		  console.log('show hot');
+
 
 	} else {
 		hot_q.style.display = "none";
@@ -26,11 +31,13 @@ function hot() {
 
 	}
 }
-function top() {
+function tops() {
 	if (top_q.style.display === "none") {
 		top_q.style.display = "block";
 		document.getElementById("title").innerHTML = "TOP questions";
 						hot_q.style.display = "none";
+			  console.log('show top');
+
 
 	} else {
 		top_q.style.display = "none";
@@ -38,3 +45,9 @@ function top() {
 
 	}
 }
+$('button').on('click', function(){
+    $('button').removeClass('selected');
+    $(this).addClass('selected');
+      console.log('button selected');
+
+});
