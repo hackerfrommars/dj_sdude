@@ -1,13 +1,58 @@
-
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles%}
 {% load index %}
 
-{{ internship_list | get_title:0 }}<br>
-{{ internship_list | get_content:0 }}<br>
-{{ internship_list | get_created_at:0 }}<br>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--  button add bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<hr>
-{% for internship in internship_list %}
-    <b>{{ internship.title }}</b><br>
-    <i>{{ internship.created_at | timesince }}</i><br>
-    <p>{{ internship.content }}</p><br>
-{% endfor %}
+
+<div class="container" id="internship">
+  <h2>List of Internship</h2>
+  <div class="list-group">
+    {% for internship in internship_list %}
+    <a href="#" class="list-group-item">
+      <span class="glyphicon glyphicon-info-sign" id="show_more"></span>
+      <h4 class="list-group-item-heading"><b>{{ internship.title }}</b></h4>
+      <p class="list-group-item-text"><p>{{ internship.content }}</p></p>
+      <i style="text-align: right;">{{ internship.created_at | timesince }}</i>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+<form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
+              <div id="internship_info">
+
+                                <h1>{{ internship_list | get_title:0 }}<br></h1>
+
+                      {{ internship_list | get_content:0 }}<br>
+{{ internship_list | get_created_at:0 }}<br>
+                      
+
+              <p class="cancel" type="submit" style="vertical-align:middle"><span>cancel</span></p>
+                
+              </div>  
+          </form>
+
+<!--   collapse javascript and source to find my own js file. it should be defined first than another script source -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'js/mainpage.js'%}" ></script>
+<!-- end -->
+
+<!-- Custom scripts for this template -->
+<script src="{% static 'js/agency.min.js' %}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<link href="{% static 'css/main_style.css' %}" rel="stylesheet">
+
+
+<script src="{% static 'js/internship.js'%}" ></script>
+
+{% endblock %}
