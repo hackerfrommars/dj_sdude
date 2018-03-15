@@ -3,17 +3,20 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 import datetime
 
+
 class Course(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
+
 class Professor(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
+
 
 class Exam(models.Model):
 

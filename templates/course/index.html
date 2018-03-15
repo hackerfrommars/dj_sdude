@@ -242,7 +242,7 @@
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 1 %}
                           name: {{ exam.course.name }} <br>
-                          download: <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a><br>
+                          file_name: {{ exam.file.name }}<a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a><br>
                           created_at: {{ exam.created_at | timesince}} ago <br><br>
                         {% endif %}
                       {% endfor %}
