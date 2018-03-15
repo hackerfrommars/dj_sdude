@@ -47,6 +47,8 @@
           
 <!-- add menu javascript -->
 <!--   syllabus javascript-->  
+        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
+
             <div id="syllabuses">
 
                                                          <h1>Syllabus</h1>
@@ -67,6 +69,7 @@
             <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
 <p class="cancel" >cancel</p>                
             </div>  
+</form>
 <!--   assignment javascript-->  
 
         <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
@@ -83,6 +86,8 @@
                     <div id="exam">         {{ form.exam_type|attr:"value:2"}} </div>
                     {{ form.professor }}
                     {{ form.file }}
+                    {{ form.year }}
+                    {{ form.semester }}
 
             <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
 <p class="cancel" >cancel</p>                
@@ -103,7 +108,9 @@
                       {%  csrf_token  %}
                       <div id="exam">         {{ form.exam_type|attr:"value:3"}} </div>
                       {{ form.professor }}
-                      {{ form.file }}
+                    {{ form.file }}
+                    {{ form.year }}
+                    {{ form.semester }}
 
               <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
 <p class="cancel" >cancel</p>                  
@@ -125,7 +132,9 @@
                       {%  csrf_token  %}
                       <div id="exam">         {{ form.exam_type|attr:"value:4"}} </div>
                       {{ form.professor }}
-                      {{ form.file }}
+                    {{ form.file }}
+                    {{ form.year }}
+                    {{ form.semester }}
 
               <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
 <p class="cancel" >cancel</p>                  
@@ -146,7 +155,9 @@
                       {%  csrf_token  %}
                       <div id="exam">         {{ form.exam_type|attr:"value:5"|add_class:"hidden_exam"}} </div>
                       {{ form.professor }}
-                      {{ form.file }}
+                    {{ form.file }}
+                    {{ form.year }}
+                    {{ form.semester }}
 
               <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
               <p class="cancel" >cancel</p>                  
