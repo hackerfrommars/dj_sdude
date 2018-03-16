@@ -228,45 +228,47 @@
                       {% endfor %}
                   </div>
                   <div id="mysecond">
+                  <p id="tex"><b>Professor FileName YearTerm Download</p>
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 2 %}
-                          <p id="tex"><b>Professor FileName Year Term Download</p>
-                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
-                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                          
+                          </b><p id="first">{{ exam.professor }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                        
+                          <p id="forth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
                           
                         {% endif %}
                       {% endfor %}
                   </div>
                   <div id="mythree">
+                  <p id="tex"><b>Professor FileName YearTerm Download</p>
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 3 %}
-                            <p id="tex"><b>Professor FileName Year Term Download</p>
-                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
-                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                            </b><p id="first">{{ exam.professor }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                        
+                          <p id="forth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
                           
                           {% endif %}
                       {% endfor %}
                   </div>
                   <div id="myfour">
+                  <p id="tex"><b>Professor FileName YearTerm Download</p>
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 4 %}
-                            <p id="tex"><b>Professor FileName Year Term Download</p>
-                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
-                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                            </b><p id="first">{{ exam.professor }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                        
+                          <p id="forth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
                           
                           {% endif %}
                       {% endfor %}
                   </div>
                   <div id="myfive">
+                  <p id="tex"><b>Professor FileName YearTerm Download</p>
                       {% for exam in exam_list %}
                         {% if exam.exam_type == 5 %}
-                            <p id="tex"><b>Professor FileName Year Term Download</p>
-                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
-                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                            </b><p id="first">{{ exam.professor }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                        
+                          <p id="forth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
+                          
                           
                           {% endif %}
                       {% endfor %}
@@ -277,7 +279,7 @@
                       <p>content: {{ feedback.content }} </p><br>
                       <p>Grade: {{ feedback.grade }} <br>
                       Created at: {{ feedback.created_at | timesince}} ago </p><br>
-                      <br>
+                      
 
                           
                       {% endfor %}
