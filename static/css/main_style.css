@@ -167,8 +167,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
   font-family: 'Open Sans Condensed', sans-serif;
   text-decoration: none;
     position: absolute;
-  width: 8%;
-  height: 28px;
+  width: 10%;
+  height: 32px;
   left: 65%;
   /*right: 5%;*/
   top: 30%;
@@ -213,15 +213,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   opacity: 1;
   right: 0;
 }
-@media (max-width: 500px) {
-  
-  .cancel{
-    width: 20% !important;
-    max-width: 100%;
-    height: auto !important;
-    font-size: 1.8vw;
-  }
-}
+
 .button {
     position: relative;
     left:5%;
@@ -290,6 +282,20 @@ button.selected{
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #343A40;
 
+}
+/*for size */
+@media (max-width: 500px) {
+  
+  .cancel{
+    width: 20% !important;
+    max-width: 100%;
+    height: auto !important;
+    font-size: 1.8vw;
+  }
+  .modal-content{
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 
