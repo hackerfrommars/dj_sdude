@@ -15,7 +15,7 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  width: 25%;
+  width: 30%;
   height: 40%;
   border-radius: 5px;
   box-shadow: 1px 1px 50px #000;
@@ -244,3 +244,110 @@ form a:hover{
   box-shadow: 1px 1px 50px #000;
   display: none;
 }
+
+
+@media (max-width: 1000px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 87px;
+    color: green;
+    
+  }
+  #first, #second, #third, #forth, #fifth{
+
+  margin-right: 5px;
+  width: 23%;
+  height: 24px;
+  font-size: 1.4vw;
+
+
+}
+
+}
+@media (max-width: 800px) {
+  
+  #first, #second, #third, #forth, #fifth{
+  margin-right: 5px;
+  width: 23%;
+  height: 24px;
+
+
+}
+#login-form{
+    height: 15%;
+    width: 30%;    
+ }
+
+}
+
+@media (max-width: 650px) {
+ 
+  #first, #second, #third, #forth, #fifth{
+  margin-right: 5px;
+  width: 23%;
+  height: 24px;
+
+
+}
+#login-form{
+    height: 33%;
+    width: 35%;
+
+  }
+}
+@media screen and  (max-width: 500px) {
+  
+  #login-form{
+    height: 25%;
+    width: 35%;
+    /*background-color: red;*/
+    
+  }
+  .checkbox{
+    width: 5px;
+    height: 4px;
+    margin-left: 3px;
+  }
+  #remember-container{
+    margin-top: 1px;
+  }
+
+}
+@media screen and  (max-width: 400px) {
+
+  #first, #second, #third, #forth, #fifth{
+  margin-right: 5px;
+  width: 21%;
+  height: 14px;
+
+
+}
+#login-form{
+    height: 25%;
+    width: 55%;
+    
+  }
+  .checkbox{
+    
+    margin-left: 4px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  
+  
+  #login-form{
+    height: 25%;
+    width: 55%;
+    
+  }
+  .checkbox{
+    margin-top: 1px;
+    margin-left: 4px;
+  }
+
+}
+
+
