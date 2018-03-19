@@ -1,3 +1,33 @@
+.modal-content{
+	background-color: #222222;
+}
+.btn-link{
+	color:white;
+}
+.btn-success{
+	color:#222222;
+	background-color: #fff;
+}
+.modal-heading h2{
+	color:#ffffff;
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+
 body{
 	overflow-x:hidden;font-family:'Roboto Slab','Helvetica Neue',
 Helvetica,Arial,sans-serif}
@@ -36,7 +66,8 @@ section h3.section-subheading {
 }
 .btn-primary{
     background-color:  rgba(255, 255, 255, 0.9);
-	border-color:#FFFFFF
+	border-color:#FFFFFF;
+	background-color: #000;
 }
 .btn-primary:focus,.btn-primary:hover{
 	background-color:#495e7b!important;
@@ -153,7 +184,7 @@ header.masthead .intro-text .intro-heading {
 .team-member h4{margin-top:25px;margin-bottom:0;text-transform:none}.team-member p{margin-top:0}
 section#contact{
 	background-color:#495e7b;
-	background-image:url(../img/RegistrationOnline.jpg);
+	background-image:url(../img/map-image.png);
 	background-repeat:no-repeat;
 	background-attachment:scroll;
 	background-position:center center;

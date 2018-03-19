@@ -1,7 +1,10 @@
-
-
-
-  .chosen-container .chosen-drop {
+.chosen-container{
+  position: relative;
+  left: 10px;
+  top:5px;
+  width: 100%;
+}
+.chosen-container .chosen-drop {
     background: #fff;
     border: 1px solid #ccc;
     border-bottom-right-radius: 4px;
