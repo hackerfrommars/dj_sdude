@@ -161,7 +161,7 @@ def download(request, name):
     raise Http404
 
 
-#@login_required(login_url='/')
+@login_required(login_url='/')
 def get_internship(request):
     internship_pk = request.GET.get('internship_pk', None)
     answer = get_object_or_404(Internship, pk=internship_pk)
