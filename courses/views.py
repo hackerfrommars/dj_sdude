@@ -1,8 +1,8 @@
 import os
 from django.conf import settings
-from django.shortcuts import render, render_to_response, redirect
+from django.shortcuts import render, render_to_response, redirect, get_object_or_404
 from django.utils import timezone
-from django.http import Http404, HttpResponse, HttpResponseRedirect
+from django.http import Http404, HttpResponse, HttpResponseRedirect, JsonResponse
 from .models import Professor, Exam, Course, Feedback
 from .forms import ExamForm, FeedbackForm
 from internship.models import Internship
@@ -11,7 +11,8 @@ from accounts.forms import LoginForm, SignUpForm
 from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
-
+from django.core.serializers import serialize
+from django.core.serializers.json import DjangoJSONEncoder
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode
 from django.template.loader import render_to_string
@@ -160,3 +161,13 @@ def download(request, name):
     raise Http404
 
 
+@login_required(login_url='/')
+def get_internship(request):
+    internship_pk = request.GET.get('internship_pk', None)
+    answer = get_object_or_404(Internship, pk=internship_pk)
+    data = {
+        'title': answer.title,
+        'content': answer.content,
+        'created_at': answer.created_at
+    }
+    return JsonResponse(data)
