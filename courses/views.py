@@ -105,7 +105,10 @@ def list_course(request, id):
         "course_list": course_list,
         "feedback_list": feedback_list,
     }
-
+    exam_form = ExamForm()
+    feedback_form = FeedbackForm()
+    context['form'] = exam_form
+    context['feedback_form'] = feedback_form
     if request.method == 'POST' and request.POST['submit'] == 'Create Post':
         exam_form = ExamForm(request.POST, request.FILES)
         if exam_form.is_valid():
@@ -113,10 +116,6 @@ def list_course(request, id):
             ins.created_by = request.user
             ins.course = course
             ins.save()
-            exam_form = ExamForm()
-            feedback_form = FeedbackForm()
-            context['form'] = exam_form
-            context['feedback_form'] = feedback_form
             return redirect('/courses/%s' %id)
 
     elif request.method == 'POST' and request.POST['submit'] == 'Add Feedback':
@@ -126,11 +125,9 @@ def list_course(request, id):
             ins.created_by = request.user
             ins.course = course
             ins.save()
-            exam_form = ExamForm()
-            feedback_form = FeedbackForm()
-            context['form'] = exam_form
-            context['feedback_form'] = feedback_form
             return redirect('/courses/%s' %id)
+        else:
+            return HttpResponse("not valid feedback form")
     if request.method == 'POST' and request.POST['submit'] == 'Change Password':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
