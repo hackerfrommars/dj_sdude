@@ -16,7 +16,7 @@
     background-color: #fff;
 }
 #add_button .btn span {
-  font-size: 1.1vw;
+  font-size: 1.3vw;
 }
 #show_button .btn{
   cursor: pointer;
@@ -272,12 +272,19 @@
 
 #first, #second, #third, #forth, #fifth{
    float:left;
-  border: 1.5px solid;
+  border: 1px solid;
   font-weight: normal;
   border-radius: 3px;
   margin-right: 5px;
   width: 24%;
   height: 24px;
+  padding-top: 2px;
+  text-align: center;
+  overflow: hidden;
+  color:#343A40;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 
 
 }
