@@ -1,8 +1,8 @@
 import os
 from django.conf import settings
-from django.shortcuts import render, render_to_response, redirect
+from django.shortcuts import render, render_to_response, redirect, get_object_or_404, get_list_or_404
 from django.utils import timezone
-from django.http import Http404, HttpResponse, HttpResponseRedirect
+from django.http import Http404, HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
 from accounts.forms import LoginForm, SignUpForm
 from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
@@ -14,6 +14,8 @@ from django.utils.http import urlsafe_base64_encode
 from django.template.loader import render_to_string
 from accounts.tokens import account_activation_token
 from django.contrib.sites.shortcuts import get_current_site
+import json
+from django.core.serializers.json import DjangoJSONEncoder
 
 from courses.models import Course
 from .models import Question, Answer
@@ -42,3 +44,12 @@ def main_page(request):
         form = PasswordChangeForm(request.user)
         context['password_change_form'] = form
     return render(request, "questions/index.html", context)
+
+
+def get_answer(request):
+    question_pk = request.GET.get('question_pk', None)
+    answer = get_list_or_404(Answer, to_question__pk=question_pk)
+    data = {
+        'answer': len(answer)
+    }
+    return JsonResponse(data)
