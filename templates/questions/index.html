@@ -6,11 +6,33 @@
 </head>
 <body>
 {% for question in question_list %}
-    <div>
-        <h3>{{ question.content }}</h3> <br>
-        {{ question.created_at | timesince }}
+    <div class="question_specific" pk="{{ question.pk }}">
+        <div>{{ question.content }}</div><br>
+            {{ question.created_at | timesince }}
         <hr>
     </div>
 {% endfor %}
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(".question_specific").click(function () {
+            var pk = $(this).attr('pk');
+
+            $.ajax({
+                url: '/questions/get_answer/',
+                data: {
+                    'question_pk': pk
+                },
+                dataType: 'json',
+                success: function (data) {
+                    alert(data.answer);
+                }
+            });
+
+        });
+    });
+  </script>
 </body>
 </html>
