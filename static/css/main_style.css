@@ -177,7 +177,7 @@ button.selected{
 #top_questions{
   position: relative;
   width: 100%;
-  display: none;
+  display: block;
 }
 #hot_questions{
   position: relative;
