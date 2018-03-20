@@ -8,5 +8,7 @@ urlpatterns = [
     url(r'^courses/(?P<id>[0-9]*)/$', views.list_course, name='list_course'),
     url(r'^courses/download/(?P<name>.*)/$', views.download, name='download_course'),
     url(r'^get_internship/$', views.get_internship, name='get_internship'),
+    url(r'^hot_answer/$', views.hot_answer, name='hot_answer'),
+    # url(r'^latest_answer/$', views_answer, name='hot_answer'),
     url(r'^$', views.home_page),
 ]

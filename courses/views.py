@@ -18,7 +18,9 @@ from django.utils.http import urlsafe_base64_encode
 from django.template.loader import render_to_string
 from accounts.tokens import account_activation_token
 from django.contrib.sites.shortcuts import get_current_site
-
+from questions.models import Answer, Question
+from django.db.models import Count
+import json
 
 def home_page(request):
 
@@ -88,6 +90,11 @@ def main_page(request):
     else:
         form = PasswordChangeForm(request.user)
         context['password_change_form'] = form
+        hot_answers = Answer.objects.values('to_question').annotate(total=Count('to_question')).order_by('-total')[:2]
+        hot_questions = []
+        for answer in hot_answers:
+            hot_questions.append(get_object_or_404(Question, pk=answer['to_question']))
+        context['hot_questions'] = hot_questions
     return render(request, "main.html", context)
 
 
@@ -168,3 +175,11 @@ def get_internship(request):
         'created_at': answer.created_at
     }
     return JsonResponse(data)
+
+
+@login_required(login_url='/')
+def hot_answer(request):
+    question_pk = request.GET.get('question_pk', None)
+    answers = Answer.objects.filter(to_question=question_pk)[:2]
+    answer_json = [ob.as_json() for ob in answers]
+    return HttpResponse(json.dumps(answer_json), content_type='application/json')
