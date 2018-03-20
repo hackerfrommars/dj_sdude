@@ -20,3 +20,10 @@ class Answer(models.Model):
 
     def __str__(self):
         return self.content
+
+    def as_json(self):
+        return dict(
+            created_at=self.created_at.isoformat(),
+            content=self.content,
+            question_pk=self.to_question.pk
+        )
