@@ -55,7 +55,7 @@
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#test1">top questions 1</a>
+                                                <a data-toggle="collapse" href="#test1" class="top_question" pk="{{ top_questions.0.pk }}" ord="1">{{ top_questions.0.content }}</a>
                                             </h4>
                                         </div>
                                         <div id="test1" class="panel-collapse collapse">
@@ -66,7 +66,7 @@
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#test2">top questions 2</a>
+                                                <a data-toggle="collapse" href="#test2" class="top_question" pk="{{ top_questions.1.pk }}" ord="2">{{ top_questions.1.content }}</a>
                                             </h4>
                                         </div>
                                         <div id="test2" class="panel-collapse collapse">
@@ -205,6 +205,43 @@
                             $('#hot2').append('<div class="panel-footer">' + data[1].content + '</div>');
                         }
 
+                    }
+                });
+
+            });
+        });
+
+
+        $(document).ready(function () {
+            $(".top_question").click(function () {
+                var pk = $(this).attr('pk');
+                var ord = $(this).attr('ord');
+
+                $.ajax({
+                    url: '/top_answer/',
+                    data: {
+                        'question_pk': pk
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#test1').html('');
+                        $('#test2').html('');
+                        if (data.length > 0) {
+                            if (ord == 1) {
+                                $('#test1').html('');
+                                $('#test1').append('<div class="panel-body">' + data[0].content + '</div>');
+                                if(data.length == 2){
+                                    $('#test1').append('<div class="panel-footer">' + data[1].content + '</div>');
+                                }
+                            }
+                            else {
+                                $('#test2').html('');
+                                $('#test2').append('<div class="panel-body">' + data[0].content + '</div>');
+                                if(data.length == 2){
+                                $('#test2').append('<div class="panel-footer">' + data[1].content + '</div>');
+                                }
+                            }
+                        }
                     }
                 });
 

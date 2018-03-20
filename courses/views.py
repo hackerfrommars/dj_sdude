@@ -95,6 +95,8 @@ def main_page(request):
         for answer in hot_answers:
             hot_questions.append(get_object_or_404(Question, pk=answer['to_question']))
         context['hot_questions'] = hot_questions
+        top_questions = Question.objects.order_by('-created_at')[:2]
+        context['top_questions'] = top_questions
     return render(request, "main.html", context)
 
 
@@ -179,6 +181,14 @@ def get_internship(request):
 
 @login_required(login_url='/')
 def hot_answer(request):
+    question_pk = request.GET.get('question_pk', None)
+    answers = Answer.objects.filter(to_question=question_pk)[:2]
+    answer_json = [ob.as_json() for ob in answers]
+    return HttpResponse(json.dumps(answer_json), content_type='application/json')
+
+
+@login_required(login_url='/')
+def top_answer(request):
     question_pk = request.GET.get('question_pk', None)
     answers = Answer.objects.filter(to_question=question_pk)[:2]
     answer_json = [ob.as_json() for ob in answers]
