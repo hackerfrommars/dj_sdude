@@ -11,5 +11,5 @@ class ExamForm(forms.ModelForm):
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
-        fields = ('professor', 'grade', 'year', 'semester', 'content')
+        fields = ('professor', 'grade', 'content')
 

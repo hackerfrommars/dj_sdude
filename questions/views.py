@@ -16,9 +16,11 @@ from accounts.tokens import account_activation_token
 from django.contrib.sites.shortcuts import get_current_site
 import json
 from django.core.serializers.json import DjangoJSONEncoder
+from django.core import serializers
 
 from courses.models import Course
 from .models import Question, Answer
+
 
 @login_required(login_url='/')
 def main_page(request):
@@ -46,10 +48,10 @@ def main_page(request):
     return render(request, "questions/index.html", context)
 
 
+@login_required(login_url='/')
 def get_answer(request):
     question_pk = request.GET.get('question_pk', None)
     answer = get_list_or_404(Answer, to_question__pk=question_pk)
-    data = {
-        'answer': len(answer)
-    }
-    return JsonResponse(data)
+    # answer_serialized = serializers.serialize('json', answer)
+    answer_json = [ob.as_json() for ob in answer]
+    return HttpResponse(json.dumps(answer_json), content_type='application/json')

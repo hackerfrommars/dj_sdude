@@ -148,53 +148,62 @@
               </div>        
               </div>  
           </form>
-  <!--   final javascript-->  
+  <!--   final javascript-->
 
-          <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
-              <div id="finals">
-              <div id="finals-content">
+        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+            <div id="finals">
 
-                                                           <h1>Final</h1>
+                <h1>Final</h1>
 
-                      <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
+                <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
                     {% for prof in prof_list %}
                         <option value="{{ prof.pk }}">{{ prof.name }}</option>
                     {% endfor %}
                 </select>
-                      {%  csrf_token  %}
-                      <div id="exam">         {{ form.exam_type|attr:"value:5"|add_class:"hidden_exam"}} </div>
-{#                      {{ form.professor }}#}
-                    {{ form.file }}
-                    {{ form.year }}
-                    {{ form.semester }}
+                {% csrf_token %}
+                <div id="exam">         {{ form.exam_type|attr:"value:5"|add_class:"hidden_exam" }} </div>
+                {#                      {{ form.professor }}#}
+                {{ form.file }}
+                {{ form.year }}
+                {{ form.semester }}
 
-              <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-              <p class="cancel" >cancel</p>
-              </div>                  
-              </div>  
-          </form>
-  <!--   feedback javascript-->  
+                <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span>
+                </button>
+                <p class="cancel">cancel</p>
+            </div>
+        </form>
+  <!--   feedback javascript-->
 
-          <form method="post" action="/courses/{{ course_id }}/">
-              <div id="feedbacks">
-              <div id="feedbacks-content">
+        <form method="POST" id="post_form" action="/courses/{{ course_id }}/">
+            <div id="feedbacks">
 
-                                                          <h1>FeedBack</h1>
+                <h1>FeedBack</h1>
 
-                    {%  csrf_token  %}
-                    <p style="margin:0;display:inline;float:left; position: absolute; left: 20px; color: #fff;"> Professor: {{ feedback_form.professor }} </p>
-                    <p style="margin:0;display:inline;float:center; position: absolute; right: 100px; color: #fff;"> Grade: {{ feedback_form.grade }} </p>
-                    
-                    <textarea rows="4" cols="50" form="usrform" style="position: absolute; left: 20px; top:115px;  width: 90%; height: 40%; text-align: left; background-color: #fff; color: #000" placeholder="Write your feedback about this course"  {{ feedback_form.content }} ></textarea>
+                {% csrf_token %}
+                                  <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
+                                      {% for prof in prof_list %}
+                                          <option value="{{ prof.pk }}">{{ prof.name }}</option>
+                                      {% endfor %}
+                                  </select>
+{#                <p style="margin:0;display:inline;float:center; position: absolute; right: 100px; color: #fff;">#}
+{#                    Grade: {{ feedback_form.grade }} </p>#}
+                {{ feedback_form.grade }}
+{#                {{ feedback_form.year }}<br>#}
+{#                {{ feedback_form.semester }}<br>#}
+                {{ feedback_form.content }}
+{#                <textarea rows="4" cols="50" form="usrform"#}
+{#                          style="position: absolute; left: 20px; top:80px;  width: 90%; height: 40%; text-align: left; background-color: #fff; color: #000"#}
+{#                          placeholder="Write your feedback about this course"  {{ feedback_form.content }} ></textarea>#}
 
-                    <button id="create" type="submit" name="submit" value="Add Feedback" style="position: absolute;top: 80%; right: 5%;background-color: #fff; color: #000; width: 15%; height: 12%;"><span>Add</span></button>
-                            <p class="cancel_f" >cancel</p> 
-                            </div> 
-              </div>  
-          </form>
-          
+                <button id="create" type="submit" name="submit" value="Add Feedback"
+                        style="position: absolute;top: 70%; right: 5%;background-color: #fff; color: #000; width: 15%; height: 12%;">
+                    <span>Add</span></button>
+                <p class="cancel_f">cancel</p>
+            </div>
+        </form>
 
-<!-- end ADD exam-->
+
+        <!-- end ADD exam-->
 
 
 

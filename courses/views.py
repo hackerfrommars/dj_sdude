@@ -18,7 +18,9 @@ from django.utils.http import urlsafe_base64_encode
 from django.template.loader import render_to_string
 from accounts.tokens import account_activation_token
 from django.contrib.sites.shortcuts import get_current_site
-
+from questions.models import Answer, Question
+from django.db.models import Count
+import json
 
 def home_page(request):
 
@@ -88,6 +90,13 @@ def main_page(request):
     else:
         form = PasswordChangeForm(request.user)
         context['password_change_form'] = form
+        hot_answers = Answer.objects.values('to_question').annotate(total=Count('to_question')).order_by('-total')[:2]
+        hot_questions = []
+        for answer in hot_answers:
+            hot_questions.append(get_object_or_404(Question, pk=answer['to_question']))
+        context['hot_questions'] = hot_questions
+        top_questions = Question.objects.order_by('-created_at')[:2]
+        context['top_questions'] = top_questions
     return render(request, "main.html", context)
 
 
@@ -105,7 +114,10 @@ def list_course(request, id):
         "course_list": course_list,
         "feedback_list": feedback_list,
     }
-
+    exam_form = ExamForm()
+    feedback_form = FeedbackForm()
+    context['form'] = exam_form
+    context['feedback_form'] = feedback_form
     if request.method == 'POST' and request.POST['submit'] == 'Create Post':
         exam_form = ExamForm(request.POST, request.FILES)
         if exam_form.is_valid():
@@ -113,10 +125,6 @@ def list_course(request, id):
             ins.created_by = request.user
             ins.course = course
             ins.save()
-            exam_form = ExamForm()
-            feedback_form = FeedbackForm()
-            context['form'] = exam_form
-            context['feedback_form'] = feedback_form
             return redirect('/courses/%s' %id)
 
     elif request.method == 'POST' and request.POST['submit'] == 'Add Feedback':
@@ -126,11 +134,9 @@ def list_course(request, id):
             ins.created_by = request.user
             ins.course = course
             ins.save()
-            exam_form = ExamForm()
-            feedback_form = FeedbackForm()
-            context['form'] = exam_form
-            context['feedback_form'] = feedback_form
             return redirect('/courses/%s' %id)
+        else:
+            return HttpResponse("not valid feedback form")
     if request.method == 'POST' and request.POST['submit'] == 'Change Password':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -171,3 +177,19 @@ def get_internship(request):
         'created_at': answer.created_at
     }
     return JsonResponse(data)
+
+
+@login_required(login_url='/')
+def hot_answer(request):
+    question_pk = request.GET.get('question_pk', None)
+    answers = Answer.objects.filter(to_question=question_pk)[:2]
+    answer_json = [ob.as_json() for ob in answers]
+    return HttpResponse(json.dumps(answer_json), content_type='application/json')
+
+
+@login_required(login_url='/')
+def top_answer(request):
+    question_pk = request.GET.get('question_pk', None)
+    answers = Answer.objects.filter(to_question=question_pk)[:2]
+    answer_json = [ob.as_json() for ob in answers]
+    return HttpResponse(json.dumps(answer_json), content_type='application/json')
