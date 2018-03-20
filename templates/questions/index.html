@@ -11,6 +11,9 @@
             {{ question.created_at | timesince }}
         <hr>
     </div>
+    <div id="{{ question.pk }}" style="background-color: blue">
+    </div>
+
 {% endfor %}
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -27,7 +30,12 @@
                 },
                 dataType: 'json',
                 success: function (data) {
-                    alert(data.answer);
+                    {#alert(data);#}
+                    $('#'+data[0].question_pk).html('');
+                    $.each(data, function (index, value) {
+                        $('#'+value.question_pk).append('<p>' + value.created_at + '<br>' + value.content + '</p>');
+                        {#alert(value.content);#}
+                    });
                 }
             });
 
