@@ -54,7 +54,7 @@
               <a class="nav-link js-scroll-trigger" href="#team">Team</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Registration</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">Online</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#page-top" id="login-button">Sign In</a>
@@ -64,42 +64,81 @@
       </div>
     </nav>
 
+        <form id="login_form" method="post" action="/" class="modal">
 
-<div id="login-form">
-  <h1>Sign In</h1>
-  <span class="close-btn">
-    <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
-  </span>
+  <div class="modal-dialog">
+    <div class="modal-content">
+          <span class="close">&times;</span>
 
-  <form id="login_form" method="post" action="/">
-      {%  csrf_token  %}
-  <input type="text" placeholder="E-mail"
-            {{ login_form.username | add_class:"login_form"}} 
-  <input type="password" placeholder="Password"
-            {{ login_form.password | add_class:"login_form" }} 
-    <button class="button" type="submit" name="action" value="Login" style="vertical-align:middle"><span>log in </span></button>
-    <div id="remember-container">
-      <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked"/>
-      <span id="remember">Remember me</span>
-      <span id="forgotten">Forgotten password</span>
+      <div class="modal-heading">
+        <h2 class="text-center">Login</h2>
+      </div>
+      <div class="modal-body">
+
+            {%  csrf_token  %}
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-user"></span>
+              </span>
+              <input type="text" class="form-control" placeholder="E-mail"
+            {{ login_form.username | add_class:"login_form"}}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-lock"></span>
+              </span>
+              <input type="password" class="form-control" placeholder="Password"
+            {{ login_form.password | add_class:"login_form" }}
+
+            </div>
+
+          </div>
+
+          <div class="form-group text-center">
+            <button class="btn btn-success btn-lg" type="submit" name="action" value="Login" style="vertical-align:middle"><span>log in </span></button>
+            <a href="#" class="btn btn-link" id="forgot">forget Password</a>
+          </div>
+
+      </div>
     </div>
+  </div>
+
 </form>
-</div>
-{% endif %}
+  {% endif %}
+<!-- forgot Password Container -->
 
-<!-- Forgotten Password Container -->
-<div id="forgotten-container">
-   <h1>Forgotten password</h1>
-  <span class="close-btn">
-    <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
-  </span>
 
-  <form id="get_pass">
-    <input type="email" name="email" placeholder="E-mail">
-    <button class="button" type="submit" style="vertical-align:middle"><span>get new password</span></button>
-</form>
+  <form id="get_pass" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+          <span class="close-btn">&times;</span>
 
-</div>
+      <div class="modal-heading">
+        <h2 class="text-center">New Password</h2>
+      </div>
+      <div class="modal-body">
+
+            {%  csrf_token  %}
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-user"></span>
+              </span>
+              <input type="text" class="form-control" placeholder="E-mail">
+            </div>
+          </div>
+          </br>
+          <div class="form-group text-center">
+            <button class="btn btn-success btn-lg" type="submit" name="action" value="Login" style="vertical-align:middle"><span>get new password</span></button>
+          </div>
+
+      </div>
+    </div>
+  </div>
+  </form>
 
     <!-- Header -->
     <header class="masthead">
@@ -250,7 +289,6 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Registration</h2>
-            <h3 class="section-subheading text-muted">You have to sign up by your SDU mail and have to be student to access all privileges. But don't worry, it is anonymous.</h3>
           </div>
         </div>
         <div class="row">
@@ -259,6 +297,15 @@
             {% csrf_token %}
 {#        {{ signup_form.as_p }}#}
               <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="right">
+                      <p style="text-align: center; color: #495e7b; bottom: 20px; top:0px; position: relative; font-weight: bold; font-size: 22px; border:1px solid #495e7b; padding-top: 10px; padding-bottom: 10px; ">Please Note</p>
+                      <p style="text-align: center; color: #495e7b; font-size: 18px;position: relative; top:10px; padding-bottom: 80px; padding-left:10px; padding-right:10px;">You have to sign up by your SDU mail and have to be student to access all privileges. But don't worry, it is anonymous. Otherwise your accout will be deleted without notification. This is done to restrict access only to SDU student.</p>
+                      <p class="help-block text-danger"></p>
+                    </div>
+                  </div>
+                </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <input class="form-control" id="name" type="mail" placeholder="Your name *" required data-validation-required-message="Please enter your name" {{ signup_form.username | add_class:"signup_form" }}
@@ -277,15 +324,7 @@
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <div class="right">
-                      <p style="text-align: center; color: #495e7b; bottom: 20px; top:0px; position: relative; font-weight: bold; font-size: 22px; border:1px solid #495e7b; padding-top: 10px; padding-bottom: 10px; ">Please Note</p>
-                      <p style="text-align: center; color: #495e7b; font-size: 18px;position: relative; top:10px; padding-bottom: 80px; padding-left:10px; padding-right:10px;">You have to sign up with your SDU mail, otherwise your accout will be deleted without notification. This is done to restrict access only to SDU student.</p>
-                      <p class="help-block text-danger"></p>
-                    </div>
-                  </div>
-                </div>
+                
                 <div class="clearfix"></div>
                 <div class="col-lg-12 text-center">
                   <div id="success"></div>
@@ -305,26 +344,7 @@
           <div class="col-md-4">
             <span class="copyright">Kaskelen 2018</span>
           </div>
-          <div class="col-md-4">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
+          <div class="col-md-8">
             <ul class="list-inline quicklinks">
               <li class="list-inline-item">
                 <a href="#">&copy; sdude.org</a>
@@ -351,27 +371,19 @@
     <!-- Custom scripts for this template -->
     <script src="{% static 'js/agency.min.js' %}"></script>
 <script>
-    $('#login-button').click(function(){
-
-  $('#login-button').fadeIn("slow",function(){
-
-    $("#login-form").fadeIn();
-
-
-  });
-});
+    
 
 $(".close-btn").click(function(){
   
-  $("#login-form, #forgotten-container").fadeOut(800, function(){
-    $("#login-button").fadeIn(800);
+  $("#login_form, #get_pass").fadeOut(800, function(){
+    $("#login_form").fadeIn(800);
   });
 });
 
-/* Forgotten Password */
-$('#forgotten').click(function(){
-  $("#login-form").fadeOut(function(){
-    $("#forgotten-container").fadeIn();
+/* forgot Password */
+$('#forgot').click(function(){
+  $("#login_form").fadeOut(function(){
+    $("#get_pass").fadeIn();
   });
 });
 function do_something(){
@@ -386,9 +398,7 @@ return true; // submit the form
 alert('Please provide a valid email address');
 return false; // don't submit the form
 }
-
-
-var modal = document.getElementById('myModal');
+var modal = document.getElementById('login_form');
 
 // Get the button that opens the modal
 var btn = document.getElementById("login-button");
