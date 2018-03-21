@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'internship',
     'questions',
-
+    'rest_framework',
     #external apps
     'widget_tweaks',
 ]
