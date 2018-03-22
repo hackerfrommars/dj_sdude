@@ -7,10 +7,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--  button add bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="{% static 'css/internship_style.css' %}" rel="stylesheet">
+
 
 
 <div class="container" id="internship">
-  <h2>List of Internship</h2>
+  <h2>List of Internships</h2>
 <div id="show_more">
                                                 {% for internship in internship_list %}
                                                     <div class="list-group-item">
@@ -40,7 +42,7 @@
                                             <p class="cancel" type="submit" style="vertical-align:middle">
                                                 <span>cancel</span></p>
                                         </div>
-
+                                        </div>
 <!--   collapse javascript and source to find my own js file. it should be defined first than another script source -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{% static 'js/internship.js'%}" ></script>
@@ -53,9 +55,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
-    <link href="{% static 'css/internship_style.css' %}" rel="stylesheet">
-
-
+    
 <script>
     $(document).ready(function () {
         $(".internship_detail").click(function () {
