@@ -16,6 +16,7 @@
 <div id="form">
     <h2>List of Questions</h2>
 </div>
+<div>
 <div id="questions">
 {% for question in question_list %}
     <div class="question_specific" pk="{{ question.pk }}">
@@ -24,34 +25,20 @@
         <hr>
     </div>
     <div id="{{ question.pk }}" style="background-color: white; color: #343A40; border-radius: 6px;">
-    </div>
-    <div id="q_info">
-
-                                            <a href="#" class="list-group-item">
-                                                
-                                            </a>
+     <!-- <p>xfghghg</p>
                                             <p class="cancel" type="submit" style="vertical-align:middle">
-                                                <span>cancel</span></p>
-                                        </div>
-
+                                                <span>cancel</span></p> -->
+    </div>
 {% endfor %}
+
+</div>
+<!-- <div><p>value.content</p></div> -->
+
+
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="{% static 'js/internship.js'%}" ></script>
-<!-- end -->
 
-<!-- Custom scripts for this template -->
-<script src="{% static 'js/agency.min.js' %}"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-
-    
 <script>
-    
-
     $(document).ready(function () {
         $(".question_specific").click(function () {
             var pk = $(this).attr('pk');
@@ -63,11 +50,11 @@
                 },
                 dataType: 'json',
                 success: function (data) {
-                    {#alert(data);#}
+                    // {alert(data);}
                     $('#'+data[0].question_pk).html('');
                     $.each(data, function (index, value) {
                         $('#'+value.question_pk).append('<p>' + value.created_at + '<br>' + value.content + '</p>');
-                        {#alert(value.content);#}
+                        // {alert( value.content )}
                     });
                 }
             });
