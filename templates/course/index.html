@@ -5,7 +5,7 @@
 
 
 
-  <link href="{% static 'css/window_ass.css' %}" rel="stylesheet">
+  <link href="{% static 'css/course_style.css' %}" rel="stylesheet">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
  <!--  button add bootstrap -->
@@ -47,152 +47,240 @@
           
 <!-- add menu javascript -->
 <!--   syllabus javascript-->
-        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+        <form id="syllabuses" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+            <div class="modal-dialog">
+              <div id="modal-content">
+                <a class="cancel" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span></a>
+                <div class="modal-heading">
+                    <h3 class="text-center">Syllabus</h3>
+                </div>
+                <div class="modal-body">
+                <h4 style="color: #fff;">Find your professor</h4>
+                    <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
+                        {% for prof in prof_list %}
+                            <option value="{{ prof.pk }}">{{ prof.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
 
-            <div id="syllabuses">
+                    {% csrf_token %}
+                    <div id="exam"> 
+                        {{ form.exam_type|attr:"value:1" }} 
+                    </div>
 
-                <h1>Syllabus</h1>
-
-                <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
-                    {% for prof in prof_list %}
-                        <option value="{{ prof.pk }}">{{ prof.name }}</option>
-                    {% endfor %}
-                </select>
-                {% csrf_token %}
-                <div id="exam">         {{ form.exam_type|attr:"value:1" }} </div>
-{#                {{ form.professor }}#}
-                {{ form.file }}
-                {{ form.year }}
-                {{ form.semester }}
+    {#                  {{ form.professor }}#} <br>
+                        {{ form.file }}
+                      <h4>  select year {{ form.year }}   </h4>
+                      <h4>  select semester {{ form.semester }} </h4>
 
 
-                <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span>
-                </button>
-                <p class="cancel">cancel</p>
+                    <div class="form-group text-right">
+                        <button class="btn btn-success btn-lg" id="create" type="submit" name="submit" value="Create Post"> 
+                            <span>Create</span>
+                        </button>
+                    </div>
+                </div>
+              </div>
             </div>
         </form>
 <!--   assignment javascript-->  
 
-        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
-            <div id="assignments">
-
-                                                         <h1>Assignment</h1>
-
+        <form id="assignments" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+            <div class="modal-dialog">
+              <div id="modal-content">
+                <a class="cancel" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span></a>
+                <div class="modal-heading">
+                    <h3 class="text-center">Assignment</h3>
+                </div>
+                <div class="modal-body">
+                <h4 style="color: #fff;">Find your professor</h4>
                     <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
-                    {% for prof in prof_list %}
-                        <option value="{{ prof.pk }}">{{ prof.name }}</option>
-                    {% endfor %}
-                </select>
-                    {%  csrf_token  %}
-                    <div id="exam">         {{ form.exam_type|attr:"value:2"}} </div>
-{#                    {{ form.professor }}#}
-                    {{ form.file }}
-                    {{ form.year }}
-                    {{ form.semester }}
+                        {% for prof in prof_list %}
+                            <option value="{{ prof.pk }}">{{ prof.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
 
-            <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-<p class="cancel" >cancel</p>                
-            </div>  
+                    {% csrf_token %}
+                    <div id="exam"> 
+                        {{ form.exam_type|attr:"value:2" }} 
+                    </div>
+
+    {#                  {{ form.professor }}#} <br>
+                        {{ form.file }}
+                      <h4>  select year {{ form.year }}   </h4>
+                      <h4>  select semester {{ form.semester }} </h4>
+
+
+                    <div class="form-group text-right">
+                        <button class="btn btn-success btn-lg" id="create" type="submit" name="submit" value="Create Post"> 
+                            <span>Create</span>
+                        </button>
+                    </div>
+                </div>
+              </div>
+            </div>
         </form>
 
 <!--   quiz javascript-->  
-        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
-              <div id="quizes">
+        <form id="quizes" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+            <div class="modal-dialog">
+              <div id="modal-content">
+                <a class="cancel" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span></a>
+                <div class="modal-heading">
+                    <h3 class="text-center">Quiz</h3>
+                </div>
+                <div class="modal-body">
+                <h4 style="color: #fff;">Find your professor</h4>
+                    <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
+                        {% for prof in prof_list %}
+                            <option value="{{ prof.pk }}">{{ prof.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
 
-                                                           <h1>Quiz</h1>
+                    {% csrf_token %}
+                    <div id="exam"> 
+                        {{ form.exam_type|attr:"value:3" }} 
+                    </div>
 
-                      <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
-                    {% for prof in prof_list %}
-                        <option value="{{ prof.pk }}">{{ prof.name }}</option>
-                    {% endfor %}
-                </select>
-                      {%  csrf_token  %}
-                      <div id="exam">         {{ form.exam_type|attr:"value:3"}} </div>
-{#                      {{ form.professor }}#}
-                    {{ form.file }}
-                    {{ form.year }}
-                    {{ form.semester }}
+    {#                  {{ form.professor }}#} <br>
+                        {{ form.file }}
+                      <h4>  select year {{ form.year }}   </h4>
+                      <h4>  select semester {{ form.semester }} </h4>
 
-              <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-<p class="cancel" >cancel</p>                  
-              </div>  
-          </form>
+
+                    <div class="form-group text-right">
+                        <button class="btn btn-success btn-lg" id="create" type="submit" name="submit" value="Create Post"> 
+                            <span>Create</span>
+                        </button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </form>
           
   <!--   midterm javascript-->  
 
-          <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
-              <div id="midterms">
+          <form id="midterms" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+            <div class="modal-dialog">
+              <div id="modal-content">
+                <a class="cancel" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span></a>
+                <div class="modal-heading">
+                    <h3 class="text-center">Midterm</h3>
+                </div>
+                <div class="modal-body">
+                <h4 style="color: #fff;">Find your professor</h4>
+                    <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
+                        {% for prof in prof_list %}
+                            <option value="{{ prof.pk }}">{{ prof.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
 
-                                                           <h1>MidTerm</h1>
+                    {% csrf_token %}
+                    <div id="exam"> 
+                        {{ form.exam_type|attr:"value:4" }} 
+                    </div>
 
-                      <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
-                    {% for prof in prof_list %}
-                        <option value="{{ prof.pk }}">{{ prof.name }}</option>
-                    {% endfor %}
-                </select>
-                      {%  csrf_token  %}
-                      <div id="exam">         {{ form.exam_type|attr:"value:4"}} </div>
-{#                      {{ form.professor }}#}
-                    {{ form.file }}
-                    {{ form.year }}
-                    {{ form.semester }}
+    {#                  {{ form.professor }}#} <br>
+                        {{ form.file }}
+                      <h4>  select year {{ form.year }}   </h4>
+                      <h4>  select semester {{ form.semester }} </h4>
 
-              <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-<p class="cancel" >cancel</p>                  
-              </div>  
-          </form>
+
+                    <div class="form-group text-right">
+                        <button class="btn btn-success btn-lg" id="create" type="submit" name="submit" value="Create Post"> 
+                            <span>Create</span>
+                        </button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </form>
   <!--   final javascript-->
 
-        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
-            <div id="finals">
+        <form id="finals" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+            <div class="modal-dialog">
+              <div id="modal-content">
+                <a class="cancel" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span></a>
+                <div class="modal-heading">
+                    <h3 class="text-center">Final</h3>
+                </div>
+                <div class="modal-body">
+                <h4 style="color: #fff;">Find your professor</h4>
+                    <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
+                        {% for prof in prof_list %}
+                            <option value="{{ prof.pk }}">{{ prof.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
 
-                <h1>Final</h1>
+                    {% csrf_token %}
+                    <div id="exam"> 
+                        {{ form.exam_type|attr:"value:5" }} 
+                    </div>
 
-                <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
-                    {% for prof in prof_list %}
-                        <option value="{{ prof.pk }}">{{ prof.name }}</option>
-                    {% endfor %}
-                </select>
-                {% csrf_token %}
-                <div id="exam">         {{ form.exam_type|attr:"value:5"|add_class:"hidden_exam" }} </div>
-                {#                      {{ form.professor }}#}
-                {{ form.file }}
-                {{ form.year }}
-                {{ form.semester }}
+                        {{ form.file }}
+                      <h4>  select year {{ form.year }}   </h4>
+                      <h4>  select semester {{ form.semester }} </h4>
 
-                <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span>
-                </button>
-                <p class="cancel">cancel</p>
+
+                    <div class="form-group text-right">
+                        <button class="btn btn-success btn-lg" id="create" type="submit" name="submit" value="Create Post"> 
+                            <span>Create</span>
+                        </button>
+                    </div>
+                </div>
+              </div>
             </div>
         </form>
   <!--   feedback javascript-->
 
-        <form method="POST" id="post_form" action="/courses/{{ course_id }}/">
-            <div id="feedbacks">
-
-                <h1>FeedBack</h1>
+        <form id="feed" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+            <div class="modal-dialog">
+              <div class="modal-content" style="background-color: #222222; opacity: 0.9;"> 
+                <a class="cancel" style="color: #000;"><span class="glyphicon glyphicon-remove"></span></a>
+                <div class="modal-heading">
+                  <h3 class="text-center">FeedBack</h3>
+                </div>
+              <div class="modal-body">
 
                 {% csrf_token %}
-                                  <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
-                                      {% for prof in prof_list %}
-                                          <option value="{{ prof.pk }}">{{ prof.name }}</option>
-                                      {% endfor %}
-                                  </select>
-{#                <p style="margin:0;display:inline;float:center; position: absolute; right: 100px; color: #fff;">#}
-{#                    Grade: {{ feedback_form.grade }} </p>#}
-                {{ feedback_form.grade }}
-{#                {{ feedback_form.year }}<br>#}
-{#                {{ feedback_form.semester }}<br>#}
-                {{ feedback_form.content }}
-{#                <textarea rows="4" cols="50" form="usrform"#}
-{#                          style="position: absolute; left: 20px; top:80px;  width: 90%; height: 40%; text-align: left; background-color: #fff; color: #000"#}
-{#                          placeholder="Write your feedback about this course"  {{ feedback_form.content }} ></textarea>#}
+                <div class="row">
+                  <div class="col-sm-4">
+                <h4 style="color: #fff;">Find your professor</h4> </div>
+                   <div class="col-sm-8"> <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor"> 
+                        {% for prof in prof_list %}
+                            <option value="{{ prof.pk }}">{{ prof.name }}</option>
+                        {% endfor %}
+                    </select>
+                    </div> </div><br>
+                <div class="row">
+                  <div class="col-sm-4">
+                <h4 style="color: #fff;">Point Your Grade </h4>
+                  </div> 
+                  <div class="col-sm-8">
+                <h4>{{ feedback_form.grade }} </h4>
+                  </div>
+                </div>
+                <div class="form-group text-center">
+                <textarea rows="4" cols="50" style="text-align: left; background-color: #fff; color: #000" placeholder="Write your feedback about this course" name="content" required id="id_content"></textarea>
+                                    
+                    
+                </div>
+                
+                
+                <div class="form-group text-right">
+                        <button class="btn btn-success btn-lg" id="create" type="submit" name="submit" value="Add Feedback"> 
+                            <span>Add</span>
+                        </button>
+                    </div>
+                          </div>
+                        </div>
+                        </div>
+                        </div>
 
-                <button id="create" type="submit" name="submit" value="Add Feedback"
-                        style="position: absolute;top: 70%; right: 5%;background-color: #fff; color: #000; width: 15%; height: 12%;">
-                    <span>Add</span></button>
-                <p class="cancel_f">cancel</p>
-            </div>
         </form>
 
 

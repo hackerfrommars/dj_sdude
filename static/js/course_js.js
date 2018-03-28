@@ -56,7 +56,7 @@
   $('#add_feed').click(function(){
   $('#add_feed').fadeIn("slow",function(){
 
-    $("#feedbacks").fadeIn();
+    $("#feed").fadeIn();
     $(".chosen-teacher").fadeIn();
     $(".chosen-teacher").chosen();
   });
@@ -69,10 +69,8 @@ $(".cancel").click(function(){
   $("#midterms").fadeOut(100);
   $("#finals").fadeOut(100);
   $(".chosen-teacher").fadeOut(8);
+  $("#feed").fadeOut(100);
   $(".chosen-teacher").chosen("destroy");
-});
-$(".cancel_f").click(function(){
-  $("#feedbacks").fadeOut(100);
 });
 //end of cancel add exams
 

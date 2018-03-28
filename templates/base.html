@@ -55,20 +55,36 @@
 </nav>
 
 <!--     password detail with javascript -->
- <form method="POST" action="/main/"><div id="myModal" class="modal">
-
-  
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
+ <form method="POST" action="/main/" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content" id="modals">
+          <span class="close">&times;</span>
+            <div class="modal-heading">
+              <h2 class="text-center">change password</h2>
+            </div>
+        <div class="modal-body">  
     {% csrf_token %}
-    {{ password_change_form.old_password }}<br>
-    {{ password_change_form.new_password1 }}<br>
-    {{ password_change_form.new_password2 }}<br>
-    <button  type="submit" value="Change Password">change password</button>
+    <div class="form-group">
+      <div class="input-group">
+     <input type="password" class="form-control" placeholder="old password" {{ password_change_form.old_password }}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <input type="password" class="form-control" placeholder="new password"    {{ password_change_form.new_password1 }}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <input type="password" class="form-control" placeholder="confirm password" {{ password_change_form.new_password2 }}
+      </div>
+    </div>
+    <div class="form text-right">
+        <button id="change_pass" class="btn btn-success btn-lg" type="submit" value="Change Password">change password</button>
+    </div>
   </div>
-
+</div>
+</div>
 </div>
 </form>
 {% block content %}
