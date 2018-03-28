@@ -8,20 +8,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--  button add bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="{% static 'css/question_style.css' %}" rel="stylesheet">
+
     <title>{{ title }}</title>
 </head>
 <body>
+<div id="form">
+    <h2>List of Questions</h2>
+</div>
+<div>
+<div id="questions">
 {% for question in question_list %}
     <div class="question_specific" pk="{{ question.pk }}">
         <div>{{ question.content }}</div><br>
             {{ question.created_at | timesince }}
         <hr>
     </div>
-    <div id="{{ question.pk }}" style="background-color: blue">
+    <div id="{{ question.pk }}" style="background-color: white; color: #343A40; border-radius: 6px;">
+     <!-- <p>xfghghg</p>
+                                            <p class="cancel" type="submit" style="vertical-align:middle">
+                                                <span>cancel</span></p> -->
     </div>
-
 {% endfor %}
 
+</div>
+<!-- <div><p>value.content</p></div> -->
+
+
+</div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <script>
@@ -36,11 +50,11 @@
                 },
                 dataType: 'json',
                 success: function (data) {
-                    {#alert(data);#}
+                    // {alert(data);}
                     $('#'+data[0].question_pk).html('');
                     $.each(data, function (index, value) {
                         $('#'+value.question_pk).append('<p>' + value.created_at + '<br>' + value.content + '</p>');
-                        {#alert(value.content);#}
+                        // {alert( value.content )}
                     });
                 }
             });

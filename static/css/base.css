@@ -1,6 +1,32 @@
+#modals{
+  background-color: #fff;
+  border: 1px solid silver;
+  border-radius: 5px;
+  color: #000;
+  opacity: 0.9;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+}
+.btn-link{
+  color:white;
+}
+#change_pass{
+  color:#fff;
+  background-color: #222222;
+  border: 1px solid #000;
+}
+#change_pass:hover{
+  color:#fff;
+  background-color: #000;
+  border: 1px solid #000;
+}
+.modal-heading h2{
+  color:#222222;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 
 /* The Modal (background) */
-.modal {
+#myModal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -14,29 +40,7 @@
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    max-width: 40%;
-}
 
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
 #mainNav .navbar-brand{
 	color:#495e7b;
 	font-family:'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
@@ -73,31 +77,5 @@
 .dropdown:hover .dropdown-content {
     display: block;
 }
-#password_detail{
-  position: absolute;
-  top: 20px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  width: 40%;
-  height: 60%;
-  border-radius: 5px;
-  box-shadow: 1px 1px 50px #000;
-  display: none;
-  background: #343A40;
-  z-index: 1;
-        opacity: .95;
 
-
-}
-#password_detail h1{
-  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  position: relative;
-  margin-top: 0px;
-  text-align: center;
-  font-size: 2.5vw;
-  color: #fff;
-  text-shadow: 3px 3px 10px #fff;
-}
 
