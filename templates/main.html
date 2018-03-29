@@ -17,8 +17,8 @@
                             <h2 class="card-title" id="title">TOP questions</h2>
                             <div id="hot_questions">
                                 <div class="panel-group">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
+                                    <div class="panel panel-default" >
+                                        <div class="panel-heading" >
                                             <h4 class="panel-title">
                                                 <a data-toggle="collapse" href="#hot1" class="hot_question" pk="{{ hot_questions.0.pk }}" ord="1">{{ hot_questions.0.content }}</a>
                                             </h4>
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                             <a href='{% url "questions:main" %}' class="list-group-item"
-                                           style="background-color: #495e7b; height: 50px;">
+                                           style="background-color: #4a4e69; height: 50px;">
                                             <h5>View All Questions</h5>
                                         </a>
                         </div>
@@ -80,7 +80,8 @@
 
 
                                         <div class="list-group">
-                                            <a href="#" class="list-group-item" style="background-color: #495e7b;">
+                                            <a href="#" class="list-group-item" style="background-color: #4a4e69;
+                                            border: 2.5px solid white;">
                                                 <h3>Internship</h3>
                                             </a>
                                             <div id="show_more">
@@ -99,8 +100,7 @@
                                             </div>
 
                                         </div>
-                                        <a href='{% url "internship:main" %}' class="list-group-item"
-                                           style="background-color: #495e7b; height: 50px;">
+                                        <a href='{% url "internship:main" %}' class="list-group-item" id="view_in">
                                             <h5>View All Intership</h5>
                                         </a>
                                         <!--             internship detail with javascript -->

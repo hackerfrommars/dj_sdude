@@ -7,6 +7,12 @@
 .btn-success{
 	color:#222222;
 	background-color: #fff;
+	border: 1px solid #222222;
+}
+.btn-success:hover{
+	color:#fff;
+	background-color: #222222;
+	border: 1px solid #fff;
 }
 .modal-heading h2{
 	color:#ffffff;
