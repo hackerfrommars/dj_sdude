@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    {{ question.content }}<br>
+    {{ question.created_at }}<br>
+    <hr>
+    <form method="POST" action="{% url "questions:question" id=question.id %}">
+        {% csrf_token %}
+        {{ answer_form.as_p }}
+        <button id="create" type="submit" name="submit" value="Create Comment" style="vertical-align:middle"><span>Add Comment</span></button>
+    </form>
+    <br>
+
+    {% for answer in answer_list %}
+        {{ answer.content }}<br>
+        {{ answer.created_at }}<br>
+        <hr>
+    {% endfor %}
+</head>
+<body>
+
+</body>
+</html>

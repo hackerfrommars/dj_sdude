@@ -5,42 +5,22 @@
     <title>{{ title }}</title>
 </head>
 <body>
+
+    <form method="POST" action="{% url "questions:main"%}">
+        {% csrf_token %}
+        {{ question_form.as_p }}
+        <button id="create" type="submit" name="submit" value="Create Question" style="vertical-align:middle"><span>Add Question</span></button>
+    </form>
+
+
 {% for question in question_list %}
     <div class="question_specific" pk="{{ question.pk }}">
-        <div>{{ question.content }}</div><br>
+        <a href="{% url "questions:question" id=question.id %}">{{ question.content }}</a><br>
             {{ question.created_at | timesince }}
         <hr>
     </div>
     <div id="{{ question.pk }}" style="background-color: blue">
     </div>
-
 {% endfor %}
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-<script>
-    $(document).ready(function () {
-        $(".question_specific").click(function () {
-            var pk = $(this).attr('pk');
-
-            $.ajax({
-                url: '/questions/get_answer/',
-                data: {
-                    'question_pk': pk
-                },
-                dataType: 'json',
-                success: function (data) {
-                    {#alert(data);#}
-                    $('#'+data[0].question_pk).html('');
-                    $.each(data, function (index, value) {
-                        $('#'+value.question_pk).append('<p>' + value.created_at + '<br>' + value.content + '</p>');
-                        {#alert(value.content);#}
-                    });
-                }
-            });
-
-        });
-    });
-  </script>
 </body>
 </html>
