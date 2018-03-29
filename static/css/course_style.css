@@ -30,6 +30,15 @@
   /*background-color: red;*/
 
 }
+#each{
+  border: 1.5px solid black;
+  border-radius: 5px;
+  margin-right: 5px;
+  padding-left: 5px;
+  padding-top: 5px;
+  margin-bottom: 2px;
+  /*text-align: center;*/
+}
 
 #show_button .btn:hover {
     background-color: #495e7b;

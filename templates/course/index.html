@@ -262,6 +262,7 @@
                   </div> 
                   <div class="col-sm-8">
                 <h4>{{ feedback_form.grade }} </h4>
+
                   </div>
                 </div>
                 <div class="form-group text-center">
@@ -378,10 +379,12 @@
                   <div id="mysix">
                       
                       {% for feedback in feedback_list %}
-                      <p>content: {{ feedback.content }} </p><br>
-                      <p>Grade: {{ feedback.grade }} <br>
+                      <div id="each">
+                      <p>Feedback: {{ feedback.content }} </p><br>
+                      <p>Grade: {{ feedback.grade }}
                       Created at: {{ feedback.created_at | timesince}} ago </p><br>
-                      
+                    
+                      </div>
 
                           
                       {% endfor %}
