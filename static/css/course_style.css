@@ -1,0 +1,292 @@
+
+#add_button .btn {
+  cursor: pointer;
+  text-align: center;
+  color: #343A40;
+  background-color: #495e7b;
+  border: 1px solid #495e7b;
+  box-shadow: 0 5px #999;
+  font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  height: 45px;
+  /*margin-top: 150px;*/
+  /*margin-right: 2px;*/
+}
+
+#add_button .btn:hover {
+    background-color: #fff;
+}
+#add_button .btn span {
+  font-size: 1.3vw;
+}
+#show_button .btn{
+  cursor: pointer;
+  text-align: center;
+  color: #343A40;
+  background-color: #fff;
+  border: 1px solid #495e7b;
+  box-shadow: 0 5px #999;
+  font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  /*height: 30px;*/
+}
+
+#show_button .btn:hover {
+    background-color: #495e7b;
+}
+#show_button .btn span {
+  font-size: 1.3vw;
+}
+
+.card {
+  position: relative;
+  width: 75%;
+  left: 13%;
+  /*background-color: black;*/
+}
+.container h1 {
+  position: all;
+  top:20px;
+  left: 13%;
+  font-size: 2.5vw;
+  margin-bottom:  40px;
+  
+}
+
+/* add exams form style */
+#modal-content{
+  background-color: #222222;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  opacity: 0.9;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+}
+.btn-link{
+  color:white;
+}
+#create{
+  color:#222222;
+  background-color: #fff;
+  border: 1px solid white;
+}
+#create:hover{
+  color:#fff;
+  background-color: #222222;
+  border: 1px solid white;
+}
+.modal-heading {
+  border: 1px solid #fff;
+  color:#ffffff;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+
+/* The Modal (background) */
+#syllabuses, #assignments, #quizes, #midterms, #finals {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+#feed{
+  display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/*//это чтобы все данные предметов были невидимы при первом запуске страницы
+*/
+#exam, #myfirst, #mysecond, #mythree, #myfour, #myfive, #mysix  {
+      display: none;
+      /*border-style: outset;*/
+      padding-left: 5px;
+      /*border-radius: 3px;*/
+      /*border: 3px solid;*/
+      padding-top: 5px;
+      margin-bottom: 5px;
+      /*background-color: black;*/
+
+
+      
+
+    }
+  #mnmn{
+    border-style: outset;
+      border-radius: 3px;
+
+  }
+
+#first, #second, #third, #forth, #fifth{
+   float:left;
+  border: 1px solid;
+  font-weight: normal;
+  border-radius: 3px;
+  margin-right: 5px;
+  width: 24%;
+  height: 24px;
+  padding-top: 2px;
+  text-align: center;
+  overflow: hidden;
+  color:#343A40;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+
+}
+#tex{
+  word-spacing: 145px;
+  font-size: 1.3vw;
+}
+@media (max-width: 1200px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 105px;
+    color: red;
+  }
+}
+@media (max-width: 1100px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 120px;
+    color: red;
+  }
+}
+@media (max-width: 1000px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 87px;
+    color: green;
+    /*font-size: 0.8vw;*/
+  }
+  #first, #second, #third, #forth, #fifth{
+   /*float:left;*/
+  /*border: 1.5px solid;*/
+  /*font-weight: normal;*/
+  /*border-radius: 3px;*/
+  margin-right: 5px;
+  width: 23%;
+  height: 24px;
+  font-size: 1.4vw;
+
+
+}
+
+}
+@media (max-width: 800px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 85px;
+    color: blue;
+  }
+  #first, #second, #third, #forth, #fifth{
+   /*float:left;*/
+  /*border: 1.5px solid;*/
+  /*font-weight: normal;*/
+  /*border-radius: 3px;*/
+  margin-right: 5px;
+  width: 23%;
+  height: 24px;
+
+
+}
+}
+@media (max-width: 700px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 78px;
+    color: purple;
+  }
+}
+@media (max-width: 650px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 67px;
+    color: grey;
+  }
+  #first, #second, #third, #forth, #fifth{
+   /*float:left;*/
+  /*border: 1.5px solid;*/
+  /*font-weight: normal;*/
+  /*border-radius: 3px;*/
+  margin-right: 5px;
+  width: 23%;
+  height: 24px;
+
+
+}
+}
+@media (max-width: 500px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 50px;
+    color: yellow;
+  }
+}
+@media (max-width: 400px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 36px;
+    color: pink;
+  }
+  #first, #second, #third, #forth, #fifth{
+   /*float:left;*/
+  /*border: 1.5px solid;*/
+  /*font-weight: normal;*/
+  /*border-radius: 3px;*/
+  margin-right: 5px;
+  width: 21%;
+  height: 14px;
+
+
+}
+}
+@media (max-width: 300px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 30px;
+    color: orange;
+  }
+}

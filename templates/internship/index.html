@@ -10,71 +10,110 @@
 <link href="{% static 'css/internship_style.css' %}" rel="stylesheet">
 
 
-
-<div class="container" id="internship">
+<div class="container-fluid" id="internship">
+<div class="row">
+<div class="col-sm-3">
+</div>
+<div class="col-sm-6">
   <h2>List of Internships</h2>
-<div id="show_more">
-                                                {% for internship in internship_list %}
-                                                    <div class="list-group-item">
-                                                        <div class="internship_detail" pk="{{ internship.pk }}">
-                                                            <h4 class="list-group-item-heading">
-                                                                <b>{{ internship.title }}</b></h4>
-                                                            <img src="{% static 'img/logos/more_main.png' %}">
-                                                            <p class="list-group-item-text">
-                                                            <p>{{ internship.content | truncatechars:20 }}</p></p>
-                                                            <i>{{ internship.created_at }}</i>
-                                                        </div>
-                                                    </div>
-                                                {% endfor %}
-                                            </div>
+    <div class="panel-group" id="show_more">
+    {% for internship in internship_list %}
+    <div class="panel panel-default">
+    <div class="internship_detail" pk="{{ internship.pk }}">
+            <div class="panel-heading" style=" border: 1.5px solid #222222; height: 50px; background-color: #495e7b;">
+                <h4 class="text-center">{{ internship.title }}</h4>
+            </div>
+            <div class="panel-body">
+            <div class="row">
+            <div class="col-xs-10 col-md-11">
+                    {{ internship.content | truncatechars:90 }}<br><br><br></div>
+            <div class="col-xs-2 col-md-1">
+                    <span class="glyphicon glyphicon-info-sign"></span></div>
+            </div>
+            </div>
+            <div class="panel-footer" style=" border: 1px solid silver; height: 18px; background-color: white;">
+                                <p class="text-right">{{ internship.created_at }}</p>
+            </div>
+            </div>
+    </div><br>
+            {% endfor %}
+            </div>
+            </div>
+
+<div class="col-sm-3">
+</div>
+</div>
+
+<!-- <div class="container" id="internship">
+  <h2>List of Internships</h2>
+  <div id="show_more">
+    {% for internship in internship_list %}
+    <div class="list-group-item">
+        <div class="internship_detail" pk="{{ internship.pk }}">
+            <h4 class="list-group-item-heading">
+                <b>{{ internship.title }}</b></h4>
+                <img src="{% static 'img/logos/more_main.png' %}">
+                <p class="list-group-item-text">
+                    <p>{{ internship.content | truncatechars:20 }}</p></p>
+                    <i>{{ internship.created_at }}</i>
+                </div>
+            </div>
+            {% endfor %}
+        </div> -->
 
 
-<div id="internship_info">
+        <form id="internship_info">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <a class="cancel" type="submit" style="color:#222222;">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+        <div class="modal-heading">
+                <h2 class="text-center" id="intern_title">{{ internship_list.2.title }}
+                </h2>
+        </div>
+        <div class="moda-body">
+                    <h4 id="intern_content" class="text-center" >{{ internship_list.2.content }}</h4>
+        <div class="modal-footer" >
+                    <p class="text-right" id="intern_created_at">{{ internship_list.2.created_at }}</p>
+        </div>
+        </div>
+                
+        </div>
+        </div>
+        </form>
+            <!--   collapse javascript and source to find my own js file. it should be defined first than another script source -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="{% static 'js/internship.js'%}" ></script>
+            <!-- end -->
 
-                                            <a href="#" class="list-group-item">
-                                                <h4 class="list-group-item-heading" id="intern_title"><b>{{ internship_list.2.title }}</b>
-                                                </h4>
-                                                <img src="{% static 'img/logos/more_main.png' %}">
-                                                <p class="list-group-item-text">
-                                                <p id="intern_content">{{ internship_list.2.content }}</p></p>
-                                                <i id="intern_created_at">{{ internship_list.2.created_at }}</i>
-                                            </a>
-                                            <p class="cancel" type="submit" style="vertical-align:middle">
-                                                <span>cancel</span></p>
-                                        </div>
-                                        </div>
-<!--   collapse javascript and source to find my own js file. it should be defined first than another script source -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="{% static 'js/internship.js'%}" ></script>
-<!-- end -->
+            <!-- Custom scripts for this template -->
+            <script src="{% static 'js/agency.min.js' %}"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<!-- Custom scripts for this template -->
-<script src="{% static 'js/agency.min.js' %}"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
-    
-<script>
-    $(document).ready(function () {
-        $(".internship_detail").click(function () {
-            var pk = $(this).attr('pk');
-            $.ajax({
-                url: '/get_internship/',
-                data: {
-                    'internship_pk': pk
-                },
-                dataType: 'json',
-                success: function (data) {
-                    $('#intern_title').html('<b>'+data.title+'</b>');
-                    $('#intern_content').html(data.content);
-                    $('#intern_created_at').html(data.created_at);
-                }
-            });
 
-        });
-    });
-  </script>
+            <script>
+                $(document).ready(function () {
+                    $(".internship_detail").click(function () {
+                        var pk = $(this).attr('pk');
+                        $.ajax({
+                            url: '/get_internship/',
+                            data: {
+                                'internship_pk': pk
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                $('#intern_title').html('<b>'+data.title+'</b>');
+                                $('#intern_content').html(data.content);
+                                $('#intern_created_at').html(data.created_at);
+                            }
+                        });
 
-{% endblock %}
+                    });
+                });
+            </script>
+
+            {% endblock %}
