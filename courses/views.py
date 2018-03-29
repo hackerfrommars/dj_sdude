@@ -90,12 +90,12 @@ def main_page(request):
     else:
         form = PasswordChangeForm(request.user)
         context['password_change_form'] = form
-        hot_answers = Answer.objects.values('to_question').annotate(total=Count('to_question')).order_by('-total')[:2]
+        hot_answers = Answer.objects.values('to_question').annotate(total=Count('to_question')).order_by('-total')[:5]
         hot_questions = []
         for answer in hot_answers:
             hot_questions.append(get_object_or_404(Question, pk=answer['to_question']))
         context['hot_questions'] = hot_questions
-        top_questions = Question.objects.order_by('-created_at')[:2]
+        top_questions = Question.objects.order_by('-created_at')[:5]
         context['top_questions'] = top_questions
     return render(request, "main.html", context)
 
@@ -182,7 +182,7 @@ def get_internship(request):
 @login_required(login_url='/')
 def hot_answer(request):
     question_pk = request.GET.get('question_pk', None)
-    answers = Answer.objects.filter(to_question=question_pk)[:2]
+    answers = Answer.objects.filter(to_question=question_pk)[:5]
     answer_json = [ob.as_json() for ob in answers]
     return HttpResponse(json.dumps(answer_json), content_type='application/json')
 
@@ -190,6 +190,6 @@ def hot_answer(request):
 @login_required(login_url='/')
 def top_answer(request):
     question_pk = request.GET.get('question_pk', None)
-    answers = Answer.objects.filter(to_question=question_pk)[:2]
+    answers = Answer.objects.filter(to_question=question_pk)[:5]
     answer_json = [ob.as_json() for ob in answers]
     return HttpResponse(json.dumps(answer_json), content_type='application/json')
