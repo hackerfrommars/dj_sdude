@@ -2,40 +2,42 @@
 {% block content %}
     {% load staticfiles %}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <!--  button add bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="{% static 'v/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
 
 
         <div class="container-fluid">
-            <div class="row">
-                        <div class="col-sm-8">
+            <div class="row">   
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-6">
                             <button class="button" onclick="tops()"><h4>TOP questions</h4></button>
                             <button class="button" onclick="hot()"><h4>HOT questions</h4></button>
                             <h2 class="card-title" id="title">TOP questions</h2>
+
                             <div id="hot_questions">
                                 <div class="panel-group">
-                                    <div class="panel panel-default" >
+                                    <div class="panel" >
                                         <div class="panel-heading" >
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#hot1" class="hot_question" pk="{{ hot_questions.0.pk }}" ord="1">{{ hot_questions.0.content }}</a>
+                                                <a data-toggle="collapse" href="#hot1" class="hot_question" pk="{{ hot_questions.0.pk }}" ord="1"><span class="glyphicon glyphicon-question-sign"></span> {{ hot_questions.0.content }}</a>
                                             </h4>
                                         </div>
                                         <div id="hot1" class="panel-collapse collapse">
-                                            <div class="panel-body">HOT answer1</div>
+                                            <div class="panel-footer">HOT answer1</div>
                                             <div class="panel-footer">HOT answer1</div>
                                         </div>
                                     </div>
-                                    <div class="panel panel-default">
+                                    <div class="panel">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#hot2" class="hot_question" pk="{{ hot_questions.1.pk }}" ord="2">{{ hot_questions.1.content }}</a>
+                                                <a data-toggle="collapse" href="#hot2" class="hot_question" pk="{{ hot_questions.1.pk }}" ord="2"> <span class="glyphicon glyphicon-question-sign"></span> {{ hot_questions.1.content }} </a>
                                             </h4>
                                         </div>
                                         <div id="hot2" class="panel-collapse collapse">
-                                            <div class="panel-body">HOT answer2</div>
+                                            <div class="panel-footer">HOT answer2</div>
                                             <div class="panel-footer">HOT answer2</div>
                                         </div>
                                     </div>
@@ -43,32 +45,31 @@
                             </div>
                             <div id="top_questions">
                                 <div class="panel-group">
-                                    <div class="panel panel-default">
+                                    <div class="panel">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#test1" class="top_question" pk="{{ top_questions.0.pk }}" ord="1">{{ top_questions.0.content }}</a>
+                                                <a data-toggle="collapse" href="#test1" class="top_question" pk="{{ top_questions.0.pk }}" ord="1"><span class="glyphicon glyphicon-question-sign"></span> {{ top_questions.0.content }}</a>
                                             </h4>
                                         </div>
                                         <div id="test1" class="panel-collapse collapse">
-                                            <div class="panel-body">top answer1</div>
+                                            <div class="panel-footer">top answer1</div>
                                             <div class="panel-footer">top answer1</div>
                                         </div>
                                     </div>
-                                    <div class="panel panel-default">
+                                    <div class="panel">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#test2" class="top_question" pk="{{ top_questions.1.pk }}" ord="2">{{ top_questions.1.content }}</a>
+                                                <a data-toggle="collapse" href="#test2" class="top_question" pk="{{ top_questions.1.pk }}" ord="2"><span class="glyphicon glyphicon-question-sign"></span> {{ top_questions.1.content }}</a>
                                             </h4>
                                         </div>
                                         <div id="test2" class="panel-collapse collapse">
-                                            <div class="panel-body">top answer2</div>
+                                            <div class="panel-footer">top answer2</div>
                                             <div class="panel-footer">top answer2</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <a href='{% url "questions:main" %}' class="list-group-item"
-                                           style="background-color: #4a4e69; height: 50px;">
+                            <a href='{% url "questions:main" %}' class="list-group-item" id="view_q">
                                             <h5>View All Questions</h5>
                                         </a>
                         </div>
@@ -81,7 +82,7 @@
 
                                         <div class="list-group">
                                             <a href="#" class="list-group-item" style="background-color: #4a4e69;
-                                            border: 2.5px solid white;">
+                                            border: 3px solid silver;">
                                                 <h3>Internship</h3>
                                             </a>
                                             <div id="show_more">
@@ -116,7 +117,7 @@
         <h2 class="text-center" id="intern_title" style="  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 ">{{ internship_list.title }}</h2>
       </div>
-      <div class="modal-body">
+      <div class="modal-footer">
             <h4 class="text-left" id="intern_content">
              {{ internship_list.content }}
              </h4>
@@ -221,12 +222,12 @@
                     success: function (data) {
                         if(ord == 1){
                             $('#hot1').html('');
-                            $('#hot1').append('<div class="panel-body">' + data[0].content + '</div>');
+                            $('#hot1').append('<div class="panel-footer">' + data[0].content + '</div>');
                             $('#hot1').append('<div class="panel-footer">' + data[1].content + '</div>');
                         }
                         else{
                             $('#hot2').html('');
-                            $('#hot2').append('<div class="panel-body">' + data[0].content + '</div>');
+                            $('#hot2').append('<div class="panel-footer">' + data[0].content + '</div>');
                             $('#hot2').append('<div class="panel-footer">' + data[1].content + '</div>');
                         }
 
@@ -254,14 +255,14 @@
                         if (data.length > 0) {
                             if (ord == 1) {
                                 $('#test1').html('');
-                                $('#test1').append('<div class="panel-body">' + data[0].content + '</div>');
+                                $('#test1').append('<div class="panel-footer">' + data[0].content + '</div>');
                                 if(data.length == 2){
                                     $('#test1').append('<div class="panel-footer">' + data[1].content + '</div>');
                                 }
                             }
                             else {
                                 $('#test2').html('');
-                                $('#test2').append('<div class="panel-body">' + data[0].content + '</div>');
+                                $('#test2').append('<div class="panel-footer">' + data[0].content + '</div>');
                                 if(data.length == 2){
                                 $('#test2').append('<div class="panel-footer">' + data[1].content + '</div>');
                                 }

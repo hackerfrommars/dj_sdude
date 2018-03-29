@@ -1,23 +1,14 @@
-{% load staticfiles%}
+{% load staticfiles %}
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
-  <title>SDUDE coursepage</title>
-
-  <!-- Bootstrap core CSS -->
-
-
-
-  <!-- Custom fonts for this template -->
-  <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet' %}" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -25,35 +16,73 @@
   <!-- Custom styles for this template -->
   <link href="{% static 'css/base.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/bootstrap-chosen.css' %}" rel="stylesheet" />
-
-
+  <title>SDUDE coursepage</title>
+  <!-- Bootstrap core CSS-->
+  <link href="{% static 'v/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="{% static 'v/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="{% static 'v/vendor/datatables/dataTables.bootstrap4.css' %}" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="{% static 'c/css/sb-admin.css' %}" rel="stylesheet">
 </head>
 
-<body>
-  <nav class="navbar navbar-inverse" id="mainNav">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">SDUDE</a>
-      </div>
-
-      
-    <ul class="nav navbar-nav navbar-right">
-    <li><form >
-          <select class="chosen-select" style=" width:200px; height: auto; display: none;" onchange="location = this.options[this.selectedIndex].value;">
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="/">SDUDE</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="select your course">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+            <select class="chosen-select" style=" width:200px; height: auto; display: none;" onchange="location = this.options[this.selectedIndex].value;">
 
             {% for course in course_list %}
             <option value="/courses/{{ course.id }}">{{ course.name }}</option>
             {% endfor %}
           </select>
-    </form></li>
-    <li><a></a></li>
-      <li id="myBtn"><a href="#"><span class="glyphicon glyphicon-lock"></span>Change Password</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>Notifications</a></li>
-      <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
-    </ul>
-  </div>
-</nav>
-
+          </form>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Components</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li>
+              <a href="navbar.html">Navbar</a>
+            </li>
+            <li>
+              <a href="cards.html">Cards</a>
+            </li>
+          </ul>
+        </li>
+        
+        
+      </ul>
+      
+      <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+          <a class="nav-link "  href="#"  >Notifications
+            <i class="fa fa-fw fa-bell"></i>
+          </a>
+          </li>
+      <li class="nav-item" id="myBtn">
+          <a class="nav-link "  href="#"  >Change Password
+            <i class="fa fa-lock"></i>
+          </a>
+          </li> 
+        
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 <!--     password detail with javascript -->
  <form method="POST" action="/main/" id="myModal">
     <div class="modal-dialog">
@@ -87,47 +116,77 @@
 </div>
 </div>
 </form>
+
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
 {% block content %}
-{% endblock%}
+{% endblock%}     
+ </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2018</small>
+        </div>
+      </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="{% static 'v/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'v/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="{% static 'v/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="{% static 'v/vendor/chart.js/Chart.min.js' %}"></script>
+    <script src="{% static 'v/vendor/datatables/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'v/vendor/datatables/dataTables.bootstrap4.js' %}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{% static 'j/js/sb-admin.min.js' %}"></script>
+    <!-- Custom scripts for this page-->
+    <script src="{% static 'j/js/sb-admin-datatables.min.js' %}"></script>
+    <script src="{% static 'j/js/sb-admin-charts.min.js' %}"></script>
 
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<!-- Footer -->
-<div class="panel-footer" style="position: all; left: 0; bottom: 0; width: 100%; background-color: #222222; color:#fff; text-align: center;">
-  <p style="display: inline;">Kaskelen</p>
-  <p style="display: inline;">@sdude.org</p>
-
-
-</div>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
-<!-- Plugin JavaScript -->
-<script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
-<script src="{% static 'js/contact_me.js' %}"></script>
-
-<!-- Custom scripts for this template -->
-<script src="{% static 'js/agency.min.js' %}"></script>
-<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js?ver=1.4.2'></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+    
 <script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
 
 
 <script src="{% static 'js/base_js.js'%}" ></script>
-
-
+  </div>
 </body>
 
 </html>
