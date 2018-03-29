@@ -6,6 +6,6 @@ class Internship(models.Model):
     created_by = models.ForeignKey(User, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=200, null=False)
-    content = models.TextField(max_length=500)
+    content = models.TextField(max_length=4000)
     finish_time = models.DateTimeField(blank=True)
 

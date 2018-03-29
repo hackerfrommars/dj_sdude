@@ -8,6 +8,7 @@ from accounts.forms import LoginForm, SignUpForm
 from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
+from .forms import QuestionForm, AnswerForm
 
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode
@@ -31,7 +32,52 @@ def main_page(request):
         "question_list": question_list,
         "title": "Questions Page",
     }
-    if request.method == 'POST':
+    if request.method == 'POST' and request.POST['submit'] == 'Create Question':
+        question_form = QuestionForm(request.POST)
+        if question_form.is_valid():
+            ins = question_form.save(commit=False)
+            ins.created_by = request.user
+            ins.save()
+            return redirect("/questions")
+        else:
+            return HttpResponse("not valid feedback form")
+    elif request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('/')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    question_form = QuestionForm()
+    form = PasswordChangeForm(request.user)
+    context['password_change_form'] = form
+    context['question_form'] = question_form
+    return render(request, "questions/index.html", context)
+
+
+def question_page(request, id):
+    course_list = Course.objects.all()
+    question = get_object_or_404(Question, id=id)
+    answer_list = Answer.objects.filter(to_question=id)
+    context = {
+        "course_list": course_list,
+        "question": question,
+        "answer_list": answer_list,
+        "title": "Questions Page",
+    }
+    if request.method == 'POST' and request.POST['submit'] == 'Create Comment':
+        answer_form = AnswerForm(request.POST)
+        if answer_form.is_valid():
+            ins = answer_form.save(commit=False)
+            ins.to_question = get_object_or_404(Question, id=id)
+            ins.created_by = request.user
+            ins.save()
+            return redirect('/questions/question/%s' % id)
+        else:
+            return HttpResponse("not valid feedback form")
+    elif request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
@@ -41,11 +87,11 @@ def main_page(request):
         else:
             messages.error(request, 'Please correct the error below.')
     else:
-        for question in question_list:
-            context[str(question.pk)] = Answer.objects.filter(to_question=question.pk)
         form = PasswordChangeForm(request.user)
-        context['password_change_form'] = form
-    return render(request, "questions/index.html", context)
+    answer_form = AnswerForm()
+    context['answer_form'] = answer_form
+    return render(request, "questions/question.html", context)
+
 
 
 @login_required(login_url='/')
