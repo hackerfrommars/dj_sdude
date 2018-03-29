@@ -1,0 +1,134 @@
+#askcom{
+	margin-left: 430px;
+/*	border-style: outset;
+	text-align: center;
+	margin-left: 90px;
+	margin-right: 90px;
+	border-radius: 10px;*/
+}
+#cont{
+		border-style: outset;
+	text-align: center;
+	margin-left: 250px;
+	margin-right: 90px;
+	border-radius: 10px;
+	width: 60%;
+
+}
+#askcom button{
+	margin-left: 250px;
+}
+#answer{
+	text-align: center;
+	border:1px solid black;
+	margin-left: 90px;
+	margin-right: 90px;
+
+}
+
+h2{
+  text-align: center;
+  border: 2px solid;
+  border-style: outset;
+  color: white;
+background-color: #343A40;
+height: 52px;
+padding: 3px;
+margin-right: 90px;
+margin-left: 90px;
+  }
+  #answer{
+  	 color: white; border-radius: 6px;
+  background-color: #343A40;; 
+  }
+@media (max-width: 300px) {
+	#answer{
+		width: 90%;
+		margin-left: 15px;
+	}
+	h2{
+		margin-left: 15px;
+		width: 90%;
+	}
+	#cont{
+		margin-left: 15px;
+		width: 90%;
+	}
+	#askcom{
+		margin-left: 15px;
+		width: 90%;
+	}
+	#askcom button{
+		margin-left: 15px;
+		width: 90%;
+	}
+	}
+@media (max-width: 500px) {
+	#answer{
+		width: 90%;
+		margin-left: 15px;
+	}
+	h2{
+		margin-left: 15px;
+		width: 90%;
+	}
+	#cont{
+		margin-left: 15px;
+		width: 90%;
+	}
+	#askcom{
+		margin-left: 15px;
+		width: 90%;
+	}
+	#askcom button{
+		margin-left: 15px;
+		width: 90%;
+	}
+	}
+@media (max-width: 800px) {
+	#answer{
+	/*background-color: green;*/
+		width: 90%;
+		margin-left: 15px;
+	}
+	h2{
+		margin-left: 15px;
+		width: 90%;
+	}
+	#cont{
+		margin-left: 15px;
+		width: 90%;
+	}
+	#askcom{
+		margin-left: 15px;
+		width: 90%;
+	}
+	#askcom button{
+		margin-left: 15px;
+		width: 90%;
+		/*height: 45px;*/
+	}
+	}
+@media (max-width: 1100px) {
+	#answer{
+		/*background-color: red;*/
+		width: 90%;
+		margin-left: 15px;
+	}
+	h2{
+		margin-left: 15px;
+		width: 90%;
+	}
+	#cont{
+		margin-left: 15px;
+		width: 90%;
+	}
+	#askcom{
+		margin-left: 15px;
+		width: 90%;
+	}
+	#askcom button{
+		margin-left: 15px;
+		width: 90%;
+	}
+	}

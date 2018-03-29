@@ -1,24 +1,37 @@
+    
+    {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link href="{% static 'css/quesans_style.css' %}" rel="stylesheet">
 
-    {{ question.content }}<br>
-    {{ question.created_at }}<br>
-    <hr>
+    <title>Title</title>
+    <div id="form">
+    <h2>Answers</h2>
+</div>
+    <div id="cont" style="text-align: center;">
+    <p><b>Question:</b> {{ question.content }}</p><br>
+    <p><b>Asked at:</b> {{ question.created_at }}</p><br>
+        
+        </div>  
+        <!-- <hr style="margin-left: 90px; margin-right: 90px;"> -->
+        <div id="askcom">
     <form method="POST" action="{% url "questions:question" id=question.id %}">
         {% csrf_token %}
         {{ answer_form.as_p }}
         <button id="create" type="submit" name="submit" value="Create Comment" style="vertical-align:middle"><span>Add Comment</span></button>
     </form>
+    </div>
     <br>
-
+    <p style="text-align: center;"><b>Answers:</b></p>
+    <div id="answer">
+    
     {% for answer in answer_list %}
         {{ answer.content }}<br>
         {{ answer.created_at }}<br>
-        <hr>
+        <hr >
     {% endfor %}
+    </div>
 </head>
 <body>
 
