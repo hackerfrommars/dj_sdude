@@ -32,10 +32,12 @@
 }
 #internship{
     position: relative;
-    padding-top: 10px; 
-    padding-bottom: 10px; 
+    /*padding-top: 10px; */
+    /*padding-bottom: 10px; */
     bottom: 20px; 
-    top:30px;
+    top:40px;
+    width: 350px;
+    margin-left: 25px;
 
 }
 #internship img{
@@ -47,17 +49,20 @@
   color:#000;
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: center;
+  height: 25px;
 }
 #internship h3{
   color:#fff;
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: center;
+  height: 25px;
 }
 #internship h5{
   top:0px;
   color:#fff;
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: center;
+  height: 25px;
 }
 
 #internship a h5:hover {
@@ -73,7 +78,6 @@
   position: relative;
   font-size: 10px;
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
 }
 #internship p{
   position: relative;
@@ -86,10 +90,6 @@
 
 }
 
-/*#internship_info-content {
-  max-width: 50%;
-  margin: auto;
-    padding: 20px;
 
 
 .button {
@@ -98,9 +98,9 @@
     background-color: #fff;
     border: none;
     color: #000;
-    padding: 20px;
+    /*padding: 20px;*/
     width: 40%;
-    height: auto;
+    height: 47px;
     border: 3px solid #495e7b;
     border-radius: 5px;
     text-align: center;
@@ -110,9 +110,8 @@
     overflow: hidden;
     cursor: pointer;
     margin:10px;
-    margin-top: 35px;
+    margin-top: 42px;
     font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
 }
 
 .button:after {
@@ -143,13 +142,14 @@ button.selected{
 }
 #top_questions{
   position: relative;
-  width: 100%;
+  width: 95%;
   display: block;
+  margin-left: 42px;
 }
 #hot_questions{
   position: relative;
   width: 95%;
-  margin-left: 35px;
+  margin-left: 42px;
   display: none;
 }
 #title{

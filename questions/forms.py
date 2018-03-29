@@ -5,10 +5,10 @@ from .models import Question, Answer
 class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question
-        fields = ('content')
+        fields = ('content',)
 
 
 class AnswerForm(forms.ModelForm):
     class Meta:
         model = Answer
-        fields = ('content')
+        fields = ('content',)
