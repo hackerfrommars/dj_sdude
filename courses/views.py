@@ -21,6 +21,8 @@ from django.contrib.sites.shortcuts import get_current_site
 from questions.models import Answer, Question
 from django.db.models import Count
 import json
+# from django.core.mail import EmailMessage
+from django.core.mail import send_mail
 
 def home_page(request):
 
@@ -49,13 +51,17 @@ def home_page(request):
 
             current_site = get_current_site(request)
             subject = 'Activate Your SDUDE Account'
+            to_email = signup_form.cleaned_data.get('email')
             message = render_to_string('accounts/account_activation_email.html', {
                 'user': user,
                 'domain': current_site.domain,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': account_activation_token.make_token(user),
             })
-            user.email_user(subject, message)
+            # user.email_user(subject, message)
+            # email = EmailMessage(subject, message, to=[to_email])
+            # email.send()
+            send_mail(subject, message, "sarah.hiyandao@gmail.com", [to_email], fail_silently=False)
             return redirect('/signup/account_activation_sent')
         else:
             return HttpResponse("not valid form")
@@ -90,12 +96,12 @@ def main_page(request):
     else:
         form = PasswordChangeForm(request.user)
         context['password_change_form'] = form
-        hot_answers = Answer.objects.values('to_question').annotate(total=Count('to_question')).order_by('-total')[:2]
+        hot_answers = Answer.objects.values('to_question').annotate(total=Count('to_question')).order_by('-total')[:5]
         hot_questions = []
         for answer in hot_answers:
             hot_questions.append(get_object_or_404(Question, pk=answer['to_question']))
         context['hot_questions'] = hot_questions
-        top_questions = Question.objects.order_by('-created_at')[:2]
+        top_questions = Question.objects.order_by('-created_at')[:5]
         context['top_questions'] = top_questions
     return render(request, "main.html", context)
 
@@ -182,7 +188,7 @@ def get_internship(request):
 @login_required(login_url='/')
 def hot_answer(request):
     question_pk = request.GET.get('question_pk', None)
-    answers = Answer.objects.filter(to_question=question_pk)[:2]
+    answers = Answer.objects.filter(to_question=question_pk)[:5]
     answer_json = [ob.as_json() for ob in answers]
     return HttpResponse(json.dumps(answer_json), content_type='application/json')
 
@@ -190,6 +196,6 @@ def hot_answer(request):
 @login_required(login_url='/')
 def top_answer(request):
     question_pk = request.GET.get('question_pk', None)
-    answers = Answer.objects.filter(to_question=question_pk)[:2]
+    answers = Answer.objects.filter(to_question=question_pk)[:5]
     answer_json = [ob.as_json() for ob in answers]
     return HttpResponse(json.dumps(answer_json), content_type='application/json')

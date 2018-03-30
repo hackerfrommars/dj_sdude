@@ -14,17 +14,18 @@
 </head>
 <body>
 
-    <form method="POST" action="{% url "questions:main"%}">
-        {% csrf_token %}
-        {{ question_form.as_p }}
-        <button id="create" type="submit" name="submit" value="Create Question" style="vertical-align:middle"><span>Add Question</span></button>
-    </form>
-
 
 <div id="form">
     <h2>List of Questions</h2>
 </div>
 <div>
+<div id="ask">
+    <form id="content" method="POST" action="{% url "questions:main"%}">
+        {% csrf_token %}
+        {{ question_form.as_p }}
+        <button id="create" type="submit" name="submit" value="Create Question" style="vertical-align:middle"><span>Add Question</span></button>
+    </form>
+</div>
 <div id="questions">
 {% for question in question_list %}
     <div class="question_specific" pk="{{ question.pk }}">
