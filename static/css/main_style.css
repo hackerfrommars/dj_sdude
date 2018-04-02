@@ -39,6 +39,7 @@ body {
     padding-bottom: 10px; 
     bottom: 20px; 
     top:30px;
+    border-radius: 2px solid #000;
 
 }
 #internship img{
@@ -46,10 +47,13 @@ body {
     right:25px;
     display: block;
 }
-#internship h4{
-  color:#000;
+.internship_detail h5{
+  color:#fff;
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: center;
+  background-color: #343A40;
+  border: 2px solid silver;
+  border-radius: 5px;
 }
 #internship h3{
   color:#fff;
@@ -57,11 +61,6 @@ body {
   text-align: center;
 }
 
-#internship img{
-  position: absolute;
-  right: 5px;
-  top:30px;
-}
 #internship i{
   position: relative;
   font-size: 10px;
@@ -71,7 +70,7 @@ body {
 #internship p{
   position: relative;
   overflow: hidden;
-  color:#343A40;
+  color:#4a4e69;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -179,25 +178,30 @@ button.selected{
   width: 100%;
   display: block;
 }
-#hot_questions{
-  position: relative;
-  width: 100%;
-  display: none;
-}
+
 #title{
   text-align: center;
   bottom: 15px;
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #343A40;
+  color: #fff;
+  background-color: #4a4e69;
 
 }
 .panel-heading {
-  background: #222222;
-  border: 2px solid #E65652;
+  background: #fff;
+  border: 2px solid silver;
+}
+.panel-heading a{
+  color:#4a4e69;
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .panel-heading:hover {
-  background: #222222;
-  border: 2px solid #fff;
+  background: #fff;
+  border: 3px solid #773344;
+}
+.panel-heading a:hover{
+  color:#773344;
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .panel-title {
   color: #E65652;
@@ -211,7 +215,22 @@ button.selected{
 }
 
 .panel-footer {
-  border: 1.5px solid #E65652;
-      font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border-style: outset;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
+  background-color: #fdfffc;
+      color: #4a4e69;
 
+}
+.panel-body {
+  border-style: outset;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
+    background-color: #fdfffc;
+    color: #4a4e69;
+}
+#test {
+  border: 1.5px solid #000;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
 }

@@ -3,32 +3,47 @@
 {% load staticfiles%}
 {% load index %}
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <!--  button add bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="{% static 'css/internship_style.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <div class="container-fluid" id="internship">
 <div class="row">
-<div class="col-sm-3">
+<div class="col-sm-2">
 </div>
-<div class="col-sm-6">
-  <h2>List of Internships</h2>
-    <div class="panel-group" id="show_more">
+<div class="col-sm-8">
+<br>
+      <a class="list-group-item" id="list_of_all">
+      <div class="row">
+                <div class="col-sm-1">
+                </div>
+        <div class="col-sm-9">
+                                                <h3>List Of Internships</h3>
+        </div>
+        <div class="col-sm-2"><i class="fa fa-cogs" style="font-size:36px"></i>
+        </div>
+        </div>
+
+
+      </a>
+      <br>
+    <div class="panel-group" id="show_more" >
     {% for internship in internship_list %}
-    <div class="panel panel-default">
+    <div class="panel panel-default" style="border-style: outset; border-radius: 5px;">
     <div class="internship_detail" pk="{{ internship.pk }}">
-            <div class="panel-heading" style=" border: 1.5px solid #222222; height: 50px; background-color: #495e7b;">
+            <div class="panel-heading" >
                 <h4 class="text-center">{{ internship.title }}</h4>
             </div>
             <div class="panel-body">
             <div class="row">
-            <div class="col-xs-10 col-md-11">
-                    {{ internship.content | truncatechars:90 }}<br><br><br></div>
-            <div class="col-xs-2 col-md-1">
-                    <span class="glyphicon glyphicon-info-sign"></span></div>
+            <div class="col-xs-6 col-md-1">
+                    <a href="#"><i class="fa fa-info-circle"  data-toggle="modal" data-target="#intern_pop_up" style=""></i></a>
+                    </div>
+            <div class="col-xs-6 col-md-11">
+                   <h6> {{ internship.content | truncatechars:90 }} </h6>
+            </div>
+
             </div>
             </div>
             <div class="panel-footer" style=" border: 1px solid silver; height: 18px; background-color: white;">
@@ -37,10 +52,13 @@
             </div>
     </div><br>
             {% endfor %}
-            </div>
+            </div>            <br>
+            <br>
+
             </div>
 
 <div class="col-sm-3">
+</div>
 </div>
 </div>
 
@@ -62,15 +80,15 @@
         </div> -->
 
 
-        <form id="internship_info">
-        <div class="modal-dialog">
-        <div class="modal-content">
-        <a class="cancel" type="submit" style="color:#222222;">
-            <span class="glyphicon glyphicon-remove"></span>
-        </a>
-        <div class="modal-heading">
-                <h2 class="text-center" id="intern_title">{{ internship_list.2.title }}
-                </h2>
+    <form method="POST" action="/main/" >
+        <div class="modal fade" id="intern_pop_up" tabindex="-1" role="dialog"  aria-hidden="true">
+      <div class="modal-dialog" role="document">
+      <div class="modal-content" id="modals">
+        <div class="modal-header">
+                <h4 class="modal-title" id="intern_title">{{ internship_list.2.title }} </h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                </button>
         </div>
         <div class="moda-body">
                     <h4 id="intern_content" class="text-center" >{{ internship_list.2.content }}</h4>
@@ -81,17 +99,18 @@
                 
         </div>
         </div>
+        </div>
         </form>
+
             <!--   collapse javascript and source to find my own js file. it should be defined first than another script source -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <link href="{% static 'css/internship_style.css' %}" rel="stylesheet">
+
             <script src="{% static 'js/internship.js'%}" ></script>
             <!-- end -->
 
             <!-- Custom scripts for this template -->
-            <script src="{% static 'js/agency.min.js' %}"></script>
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
 

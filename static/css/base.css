@@ -1,29 +1,4 @@
-#modals{
-  background-color: #fff;
-  border: 1px solid silver;
-  border-radius: 5px;
-  color: #000;
-  opacity: 0.9;
-  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-}
-.btn-link{
-  color:white;
-}
-#change_pass{
-  color:#fff;
-  background-color: #222222;
-  border: 1px solid #000;
-}
-#change_pass:hover{
-  color:#fff;
-  background-color: #000;
-  border: 1px solid #000;
-}
-.modal-heading h2{
-  color:#222222;
-  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
 
 /* The Modal (background) */
 #myModal {
@@ -42,9 +17,8 @@
 
 
 #mainNav .navbar-brand{
-	color:#4a4e69;
+	color:#fff;
 	font-family:'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
-  font-size: 2.5vw;
 }
 
 

@@ -42,25 +42,30 @@ body {
 .panel-heading h4{
     font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: bold;
-    color: #fff;
+    color: #4a4e69;
 }
 
 .panel-body {
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 15px;
+  background-color: #343A40;
+  color: #fff;
+  padding: 7px 7px 7px 7px;
+}
+.panel-body a {
+  font-size:24px; 
+  padding-left: 5px; 
+  color: #fff;
+}
+.panel-body a:hover {
+  font-size:24px; 
+  padding-left: 5px; 
+  color: #773344;
 }
 .panel-footer p{
-  font-size: 7px;
+  font-size: 10px;
 }
-h2{
-  text-align: center;
-  border: 2px solid;
-  border-style: outset;
-  color: white;
-background-color: #343A40;
-height: 52px;
-padding: 3px;
-  }
+
 
 #totalint{
   display: none; /* Hidden by default */
@@ -74,4 +79,11 @@ padding: 3px;
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+#list_of_all {
+  background-color: #4a4e69;
+  border: 3px solid silver;
+  text-align: center;
+  color: #fff;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

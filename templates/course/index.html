@@ -9,8 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
  <!--  button add bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
   
 
 
@@ -22,23 +21,17 @@
       <!-- ADD exams -->
 
   <div class="btn-group btn-group-justified" style=" position: relative; width: 75%; left:13%; height: auto; top:90px;" id="add_button">
-          <a class="enviaPedido btn btn-sm"  id="add_syl">
-            <span class="visible-xs-block">Add<br>Syllabus</span>
+          <a class="enviaPedido btn btn-sm" data-toggle="modal" data-target="#syllabuses">
             <span class="hidden-xs">Add Syllabus</span></a>
-          <a class="enviaPedido btn btn-sm"  id="add_ass">
-            <span class="visible-xs-block">Add<br>Assignment</span>
+          <a class="enviaPedido btn btn-sm"  data-toggle="modal" data-target="#assignments">
             <span class="hidden-xs">Add Assignment</span></a>
-          <a class="enviaPedido btn btn-sm"  id="add_quiz">
-            <span class="visible-xs-block">Add<br>Quiz</span>
+          <a class="enviaPedido btn btn-sm"  data-toggle="modal" data-target="#quizes">
             <span class="hidden-xs">Add Quiz</span></a>
-          <a class="enviaPedido btn btn-sm"  id="add_mid">
-            <span class="visible-xs-block">Add<br>Mid</span>
+          <a class="enviaPedido btn btn-sm"  data-toggle="modal" data-target="#midterms">
             <span class="hidden-xs">Add Mid</span></a>
-          <a class="enviaPedido btn btn-sm"  id="add_fin">
-            <span class="visible-xs-block">Add<br>Final</span>
+          <a class="enviaPedido btn btn-sm"  data-toggle="modal" data-target="#finals">
             <span class="hidden-xs">Add Final</span></a>
-          <a class="enviaPedido btn btn-sm"  id="add_feed">
-            <span class="visible-xs-block">Add<br>FeedBack</span>
+          <a class="enviaPedido btn btn-sm"  data-toggle="modal" data-target="#feedback">
             <span class="hidden-xs">Add FeedBack</span></a>
 
   </div> 
@@ -47,13 +40,17 @@
           
 <!-- add menu javascript -->
 <!--   syllabus javascript-->
-        <form id="syllabuses" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+        <form  method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+<div class="modal fade" id="syllabuses" tabindex="-1" role="dialog"  aria-hidden="true">
+      <div class="modal-dialog" role="document">
             <div class="modal-dialog">
-              <div id="modal-content">
-                <a class="cancel" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span></a>
-                <div class="modal-heading">
-                    <h3 class="text-center">Syllabus</h3>
-                </div>
+              <div class="modal-content" >
+                <div class="modal-header">
+            <h5 class="modal-title" >Syllabus</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
                 <div class="modal-body">
                 <h4 style="color: #fff;">Find your professor</h4>
                     <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
@@ -74,7 +71,8 @@
                       <h4>  select semester {{ form.semester }} </h4>
 
 
-                    <div class="form-group text-right">
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <button class="btn btn-success btn-lg" id="create" type="submit" name="submit" value="Create Post"> 
                             <span>Create</span>
                         </button>
@@ -85,8 +83,9 @@
         </form>
 <!--   assignment javascript-->  
 
-        <form id="assignments" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
-            <div class="modal-dialog">
+        <form  method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+            <div class="modal fade" id="assignments" tabindex="-1" role="dialog"  aria-hidden="true">
+      <div class="modal-dialog" role="document">
               <div id="modal-content">
                 <a class="cancel" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span></a>
                 <div class="modal-heading">
@@ -291,22 +290,16 @@
     <div class="card mb-4" >
       <div class="btn-group btn-group-justified" style="position: relative; height: auto; text-align: center;" id="show_button">
           <a class="enviaPedido btn btn-sm"  onclick="first()">
-            <span class="visible-xs-block">Syllabus</span>
             <span class="hidden-xs">Syllabus</span></a>
           <a class="enviaPedido btn btn-sm"   onclick="second()">
-            <span class="visible-xs-block">Assignment</span>
             <span class="hidden-xs">Assignment</span></a>
           <a class="enviaPedido btn btn-sm"   onclick="three()">
-            <span class="visible-xs-block">Quiz</span>
             <span class="hidden-xs">Quiz</span></a>
           <a class="enviaPedido btn btn-sm"   onclick="four()">
-            <span class="visible-xs-block">Mid</span>
             <span class="hidden-xs">Mid</span></a>
           <a class="enviaPedido btn btn-sm"   onclick="five()">
-            <span class="visible-xs-block">Final</span>
             <span class="hidden-xs">Final</span></a>
           <a class="enviaPedido btn btn-sm"   onclick="six()">
-            <span class="visible-xs-block">FeedBack</span>
             <span class="hidden-xs">FeedBack</span></a>
   </div>  
       <div class="card-body">
