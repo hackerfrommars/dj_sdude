@@ -11,7 +11,7 @@
         <div class="row">   
                     <div class="col-sm-1">
                     </div>
-                    <div class="col-sm-6" style="border-style: outset; border: 2px solid silver; margin-top: 50px;margin-bottom: 100px; background-color: #343A40;">
+                    <div class="col-sm-7" style="border-style: outset; border: 2px solid silver; margin-top: 50px;margin-bottom: 350px; background-color: #5eb1bf;">
                         <br>
                         <h3 class="card-title" id="title" style="border-style: outset;">LAST questions</h3>
 
@@ -42,26 +42,26 @@
                     </div>
                     <div class="col-sm-1" >
                     </div>
-        <div class="col-sm-4" >
+        <div class="col-sm-3" >
                         <div class="form-group">
                             <div class="right">
                                 <div id="internship">
 
 
                                     <div class="list-group">
-                                        <a href="#" class="list-group-item" style="background-color: #4a4e69;
+                                        <a href="#" class="list-group-item" style="background-color: #343A40;
                                         border: 3px solid silver;">
-                                            <h3>Internship</h3>
+                                            <h5 id="intern_title_one">Internship</h5>
                                         </a>
-                                        <div data-toggle="modal" data-target="#internship_new">
+                                        <div data-toggle="modal" data-target="#internship_new" style="border: 1px solid silver;">
                                             {% for internship in internship_list %}
                                                 <div class="list-group-item">
                                                     <div class="internship_detail" pk="{{ internship.pk }}">
-                                                        <h5 class="list-group-item-heading"> 
+                                                        <h5 > 
                                                             {{ internship.title }} </h5>
                                                     
                                                 
-                                                        {{ internship.content | truncatechars:20 }} <br>
+                                                        <h6>{{ internship.content | truncatechars:20 }} </h6><br>
                                                         <div class="text-right" style="font-size: 8px; ">{{ internship.created_at }}</div>
                                                     </div>
                                                 </div>

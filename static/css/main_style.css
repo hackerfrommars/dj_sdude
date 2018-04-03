@@ -1,5 +1,5 @@
 body {
-  background: #F7F7F7;
+  background: #fff;
 }
 #modal-content{
   background-color: #fff;
@@ -48,14 +48,18 @@ body {
     display: block;
 }
 .internship_detail h5{
-  color:#fff;
+  color: #343A40;
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: center;
-  background-color: #343A40;
-  border: 2px solid silver;
-  border-radius: 5px;
+  font-weight: bold;
 }
-#internship h3{
+.internship_detail h6{
+  color: #5eb1bf;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+#intern_title_one{
   color:#fff;
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: center;
@@ -184,12 +188,12 @@ button.selected{
   bottom: 15px;
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #fff;
-  background-color: #4a4e69;
+  background-color: #343a40;
 
 }
 .panel-heading {
   background: #fff;
-  border: 2px solid silver;
+  border: 0.5px solid #343A40;
 }
 .panel-heading a{
   color:#4a4e69;
