@@ -11,9 +11,9 @@
         <div class="row">   
                     <div class="col-sm-1">
                     </div>
-                    <div class="col-sm-7" style="border-style: outset; border: 2px solid silver; margin-top: 50px;margin-bottom: 350px; background-color: #5eb1bf;">
+                    <div class="col-sm-7" style="border-style: outset; border: 2px solid silver; margin-top: 50px;margin-bottom: 350px; background-color: #f7f7f7;">
                         <br>
-                        <h3 class="card-title" id="title" style="border-style: outset;">LAST questions</h3>
+                        <h4 class="card-title" id="title" >LAST questions</h4>
 
                         <div id="top_questions">
                             <div class="panel-group">
@@ -45,17 +45,17 @@
         <div class="col-sm-3" >
                         <div class="form-group">
                             <div class="right">
-                                <div id="internship">
+                                <div id="internship" >
 
 
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item" style="background-color: #343A40;
+                                    <div class="list-group" >
+                                        <a href="#" class="list-group-item" style="background-color: #118c8b;
                                         border: 3px solid silver;">
                                             <h5 id="intern_title_one">Internship</h5>
                                         </a>
                                         <div data-toggle="modal" data-target="#internship_new" style="border: 1px solid silver;">
                                             {% for internship in internship_list %}
-                                                <div class="list-group-item">
+                                                <div class="list-group-item" style=" background-color: #f7f7f7;">
                                                     <div class="internship_detail" pk="{{ internship.pk }}">
                                                         <h5 > 
                                                             {{ internship.title }} </h5>
