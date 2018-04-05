@@ -1,25 +1,56 @@
+#ask{
+  padding-top: 5px;
+  margin-left: 150px;
+  border-style: outset;
+  border-radius: 5px;
+  margin-right: 90px;
+  margin-bottom: 3px;
+  padding-top: 2px;
+  text-align: center;
+  padding-left: 10px;
+  width: 75%;
+}
+#ask button{
+  margin-left: 310px;
+  padding-bottom: 3px;
+}
+.question_specific a{
+  width: 450px;
+
+}
+#id_content{
+  height: 70px;
+  width: 55%;
+  color: black;
+
+  /*background-color: red;*/
+}
+h2{
+  text-align: center;
+  border: 2px solid;
+  border-style: outset;
+  color: white;
+background-color: #343A40;
+height: 52px;
+padding: 3px;
+margin-right: 90px;
+margin-left: 150px;
+width: 75%
+  }
+
 #questions{
-    margin-left: 90px;
-    border-style: outset;
-    border-radius: 8px;
-    margin-right: 90px;
-    /*width: 75%;*/
-    text-align: center;
-    background-color: #343A40;
-    /*background-color: #48499A;*/
-    color: white;
+  margin-left: 150px;
+  border-style: outset;
+  border-radius: 8px;
+  margin-right: 90px;
+  /*width: 75%;*/
+  text-align: center;
+  background-color: #343A40;
+  /*background-color: #48499A;*/
+  color: white;
+  width: 75%;
 }
-#form{
-    height: 65px;
-    border-radius: 8px;
-    border-style: outset;
-    margin-left: 90px;
-    margin-right: 90px;
-    text-align: center;
-    padding: 2px;
-    margin-top: 40px;
-  margin-bottom: 20px;
-}
+
 #q_info{
   position: absolute;
   top: 20px;
@@ -94,3 +125,55 @@
   opacity: 1;
   right: 0;
 }
+@media (max-width: 800px) {
+  #questions{
+    background-color: brown;
+    margin-left: 50px;
+  }
+  h2{
+    margin-left: 50px;
+  }
+  #ask{
+    margin-left: 50px;
+  }
+  #ask button{
+    margin-left: 100px;
+  }
+
+  }
+@media (max-width: 500px) {
+  #questions{
+    background-color: ;
+    margin-left: 50px;
+  }
+  h2{
+    margin-left: 50px;
+  }
+  #ask{
+    margin-left: 50px;
+  }
+  #ask button{
+    margin-left: 100px;
+  }
+
+  }
+  @media (max-width: 300px) {
+  #questions{
+    background-color: ;
+    margin-left: 50px;
+  }
+  h2{
+    margin-left: 50px;
+    font-size: 7.0vw
+  }
+  #ask{
+    margin-left: 50px;
+  }
+  #ask button{
+    margin-left: 50px;
+    height: 30px;
+    width: 150px;
+  }
+  
+  }
+

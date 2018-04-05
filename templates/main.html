@@ -9,48 +9,49 @@
 
     <div class="container-fluid">
         <div class="row">   
-                    <div class="col-sm-1">
-                    </div>
-                    <div class="col-sm-7" style="border-style: outset; border: 2px solid silver; margin-top: 50px;margin-bottom: 350px; background-color: #f7f7f7;">
+                    
+                    <div class="col-sm-7" >
                         <br>
-                        <h4 class="card-title" id="title" >LAST questions</h4>
 
-                        <div id="top_questions">
-                            <div class="panel-group">
+                        <div id="top_questions" >
+
+                            <div class="panel-group" style="border-style: outset; border: 2px solid silver; margin-top: 20px; padding:20px 20px 20px 20px; background-color: #f7f7f7; border-radius: 5px;">
+                                                                            <h4 class="card-title" id="title" >LAST questions</h4>
+
                                 {% for question in top_questions %}
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h5 class="panel-title">
-                                                <a data-toggle="collapse" href="#test{{ forloop.counter }}" class="top_question"
+                                                <a  href="/questions/question/{{ question.pk }}" 
                                                    pk="{{ question.pk }}"
                                                    ord="{{ forloop.counter }}"><i class="fa fa-question-circle" style="font-size:24px"></i>
 
  {{ question.content }}</a>
                                             </h5>
                                         </div>
-                                        <div id="test{{ forloop.counter }}" class="panel-collapse collapse">
-                                            
-                                        </div>
+                                        
                                     </div>
                                 {% endfor %}
+                                                                    <br>
+
+                                <a href='{% url "questions:main" %}' class="list-group-item" id="view_q">
+                                        <h5>View All Questions</h5>
+                                    </a>
                             </div>
                         </div>
                         <br>
-                        <a href='{% url "questions:main" %}' class="list-group-item" id="view_q">
-                                        <h5>View All Questions</h5>
-                                    </a>
+                        
                     </div>
-                    <div class="col-sm-1" >
-                    </div>
-        <div class="col-sm-3" >
+
+        <div class="col-sm-5" >
                         <div class="form-group">
                             <div class="right">
                                 <div id="internship" >
 
 
-                                    <div class="list-group" >
+                                    <div class="list-group" style="margin-left: 25px; margin-right: 25px;">
                                         <a href="#" class="list-group-item" style="background-color: #118c8b;
-                                        border: 3px solid silver;">
+                                         border-radius: 5px 5px 0px 0px;">
                                             <h5 id="intern_title_one">Internship</h5>
                                         </a>
                                         <div data-toggle="modal" data-target="#internship_new" style="border: 1px solid silver;">
@@ -62,22 +63,27 @@
                                                     
                                                 
                                                         <h6>{{ internship.content | truncatechars:20 }} </h6><br>
-                                                        <div class="text-right" style="font-size: 8px; ">{{ internship.created_at }}</div>
+                                                        <div class="text-right" style="font-size: 8px; font-weight: bold;">{{ internship.created_at }}</div>
                                                     </div>
                                                 </div>
                                             {% endfor %}
-                                            <a href='{% url "internship:main" %}' class="list-group-item" id="view_in">
+                                            <a href='{% url "internship:main" %}' class="list-group-item" id="view_q">
                                         <h5>View All Intership</h5>
                                     </a>
                                         </div>
                                         </div>
-
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+</div>
                                     
                                     
                     
                                     <!--             internship detail with javascript -->
 <form  method="post" action="/" >
-<div class="modal fade" id="internship_new" tabindex="-1" role="dialog"  aria-hidden="true">
+<div class="modal fade" id="internship_new" tabindex="-1" role="dialog"  aria-hidden="true" style="margin-top: 100px;">
   <div class="modal-dialog" role="document">
 <div id="modal-content">
       <div class="modal-header" style="background-color: #222222;">

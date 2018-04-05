@@ -81,32 +81,11 @@ body {
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 }
-#view_in{
-  background-color: #4a4e69;
-  height: 50px; 
-  border: 2.5px solid white;
-}
-#view_in:hover{
-  background-color: #fff;
-  height: 50px; 
-  border: 2.5px solid #773344;
-  color:#773344;
-}
-#view_in h5{
-  color: #fff;
-  top:0px;
-  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  text-align: center;
-}
-#view_in h5:hover{
-  color: #773344;
-  top:0px;
-  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  text-align: center;
-}
+
 #view_q{
   height: 50px; 
   border: 0.5px solid #f14d49;
+  border-radius:  0px 0px 5px 5px;
 
 }
 #view_q:hover{
@@ -191,6 +170,7 @@ button.selected{
   background-color: #118c8b;
   height: 50px;
   padding-top: 10px;
+  border-radius: 5px 5px 0px 0px;
 
 }
 .panel-heading {
