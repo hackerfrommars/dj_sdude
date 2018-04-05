@@ -173,6 +173,6 @@ function six() {
 
 
 // search ajax
-    $(".chosen-teacher").fadeIn().chosen();
+    $(".chosen-select").fadeIn().chosen();
 
 //end
