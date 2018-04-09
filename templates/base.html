@@ -13,6 +13,7 @@
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
   <!-- Custom styles for this template -->
   
   <title>SDUDE coursepage</title>
@@ -43,7 +44,9 @@
       <br>
       <br>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="select your course">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+        <h5 style="margin-left: 18px; color:#118c8b; font-family: 'Poppins', sans-serif;">Choose subject name</h5>
+          <form class="form-inline my-2 my-lg-0 mr-lg-2" style="margin-left:18px; width: 440px;">
+
             <select class="chosen-select"  onchange="location = this.options[this.selectedIndex].value;">
 
             {% for course in course_list %}

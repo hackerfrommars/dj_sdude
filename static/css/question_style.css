@@ -1,179 +1,64 @@
-#ask{
-  padding-top: 5px;
-  margin-left: 150px;
-  border-style: outset;
-  border-radius: 5px;
-  margin-right: 90px;
-  margin-bottom: 3px;
-  padding-top: 2px;
-  text-align: center;
-  padding-left: 10px;
-  width: 75%;
+.container h5{
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color:#118c8b;
 }
-#ask button{
-  margin-left: 310px;
-  padding-bottom: 3px;
+.container textarea {<!--from  w  w w  . ja  v  a 2s .c  om-->
+  border-radius: 3px 3px 3px;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 8px 2px #343A40;
+  margin-bottom: 5px;
+}
+
+.container textarea:focus {
+  box-shadow: 0 0 8px 5px silver;
+  outline: 0;
+}
+.container i {
+  color:#E65652;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+.container button {
+    background-color: #E65652; /* Green */
+    border-radius: 7px;
+    color: white;
+    padding: 5px 20px 0px 20px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.container button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#question_detail a{
+  color:#343A40;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+
+}
+#question_detail a:hover{
+  color:#E65652;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+
+}
+#question_detail p{
+  color:#343A40;
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px;
+
+}
+#id_content {
+  border-style: outset;
+  border-radius: 10px;
 }
 .question_specific a{
   width: 450px;
 
 }
-#id_content{
-  height: 70px;
-  width: 55%;
-  color: black;
-
-  /*background-color: red;*/
-}
-#form h2{
-  text-align: center;
-  border: 2px solid;
-  border-style: outset;
-  color: white;
-background-color: #343A40;
-height: 52px;
-padding: 3px;
-margin-right: 90px;
-margin-left: 150px;
-width: 75%
-  }
-
-#questions{
-  margin-left: 150px;
-  border-style: outset;
-  border-radius: 8px;
-  margin-right: 90px;
-  /*width: 75%;*/
-  text-align: center;
-  background-color: #343A40;
-  /*background-color: #48499A;*/
-  color: white;
-  width: 75%;
-}
-
-#q_info{
-  position: absolute;
-  top: 20px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  width: 50%;
-  height: 50%;
-  border-radius: 5px;
-  box-shadow: 1px 1px 50px #000;
-  display: none;
-  background: #fff;
-  z-index: 1;
-  opacity: .95;
-  border-style: outset;
-  background-color: red;
-}
-#q_info h1{
-  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  position: relative;
-  margin-top: 0px;
-  text-align: center;
-  color: #495e7b;
-  text-shadow: 3px 3px 10px #fff;
-}
-.cancel {
-  font-family: 'Open Sans Condensed', sans-serif;
-  text-decoration: none;
-    position: absolute;
-  width: 15%;
-  height: 12%;
-  top:80%;
-  right: 10%;
-  display: block;
-  margin: 10px auto;
-  font-size: 1.2vw;
-  color: #495e7b;
-  padding: 15px;
-  border-radius: 6px;
-  border: none;
-  background: #fff;
-  -webkit-transition: all 2s ease-in-out;
-  -moz-transition: all 2s ease-in-out;
-  -o-transition: all 2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  background-color: #343A40;
-
-}
-
-.cancel span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.cancel span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: 20px;
-  transition: 0.5s;
-}
-
-.cancel:hover span {
-  padding-right: 25px;
-}
-
-.cancel:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-@media (max-width: 800px) {
-  #questions{
-    background-color: brown;
-    margin-left: 50px;
-  }
-  h2{
-    margin-left: 50px;
-  }
-  #ask{
-    margin-left: 50px;
-  }
-  #ask button{
-    margin-left: 100px;
-  }
-
-  }
-@media (max-width: 500px) {
-  #questions{
-    background-color: ;
-    margin-left: 50px;
-  }
-  h2{
-    margin-left: 50px;
-  }
-  #ask{
-    margin-left: 50px;
-  }
-  #ask button{
-    margin-left: 100px;
-  }
-
-  }
-  @media (max-width: 300px) {
-  #questions{
-    background-color: ;
-    margin-left: 50px;
-  }
-  h2{
-    margin-left: 50px;
-    font-size: 7.0vw
-  }
-  #ask{
-    margin-left: 50px;
-  }
-  #ask button{
-    margin-left: 50px;
-    height: 30px;
-    width: 150px;
-  }
-  
-  }
 
