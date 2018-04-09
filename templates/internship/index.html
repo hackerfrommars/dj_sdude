@@ -6,7 +6,7 @@
 
 <!--  button add bootstrap -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
 
 <div class="container-fluid" id="internship">
 <div class="row">
@@ -30,7 +30,7 @@
       <br>
     <div class="panel-group" id="show_more" >
     {% for internship in internship_list %}
-    <div class="panel panel-default" style="border-style: outset; border-radius: 5px;">
+    <div class="panel panel-default" style="border: 2px solid #f14d49; border-radius: 5px;">
     <div class="internship_detail" pk="{{ internship.pk }}">
             <div class="panel-heading" >
                 <h4 class="text-center">{{ internship.title }}</h4>
@@ -41,7 +41,7 @@
                     <a href="#"><i class="fa fa-info-circle"  data-toggle="modal" data-target="#intern_pop_up" style=""></i></a>
                     </div>
             <div class="col-xs-6 col-md-11">
-                   <h6> {{ internship.content | truncatechars:90 }} </h6>
+                   <h6> {{ internship.content | truncatechars:150 }} </h6>
             </div>
 
             </div>
@@ -90,8 +90,8 @@
                         <span aria-hidden="true">×</span>
                 </button>
         </div>
-        <div class="moda-body">
-                    <h4 id="intern_content" class="text-center" >{{ internship_list.2.content }}</h4>
+        <div class="modal-body">
+                    <h5 id="intern_content" class="text-center" >{{ internship_list.2.content }}</h5>
         <div class="modal-footer" >
                     <p class="text-right" id="intern_created_at">{{ internship_list.2.created_at }}</p>
         </div>

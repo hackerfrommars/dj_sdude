@@ -1,85 +1,5 @@
-
-
-
-// search ajax
-    $(".chosen-select").fadeIn().chosen();
-
-  // add syllabus
-  $('#add_syl').click(function(){
-  $('#add_syl').fadeIn(function(){
-
-    $("#syllabuses").fadeIn();
-    $(".chosen-teacher").fadeIn();
-    $(".chosen-teacher").chosen();
-  });
-});
-      // add assignments
-
-  $('#add_ass').click(function(){
-  $('#add_ass').fadeIn("slow",function(){
-
-    $("#assignments").fadeIn();
-    $(".chosen-teacher").fadeIn();
-    $(".chosen-teacher").chosen();
-  });
-});
-
-  // add quiz
-
-  $('#add_quiz').click(function(){
-  $('#add_quiz').fadeIn("slow",function(){
-
-    $("#quizes").fadeIn();
-    $(".chosen-teacher").fadeIn();
-    $(".chosen-teacher").chosen();
-  });
-});
-
-  // add midterm
-
-  $('#add_mid').click(function(){
-  $('#add_mid').fadeIn("slow",function(){
-
-    $("#midterms").fadeIn();
-    $(".chosen-teacher").fadeIn();
-    $(".chosen-teacher").chosen();
-  });
-});
-
-  // add final
-
-  $('#add_fin').click(function(){
-  $('#add_fin').fadeIn("slow",function(){
-
-    $("#finals").fadeIn();
-    $(".chosen-teacher").fadeIn();
-    $(".chosen-teacher").chosen();
-  });
-});
-
-  // add feedback
-
-  $('#add_feed').click(function(){
-  $('#add_feed').fadeIn("slow",function(){
-
-    $("#feed").fadeIn();
-    $(".chosen-teacher").fadeIn();
-    $(".chosen-teacher").chosen();
-  });
-});
-//один общий cancel для всех окон add exams with javascript
-$(".cancel").click(function(){
-  $("#syllabuses").fadeOut(100);
-  $("#assignments").fadeOut(100);
-  $("#quizes").fadeOut(100);
-  $("#midterms").fadeOut(100);
-  $("#finals").fadeOut(100);
-  $(".chosen-teacher").fadeOut(8);
-  $("#feed").fadeOut(100);
-  $(".chosen-teacher").chosen("destroy");
-});
-//end of cancel add exams
-
+$(".chosen-select").fadeIn().chosen();
+$(".chosen-teacher").fadeIn().chosen();
 
 // show exam
     var syl = document.getElementById("myfirst");
@@ -176,5 +96,3 @@ function six() {
         feed.style.display = "none";
     }
 }
-
-

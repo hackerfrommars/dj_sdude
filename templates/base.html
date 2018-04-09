@@ -44,7 +44,7 @@
       <br>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="select your course">
           <form class="form-inline my-2 my-lg-0 mr-lg-2">
-            <select class="chosen-select" style=" width:200px; height: auto; display: none;" onchange="location = this.options[this.selectedIndex].value;">
+            <select class="chosen-select"  onchange="location = this.options[this.selectedIndex].value;">
 
             {% for course in course_list %}
             <option value="/courses/{{ course.id }}">{{ course.name }}</option>
@@ -93,7 +93,7 @@
  <form method="POST" action="/main/" >
     <div class="modal fade" id="change_passw" tabindex="-1" role="dialog"  aria-hidden="true">
       <div class="modal-dialog" role="document">
-      <div class="modal-content" id="modals">
+      <div class="modal-content" id="modal">
             <div class="modal-header">
             <h5 class="modal-title" >change password</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -196,8 +196,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
 
 
-<script src="{% static 'js/base_js.js'%}" ></script>
-  </div>
+    <script src="{% static 'js/base_js.js' %}"></script>
+
+</div>
 </body>
 
 </html>

@@ -1,8 +1,9 @@
 .chosen-container{
   position: relative;
-  left: 10px;
+  left: 0px;
   top:5px;
-  width: 100%;
+  width: 50% !important;
+
 }
 .chosen-container .chosen-drop {
     background: #fff;
@@ -231,7 +232,8 @@
       width: 12px;
       cursor: pointer; }
       .chosen-container-multi .chosen-choices .search-choice .search-choice-close:hover {
-        background-position: right -11px; }
+        background-position: right -11px;
+         }
   .chosen-container-multi .chosen-choices .search-choice-focus {
     background: #d4d4d4; }
     .chosen-container-multi .chosen-choices .search-choice-focus .search-choice-close {

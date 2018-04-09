@@ -1,18 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% load staticfiles %}
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--  button add bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="{% static 'css/question_style.css' %}" rel="stylesheet">
 
     <title>{{ title }}</title>
-</head>
-<body>
 
 
 <div id="form">
@@ -39,6 +34,5 @@
                                                 <span>cancel</span></p> -->
     </div>
 {% endfor %}
-</body>
-</html>
+
 {% endblock %}
