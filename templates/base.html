@@ -57,6 +57,7 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
       <li id="change_password"><a href="#"><span class="glyphicon glyphicon-lock"></span>Change Password</a></li>
+        <li><a href="#"><span class="notification_count">0</span></a></li>
       <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>Notifications</a></li>
       <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
     </ul>
@@ -105,6 +106,9 @@
    </div>
 </div>
 
+<script>
+    Notification.requestPermission();
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
@@ -132,7 +136,50 @@
 
     </script>
     <script src="{% static 'js/base_js.js'%}" ></script>
+    <script>
+        var notification_count = 0;
+        var first_visit = true;
+        $(document).ready(function () {
+            get_notification_update();
+            setInterval(get_notification_update, 10000);
+        });
 
+        function get_notification_update() {
+            $.ajax({
+                url: '/questions/notification_update',
+                data: {
+                },
+                dataType: 'json',
+                success: function (data) {
+                    var len = data.length
+                    if (len > 0) {
+                        $('.notification_count').html('');
+                        $('.notification_count').html('' + len);
+                        console.log(first_visit);
+                        if(!first_visit){
+                            for (var i = notification_count; i < len; i++) {
+                                data1 = {
+                                    msg: data[i].question
+                                };
+                                var e = new Notification("Hey, someone answered your question.", {
+                                    body: data1.msg,
+                                    icon: "https://i.imgur.com/3rhFqqF.jpg"
+                                });
+                                e.onclick = function () {
+                                    location.href = ("http://127.0.0.1:8000/questions/question/%d/", data[i].id);
+                                    e.close();
+                                  };
+                            }
+                        }
+                        else{
+                            first_visit = false;
+                        }
+                        notification_count = len;
+                    }
+                }
+            });
+        }
+    </script>
 
 
 
