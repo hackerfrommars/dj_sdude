@@ -1,6 +1,7 @@
 .container h5{
     font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color:#118c8b;
+    margin-bottom: 20px;
 }
 .container textarea {<!--from  w  w w  . ja  v  a 2s .c  om-->
   border-radius: 3px 3px 3px;
@@ -9,7 +10,7 @@
   -moz-transition: all 0.3s;
   border: 1px solid #ddd;
   box-shadow: 0 0 8px 2px #343A40;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .container textarea:focus {
@@ -51,14 +52,8 @@
   color:#343A40;
   font-family: 'Raleway', sans-serif;
   font-size: 10px;
+  margin-bottom: 0px;
 
 }
-#id_content {
-  border-style: outset;
-  border-radius: 10px;
-}
-.question_specific a{
-  width: 450px;
 
-}
 
