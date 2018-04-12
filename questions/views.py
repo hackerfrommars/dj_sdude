@@ -20,7 +20,7 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.core import serializers
 
 from courses.models import Course
-from .models import Question, Answer
+from .models import Question, Answer, Notification
 
 
 @login_required(login_url='/')
@@ -57,6 +57,7 @@ def main_page(request):
     return render(request, "questions/index.html", context)
 
 
+@login_required(login_url='/')
 def question_page(request, id):
     course_list = Course.objects.all()
     question = get_object_or_404(Question, id=id)
@@ -93,7 +94,6 @@ def question_page(request, id):
     return render(request, "questions/question.html", context)
 
 
-
 @login_required(login_url='/')
 def get_answer(request):
     question_pk = request.GET.get('question_pk', None)
@@ -101,3 +101,23 @@ def get_answer(request):
     # answer_serialized = serializers.serialize('json', answer)
     answer_json = [ob.as_json() for ob in answer]
     return HttpResponse(json.dumps(answer_json), content_type='application/json')
+
+
+@login_required(login_url='/')
+def notification_page(request, pk):
+    notification = get_object_or_404(Notification, pk=pk, is_active=True)
+    question_id = notification.question_id
+    notification.is_active=False
+    notification.save()
+    return redirect("/questions/question/" + str(question_id.id) + "/")
+
+
+@login_required(login_url='/')
+def notification_update(request):
+    notifications = get_list_or_404(Notification, user_id=request.user, is_active=True)
+    lng = len(notifications)
+    notification_json = [ob.as_json() for ob in notifications]
+    if lng > 0:
+        return HttpResponse(json.dumps(notification_json), content_type='application/json')
+    else:
+        return HttpResponse('')
