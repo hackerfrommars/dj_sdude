@@ -1,26 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
 
-    {{ question.content }}<br>
-    {{ question.created_at }}<br>
-    <hr>
-    <form method="POST" action="{% url "questions:question" id=question.id %}">
-        {% csrf_token %}
-        {{ answer_form.as_p }}
-        <button id="create" type="submit" name="submit" value="Create Comment" style="vertical-align:middle"><span>Add Comment</span></button>
-    </form>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <link href="{% static 'css/quesans_style.css' %}" rel="stylesheet">
+
     <br>
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
+            <div  id="question_detail">
+            <h3>
+                <i class="fa fa-question-circle" style="font-size:24px"> </i>
+                {{ question.content }}
+            </h3>
 
+            <p class="text-right">
+                {{ question.created_at }}
+                <i class="fa fa-clock-o" style="font-size:15px"> </i>
+            </p>
+            </div>
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+    <br>
+    
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+              <h6 class="text-center">You can left your comment under question</h6>
+              <form method="POST" action="{% url "questions:question" id=question.id %}">
+                      {% csrf_token %}
+
+                <div class="form-group">
+                  <textarea  class="form-control" name="content" required="" cols="40" maxlength="500" rows="10" placeholder="Write your Answer" style="max-height: 100px;"></textarea>
+                        <i class="fa fa-share" style="font-size:20px"></i>
+                    
+                    
+                  <button id="create" type="submit" name="submit" value="Create Comment" style="vertical-align:middle"><span>Add</span></button>
+                  
+                </div>
+              </form>
+        </div>
+        <div class="col-sm-3">
+        </div>
+    </div>
+</div>
+
+ <div class="row">
+    <div class="col-sm-2">
+        </div>
+    <div class="col-sm-8">
     {% for answer in answer_list %}
-        {{ answer.content }}<br>
-        {{ answer.created_at }}<br>
-        <hr>
-    {% endfor %}
-</head>
-<body>
 
-</body>
-</html>
+    <div class="question_specific" pk="{{ question.pk }}" id="answer_detail">
+    <h6>
+        <i class="fa fa-info-circle" style="font-size:24px"></i>
+        {{ answer.content }}
+    </h6>
+        <p class="text-right">    {{ answer.created_at | timesince }} ago</p class="text-right">
+        <hr>
+    </div>
+    <div id="{{ question.pk }}" style="background-color: white; color: #343A40; border-radius: 6px;">
+     <!-- <p>xfghghg</p>
+                                            <p class="cancel" type="submit" style="vertical-align:middle">
+                                                <span>cancel</span></p> -->
+    </div>
+{% endfor %}
+    </div>
+    <div class="col-sm-2">
+        </div>
+        </div>       
+  
+    
+    
+        
+
+{% endblock %}

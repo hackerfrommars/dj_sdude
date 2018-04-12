@@ -5,313 +5,475 @@
 
 
 
-  <link href="{% static 'css/window_ass.css' %}" rel="stylesheet">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
- <!--  button add bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  
+<link href="{% static 'css/course_style.css' %}" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--  button add bootstrap -->
 
 
 
 
-    <!-- Page Content -->
-    <div class="container">
-      
-      <!-- ADD exams -->
 
-  <div class="btn-group btn-group-justified" style=" position: relative; width: 75%; left:13%; height: auto; top:10px;" id="add_button">
-          <a class="enviaPedido btn btn-sm"  id="add_syl">
-            <span class="visible-xs-block">Add<br>Syllabus</span>
-            <span class="hidden-xs">Add Syllabus</span></a>
-          <a class="enviaPedido btn btn-sm"  id="add_ass">
-            <span class="visible-xs-block">Add<br>Assignment</span>
+
+<!-- Page Content -->
+<div class="container">
+
+  <!-- ADD exams -->
+  <br>
+  <div class="row">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+
+      <div class="btn-group btn-group-justified"  id="add_button">
+        <a class="enviaPedido btn btn-sm" data-toggle="modal" data-target="#syllabuses">
+          <span class="hidden-xs">Add Syllabus</span></a>
+          <a class="enviaPedido btn btn-sm"  data-toggle="modal" data-target="#assignments">
             <span class="hidden-xs">Add Assignment</span></a>
-          <a class="enviaPedido btn btn-sm"  id="add_quiz">
-            <span class="visible-xs-block">Add<br>Quiz</span>
-            <span class="hidden-xs">Add Quiz</span></a>
-          <a class="enviaPedido btn btn-sm"  id="add_mid">
-            <span class="visible-xs-block">Add<br>Mid</span>
-            <span class="hidden-xs">Add Mid</span></a>
-          <a class="enviaPedido btn btn-sm"  id="add_fin">
-            <span class="visible-xs-block">Add<br>Final</span>
-            <span class="hidden-xs">Add Final</span></a>
-          <a class="enviaPedido btn btn-sm"  id="add_feed">
-            <span class="visible-xs-block">Add<br>FeedBack</span>
-            <span class="hidden-xs">Add FeedBack</span></a>
+            <a class="enviaPedido btn btn-sm"  data-toggle="modal" data-target="#quizes">
+              <span class="hidden-xs">Add Quiz</span></a>
+              <a class="enviaPedido btn btn-sm"  data-toggle="modal" data-target="#midterms">
+                <span class="hidden-xs">Add Mid</span></a>
+                <a class="enviaPedido btn btn-sm"  data-toggle="modal" data-target="#finals">
+                  <span class="hidden-xs">Add Final</span></a>
+                  <a class="enviaPedido btn btn-sm"  data-toggle="modal" data-target="#feedback">
+                    <span class="hidden-xs">Add FeedBack</span></a>
 
-  </div> 
-            <h1 style="margin-top: 80px; margin-left: 150px;">Subject Name</h1>
-
-          
-<!-- add menu javascript -->
-<!--   syllabus javascript-->
-        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
-
-            <div id="syllabuses">
-
-                <h1>Syllabus</h1>
-
-                <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
-                    {% for prof in prof_list %}
-                        <option value="{{ prof.pk }}">{{ prof.name }}</option>
-                    {% endfor %}
-                </select>
-                {% csrf_token %}
-                <div id="exam">         {{ form.exam_type|attr:"value:1" }} </div>
-{#                {{ form.professor }}#}
-                {{ form.file }}
-                {{ form.year }}
-                {{ form.semester }}
-
-
-                <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span>
-                </button>
-                <p class="cancel">cancel</p>
-            </div>
-        </form>
-<!--   assignment javascript-->  
-
-        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
-            <div id="assignments">
-
-                                                         <h1>Assignment</h1>
-
-                    <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
-                    {% for prof in prof_list %}
-                        <option value="{{ prof.pk }}">{{ prof.name }}</option>
-                    {% endfor %}
-                </select>
-                    {%  csrf_token  %}
-                    <div id="exam">         {{ form.exam_type|attr:"value:2"}} </div>
-{#                    {{ form.professor }}#}
-                    {{ form.file }}
-                    {{ form.year }}
-                    {{ form.semester }}
-
-            <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-<p class="cancel" >cancel</p>                
-            </div>  
-        </form>
-
-<!--   quiz javascript-->  
-        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
-              <div id="quizes">
-
-                                                           <h1>Quiz</h1>
-
-                      <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
-                    {% for prof in prof_list %}
-                        <option value="{{ prof.pk }}">{{ prof.name }}</option>
-                    {% endfor %}
-                </select>
-                      {%  csrf_token  %}
-                      <div id="exam">         {{ form.exam_type|attr:"value:3"}} </div>
-{#                      {{ form.professor }}#}
-                    {{ form.file }}
-                    {{ form.year }}
-                    {{ form.semester }}
-
-              <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-<p class="cancel" >cancel</p>                  
-              </div>  
-          </form>
-          
-  <!--   midterm javascript-->  
-
-          <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data"> 
-              <div id="midterms">
-
-                                                           <h1>MidTerm</h1>
-
-                      <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
-                    {% for prof in prof_list %}
-                        <option value="{{ prof.pk }}">{{ prof.name }}</option>
-                    {% endfor %}
-                </select>
-                      {%  csrf_token  %}
-                      <div id="exam">         {{ form.exam_type|attr:"value:4"}} </div>
-{#                      {{ form.professor }}#}
-                    {{ form.file }}
-                    {{ form.year }}
-                    {{ form.semester }}
-
-              <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span></button>
-<p class="cancel" >cancel</p>                  
-              </div>  
-          </form>
-  <!--   final javascript-->
-
-        <form id="post_form" method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
-            <div id="finals">
-
-                <h1>Final</h1>
-
-                <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
-                    {% for prof in prof_list %}
-                        <option value="{{ prof.pk }}">{{ prof.name }}</option>
-                    {% endfor %}
-                </select>
-                {% csrf_token %}
-                <div id="exam">         {{ form.exam_type|attr:"value:5"|add_class:"hidden_exam" }} </div>
-                {#                      {{ form.professor }}#}
-                {{ form.file }}
-                {{ form.year }}
-                {{ form.semester }}
-
-                <button id="create" type="submit" name="submit" value="Create Post" style="vertical-align:middle"><span>add</span>
-                </button>
-                <p class="cancel">cancel</p>
-            </div>
-        </form>
-  <!--   feedback javascript-->
-
-        <form method="POST" id="post_form" action="/courses/{{ course_id }}/">
-            <div id="feedbacks">
-
-                <h1>FeedBack</h1>
-
-                {% csrf_token %}
-                                  <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
-                                      {% for prof in prof_list %}
-                                          <option value="{{ prof.pk }}">{{ prof.name }}</option>
-                                      {% endfor %}
-                                  </select>
-{#                <p style="margin:0;display:inline;float:center; position: absolute; right: 100px; color: #fff;">#}
-{#                    Grade: {{ feedback_form.grade }} </p>#}
-                {{ feedback_form.grade }}
-{#                {{ feedback_form.year }}<br>#}
-{#                {{ feedback_form.semester }}<br>#}
-                {{ feedback_form.content }}
-{#                <textarea rows="4" cols="50" form="usrform"#}
-{#                          style="position: absolute; left: 20px; top:80px;  width: 90%; height: 40%; text-align: left; background-color: #fff; color: #000"#}
-{#                          placeholder="Write your feedback about this course"  {{ feedback_form.content }} ></textarea>#}
-
-                <button id="create" type="submit" name="submit" value="Add Feedback"
-                        style="position: absolute;top: 70%; right: 5%;background-color: #fff; color: #000; width: 15%; height: 12%;">
-                    <span>Add</span></button>
-                <p class="cancel_f">cancel</p>
-            </div>
-        </form>
-
-
-        <!-- end ADD exam-->
-
-
-
-    <div class="card mb-4" >
-      <div class="btn-group btn-group-justified" style="position: relative; height: auto; text-align: center;" id="show_button">
-          <a class="enviaPedido btn btn-sm"  onclick="first()">
-            <span class="visible-xs-block">Syllabus</span>
-            <span class="hidden-xs">Syllabus</span></a>
-          <a class="enviaPedido btn btn-sm"   onclick="second()">
-            <span class="visible-xs-block">Assignment</span>
-            <span class="hidden-xs">Assignment</span></a>
-          <a class="enviaPedido btn btn-sm"   onclick="three()">
-            <span class="visible-xs-block">Quiz</span>
-            <span class="hidden-xs">Quiz</span></a>
-          <a class="enviaPedido btn btn-sm"   onclick="four()">
-            <span class="visible-xs-block">Mid</span>
-            <span class="hidden-xs">Mid</span></a>
-          <a class="enviaPedido btn btn-sm"   onclick="five()">
-            <span class="visible-xs-block">Final</span>
-            <span class="hidden-xs">Final</span></a>
-          <a class="enviaPedido btn btn-sm"   onclick="six()">
-            <span class="visible-xs-block">FeedBack</span>
-            <span class="hidden-xs">FeedBack</span></a>
-  </div>  
-      <div class="card-body">
-              <h2 class="card-title" id="title" style="font-size: 2vw;">Click on any tab to view resources</h2>
-                  <div id="myfirst">
-                      <p id="tex"><b>Professor FileName Year Term Download</p>
-                      {% for exam in exam_list %}
-                        {% if exam.exam_type == 1 %}
-                          name: {{ exam.course.name }} <br>
-                          file_name: {{ exam.file.name }}<a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a><br>
-                          created_at: {{ exam.created_at | timesince}} ago <br><br>
-                          
-                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
-                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
-                          
-                        {% endif %}
-                      {% endfor %}
                   </div>
-                  <div id="mysecond">
-                      {% for exam in exam_list %}
-                        {% if exam.exam_type == 2 %}
-                          <p id="tex"><b>Professor FileName Year Term Download</p>
-                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
-                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
-                          
-                        {% endif %}
-                      {% endfor %}
-                  </div>
-                  <div id="mythree">
-                      {% for exam in exam_list %}
-                        {% if exam.exam_type == 3 %}
-                            <p id="tex"><b>Professor FileName Year Term Download</p>
-                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
-                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
-                          
-                          {% endif %}
-                      {% endfor %}
-                  </div>
-                  <div id="myfour">
-                      {% for exam in exam_list %}
-                        {% if exam.exam_type == 4 %}
-                            <p id="tex"><b>Professor FileName Year Term Download</p>
-                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
-                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
-                          
-                          {% endif %}
-                      {% endfor %}
-                  </div>
-                  <div id="myfive">
-                      {% for exam in exam_list %}
-                        {% if exam.exam_type == 5 %}
-                            <p id="tex"><b>Professor FileName Year Term Download</p>
-                          </b><p id="first">{{ exam.course.name }}</p> <p id="second">{{ exam.file.name }}</p> <p id="third">{{ exam.created_at | timesince}} ago </p>
-                          <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                          <p id="fifth"> <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a></p><br>
-                          
-                          {% endif %}
-                      {% endfor %}
-                  </div>
-                  <div id="mysix">
-                      
-                      {% for feedback in feedback_list %}
-                      <p>content: {{ feedback.content }} </p><br>
-                      <p>Grade: {{ feedback.grade }} <br>
-                      Created at: {{ feedback.created_at | timesince}} ago </p><br>
-                      <br>
 
-                          
-                      {% endfor %}
-                  </div>
                 </div>
-                <div class="card-footer text-muted">Posted on January 1, 2017 by</div>
-    </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-      </div>
-    </div>
-  </div>
-  <!-- /.row -->
-</div>
-<!-- /.container -->
-      </div>
+                <div class="col-sm-1">
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <h5 style="margin-left: 16px;">{{ course_name }}</h5>
+              </div>
+
+              <!-- add menu javascript -->
+              <!--   syllabus javascript-->
+              <form  method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+                <div class="modal fade" id="syllabuses" >
+                  <div class="modal-dialog" >
+
+                    <div class="modal-content" >
+                      <div class="modal-header">
+                        <h5 class="modal-title" >Syllabus</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close" id="cancel">
+                          <span aria-hidden="true">×</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <h6 >Find your professor</h6>
+                          <select class="chosen-teacher" style="display: none !important;" name="professor" required id="id_professor">
+                            {% for prof in prof_list %}
+                            <option value="{{ prof.pk }}">{{ prof.name }}</option>
+                            {% endfor %}
+                          </select>
+                          <form>
+                            {% csrf_token %}
+                            <div id="exam"> 
+                              {{ form.exam_type|attr:"value:1" }} 
+                            </div>
+
+                            {#                  {{ form.professor }}#} <br>
+                            {{ form.file }}
+                            <h6>  select year {{ form.year }}   </h6>
+                            <h6>  select semester {{ form.semester }} </h6>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
-    <script src="{% static 'js/course_js.js'%}" ></script>
-    
-  {% endblock %}
+                            <div class="modal-footer">
+                              <button class="btn btn-secondary" id="create" type="button" data-dismiss="modal">Cancel</button>
+                              <button class="btn btn-success"  type="submit" name="submit" value="Create Post"> 
+                                <span>Create</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </form>
+                  <!--   assignment javascript-->  
+
+                  <form  method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+                    <div class="modal fade" id="assignments" tabindex="-1" role="dialog"  aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+
+                        <div class="modal-content" >
+                          <div class="modal-header">
+                            <h5 class="modal-title" >Assignment</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close" id="cancel">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+<h6 >Find your professor</h6>
+                            <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
+                              {% for prof in prof_list %}
+                              <option value="{{ prof.pk }}">{{ prof.name }}</option>
+                              {% endfor %}
+                            </select>
+                            
+
+                            {% csrf_token %}
+                            <div id="exam"> 
+                              {{ form.exam_type|attr:"value:2" }} 
+                            </div>
+
+                            {#                  {{ form.professor }}#} <br>
+                            {{ form.file }}
+                            <h6>  select year {{ form.year }}   </h6>
+                            <h6>  select semester {{ form.semester }} </h6>
+
+
+                            <div class="modal-footer">
+                              <button class="btn btn-secondary" id="create" type="button" data-dismiss="modal">Cancel</button>
+                              <button class="btn btn-success "  type="submit" name="submit" value="Create Post"> 
+                                <span>Create</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </form>
+
+                  <!--   quiz javascript-->  
+                  <form  method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+                    <div class="modal fade" id="quizes" tabindex="-1" role="dialog"  aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+
+                        <div class="modal-content" >
+                          <div class="modal-header">
+                            <h5 class="modal-title" >Quiz</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close" id="cancel">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <h6 >Find your professor</h6>
+                            <select class="chosen-teacher" style="width: 200px; display: none;" name="professor" required id="id_professor">
+                              {% for prof in prof_list %}
+                              <option value="{{ prof.pk }}">{{ prof.name }}</option>
+                              {% endfor %}
+                            </select>
+
+
+                            {% csrf_token %}
+                            <div id="exam"> 
+                              {{ form.exam_type|attr:"value:3" }} 
+                            </div>
+
+                            {#                  {{ form.professor }}#} <br>
+                            {{ form.file }}
+                            <h6>  select year {{ form.year }}   </h6>
+                            <h6>  select semester {{ form.semester }} </h6>
+
+
+                            <div class="modal-footer">
+                              <button class="btn btn-secondary" id="create" type="button" data-dismiss="modal">Cancel</button>
+                              <button class="btn btn-success " type="submit" name="submit" value="Create Post"> 
+                                <span>Create</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </form>
+
+                  <!--   midterm javascript-->  
+
+                  <form  method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+                    <div class="modal fade" id="midterms" tabindex="-1" role="dialog"  aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+
+                        <div class="modal-content" >
+                          <div class="modal-header">
+                            <h5 class="modal-title" >MidTerm</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close" id="cancel">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <h6 >Find your professor</h6>
+                            <select class="chosen-teacher" style="width: 200px; display: none;" name="professor" required id="id_professor">
+                              {% for prof in prof_list %}
+                              <option value="{{ prof.pk }}">{{ prof.name }}</option>
+                              {% endfor %}
+                            </select>
+                            
+                            {% csrf_token %}
+                            <div id="exam"> 
+                              {{ form.exam_type|attr:"value:4" }} 
+                            </div>
+
+                            {#                  {{ form.professor }}#} <br>
+                            {{ form.file }}
+                            <h6>  select year {{ form.year }}   </h6>
+                            <h6>  select semester {{ form.semester }} </h6>
+
+
+                            <div class="modal-footer">
+                              <button class="btn btn-secondary" id="create" type="button" data-dismiss="modal">Cancel</button>
+                              <button class="btn btn-success "  type="submit" name="submit" value="Create Post"> 
+                                <span>Create</span>
+                              </button>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </form>
+                  <!--   final javascript-->
+
+                  <form  method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+                    <div class="modal fade" id="finals" tabindex="-1" role="dialog"  aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+
+                        <div class="modal-content" >
+                          <div class="modal-header">
+                            <h5 class="modal-title" >Final</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close" id="cancel">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <h6 >Find your professor</h6>
+                            <select class="chosen-teacher" style="width: 200px; display: none;" name="professor" required id="id_professor">
+                              {% for prof in prof_list %}
+                              <option value="{{ prof.pk }}">{{ prof.name }}</option>
+                              {% endfor %}
+                            </select>
+
+                            {% csrf_token %}
+                            <div id="exam"> 
+                              {{ form.exam_type|attr:"value:5" }} 
+                            </div>
+
+                            {#                  {{ form.professor }}#} <br>
+                            {{ form.file }}
+                            <h6>  select year {{ form.year }}   </h6>
+                            <h6>  select semester {{ form.semester }} </h6>
+
+
+                            <div class="modal-footer">
+                              <button class="btn btn-secondary" id="create" type="button" data-dismiss="modal">Cancel</button>
+                              <button class="btn btn-success"  type="submit" name="submit" value="Create Post"> 
+                                <span>Create</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </form>
+                  <!--   feedback javascript-->
+
+                  <form  method="post" action="/courses/{{ course_id }}/" enctype="multipart/form-data">
+                    <div class="modal fade" id="feedback" tabindex="-1" role="dialog"  aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content" > 
+                          <div class="modal-header">
+                            <h5 class="modal-title" >FeedBack</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close" id="cancel">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+
+                            {% csrf_token %}
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <h6 >Find your professor</h6>
+                                </div>
+                                <div class="col-sm-8"> <select class="chosen-teacher" style="width: 200px; display: none;" name="professor" required id="id_professor"> 
+                                  {% for prof in prof_list %}
+                                  <option value="{{ prof.pk }}">{{ prof.name }}</option>
+                                  {% endfor %}
+                                </select>
+                              </div> </div><br>
+                              <div class="row">
+                                <div class="col-sm-4">
+                                  <h6 style="color: #fff;">Point Your Grade </h6>
+                                </div> 
+                                <div class="col-sm-8">
+                                  <h6>{{ feedback_form.grade }} </h6>
+                                </div>
+                              </div>
+                              <div class="form-group text-center">
+                                <textarea rows="4" cols="40" style="text-align: left; background-color: #fff; color: #000" placeholder="Write your feedback about this course" name="content" required id="id_content"></textarea>
+
+
+                              </div>
+
+
+                              <div class="modal-footer">
+                                <button class="btn  btn-success " id="create"type="button" data-dismiss="modal">Cancel</button>
+                                <button class="btn btn-success"  type="submit" name="submit" value="Add Feedback"> 
+                                  <span>Add</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+
+
+                    <!-- end ADD exam-->
+
+<div class="row">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+
+                    <div class="card mb-3" >
+                    
+                       <div class="btn-group btn-group-justified"  id="show_button">
+        <a class="enviaPedido btn btn-sm" onclick="first()">
+          <span class="hidden-xs">See Syllabus</span></a>
+          <a class="enviaPedido btn btn-sm"  onclick="second()">
+            <span class="hidden-xs">See Assignment</span></a>
+            <a class="enviaPedido btn btn-sm" onclick="three()">
+              <span class="hidden-xs">See Quiz</span></a>
+              <a class="enviaPedido btn btn-sm"  onclick="four()">
+                <span class="hidden-xs">See Mid</span></a>
+                <a class="enviaPedido btn btn-sm"  onclick="five()">
+                  <span class="hidden-xs">See Final</span></a>
+                  <a class="enviaPedido btn btn-sm"  onclick="six()">
+                    <span class="hidden-xs">See FeedBack</span></a>
+
+                  </div>
+                          
+                                  <div class="card-body">
+                                    <h2 class="card-title" id="title" style="font-size: 2vw; ">Click on any tab to view resources</h2>
+                                    <div id="mnmn">
+                                      <div  id="myfirst" >
+                                        <p id="tex">
+                                          Professor FileName YearTerm Download</p>
+
+                                        {% for exam in exam_list %}
+                                        {% if exam.exam_type == 1 %}
+
+
+                                      <p id="first">{{ exam.professor }}</p> 
+                                      <p id="second">{{ exam.file.name }}</p> 
+                                      <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                                      <p id="forth"> 
+                                        <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a>
+                                      </p>
+                                        <br>
+                                      {% endif %}
+                                      {% endfor %}
+                                    </div>
+
+                                    <div id="mysecond">
+                                    <p id="tex">Professor FileName YearTerm Download</p>
+                                      {% for exam in exam_list %}
+                                      {% if exam.exam_type == 2 %}
+                                      
+                                      <p id="first">{{ exam.course.name }}</p> 
+                                      <p id="second">{{ exam.file.name }}</p> 
+                                      <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                                      
+                                      <p id="forth"> 
+                                        <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a>
+                                      </p>
+                                      <br>
+
+                                    {% endif %}
+                                    {% endfor %}
+                                  </div>
+                                  <div id="mythree">
+                                  <p id="tex">Professor FileName YearTerm Download</p>
+                                     {% for exam in exam_list %}
+                                      {% if exam.exam_type == 3 %}
+                                      
+                                      <p id="first">{{ exam.course.name }}</p> 
+                                      <p id="second">{{ exam.file.name }}</p> 
+                                      <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                                      
+                                      <p id="forth"> 
+                                        <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a>
+                                      </p>
+                                      <br>
+
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <div id="myfour">
+                                <p id="tex">Professor FileName YearTerm Download</p>
+                                   {% for exam in exam_list %}
+                                      {% if exam.exam_type == 4 %}
+                                      
+                                      <p id="first">{{ exam.course.name }}</p> 
+                                      <p id="second">{{ exam.file.name }}</p> 
+                                      <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                                      
+                                      <p id="forth"> 
+                                        <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a>
+                                      </p>
+                                      <br>
+
+                                    {% endif %}
+                                    {% endfor %}
+                              </div>
+                              <div id="myfive">
+                              <p id="tex">Professor FileName YearTerm Download</p>
+                                 {% for exam in exam_list %}
+                                      {% if exam.exam_type == 5 %}
+                                      
+                                      <p id="first">{{ exam.course.name }}</p> 
+                                      <p id="second">{{ exam.file.name }}</p> 
+                                      <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                                     
+                                      <p id="forth"> 
+                                        <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a>
+                                      </p>
+                                      <br>
+
+                                    {% endif %}
+                                    {% endfor %}
+                            </div>
+                            <div id="mysix">
+
+                              {% for feedback in feedback_list %}
+                              <div id="eachfeed">
+                              <p>content: {{ feedback.content }} </p><br>
+                              <p>Grade: {{ feedback.grade }} <br>
+                                Created at: {{ feedback.created_at | timesince}} ago </p><br>
+                                <br>
+
+                                </div>
+                                {% endfor %}
+                              </div>
+
+                              <!-- </div> -->
+                              <div  class="card-footer text-muted" >Posted on January 1, 2018 by</div>
+                            </div>
+                          </div>
+                         
+                        </div>
+                        </div>
+                        <div class="col-sm-1">
+                          
+                        </div>
+                        
+                      
+                  <!-- /.container -->
+                </div>
+
+
+
+
+                {% endblock %}

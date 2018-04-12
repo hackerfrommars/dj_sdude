@@ -1,26 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  button add bootstrap -->
+    <link href="{% static 'css/question_style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
-    <form method="POST" action="{% url "questions:main"%}">
-        {% csrf_token %}
-        {{ question_form.as_p }}
-        <button id="create" type="submit" name="submit" value="Create Question" style="vertical-align:middle"><span>Add Question</span></button>
-    </form>
+    <title>Questions</title>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
+              <h5 class="text-center">Ask any questions which is interesting to you</h5>
+              <form id="content"  method="POST" action="{% url "questions:main"%}">
+                <div class="form-group">
+                        {% csrf_token %}
+                  <textarea id="exampleFormControlTextarea6" class="form-control" name="content" required="" cols="40" maxlength="500" rows="10" placeholder="Write your Question" style="max-height: 100px;"></textarea>
+                        <i class="fa fa-share" style="font-size:28px"></i>
+                    
+                    
+                  <button type="submit" name="submit" value="Create Question" style="vertical-align:middle"><h6>Ask</h6></button>
+                  
+                </div>
+              </form>
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+</div>
 
-
+<br>
+    
+<div class="row">
+    <div class="col-sm-2">
+        </div>
+    <div class="col-sm-8">
 {% for question in question_list %}
-    <div class="question_specific" pk="{{ question.pk }}">
-        <a href="{% url "questions:question" id=question.id %}">{{ question.content }}</a><br>
-            {{ question.created_at | timesince }}
+    <div class="question_specific" pk="{{ question.pk }}" id="question_detail">
+    <i class="fa fa-question" style="font-size:24px"></i>
+        <a href="{% url "questions:question" id=question.id %}">  {{ question.content }}</a><br>
+        <p class="text-right">    {{ question.created_at | timesince }} ago</p class="text-right">
         <hr>
     </div>
-    <div id="{{ question.pk }}" style="background-color: blue">
+    <div id="{{ question.pk }}" style="background-color: white; color: #343A40; border-radius: 6px;">
+     <!-- <p>xfghghg</p>
+                                            <p class="cancel" type="submit" style="vertical-align:middle">
+                                                <span>cancel</span></p> -->
     </div>
 {% endfor %}
-</body>
-</html>
+    </div>
+    <div class="col-sm-2">
+        </div>
+        </div>
+
+{% endblock %}

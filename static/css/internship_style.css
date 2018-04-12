@@ -1,0 +1,95 @@
+
+#modal-content{
+  background-color: #222222;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  opacity: 0.9;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+}
+
+.modal-heading h2{
+  color:#222222;
+  background-color: #fff;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.modal-body h5 {
+    font-family: 'Amaranth', sans-serif;
+
+}
+.modal-footer {
+  height: 15px;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+/* The Modal (background) */
+#internship_info {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+}
+.panel-heading h4{
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color: #118c8b;
+}
+
+.panel-body {
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  background-color: #343A40;
+  color: #fff;
+  padding: 7px 7px 7px 7px;
+}
+.panel-body a {
+  font-size:24px; 
+  padding-left: 5px; 
+  color: #fff;
+}
+.panel-body h6 {
+  color: #fff;
+  font-family: 'Amaranth', sans-serif;
+}
+.panel-body a:hover {
+  font-size:24px; 
+  padding-left: 5px; 
+  color: #773344;
+}
+.panel-footer p{
+  font-size: 10px;
+}
+
+
+#totalint{
+  display: none; /* Hidden by default */
+    position: fixed;   
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+#list_of_all {
+  background-color: #118c8b;
+  border: 1px solid #118c8b;
+  border-radius: 7px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
