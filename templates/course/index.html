@@ -337,7 +337,7 @@
     </div>
     <div class="col-sm-10">
 
-                    <div class="card mb-4" >
+                    <div class="card mb-3" >
                     
                        <div class="btn-group btn-group-justified"  id="show_button">
         <a class="enviaPedido btn btn-sm" onclick="first()">
@@ -378,14 +378,15 @@
                                     </div>
 
                                     <div id="mysecond">
+                                    <p id="tex">Professor FileName YearTerm Download</p>
                                       {% for exam in exam_list %}
                                       {% if exam.exam_type == 2 %}
-                                      <p id="tex">Professor FileName Year Term Download</p>
+                                      
                                       <p id="first">{{ exam.course.name }}</p> 
                                       <p id="second">{{ exam.file.name }}</p> 
-                                      <p id="third">{{ exam.created_at | timesince}} ago </p>
-                                      <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                                      <p id="fifth"> 
+                                      <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                                      
+                                      <p id="forth"> 
                                         <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a>
                                       </p>
                                       <br>
@@ -394,14 +395,15 @@
                                     {% endfor %}
                                   </div>
                                   <div id="mythree">
+                                  <p id="tex">Professor FileName YearTerm Download</p>
                                      {% for exam in exam_list %}
                                       {% if exam.exam_type == 3 %}
-                                      <p id="tex">Professor FileName Year Term Download</p>
+                                      
                                       <p id="first">{{ exam.course.name }}</p> 
                                       <p id="second">{{ exam.file.name }}</p> 
-                                      <p id="third">{{ exam.created_at | timesince}} ago </p>
-                                      <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                                      <p id="fifth"> 
+                                      <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                                      
+                                      <p id="forth"> 
                                         <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a>
                                       </p>
                                       <br>
@@ -410,14 +412,15 @@
                                     {% endfor %}
                                 </div>
                                 <div id="myfour">
+                                <p id="tex">Professor FileName YearTerm Download</p>
                                    {% for exam in exam_list %}
                                       {% if exam.exam_type == 4 %}
-                                      <p id="tex">Professor FileName Year Term Download</p>
+                                      
                                       <p id="first">{{ exam.course.name }}</p> 
                                       <p id="second">{{ exam.file.name }}</p> 
-                                      <p id="third">{{ exam.created_at | timesince}} ago </p>
-                                      <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                                      <p id="fifth"> 
+                                      <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                                      
+                                      <p id="forth"> 
                                         <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a>
                                       </p>
                                       <br>
@@ -426,14 +429,15 @@
                                     {% endfor %}
                               </div>
                               <div id="myfive">
+                              <p id="tex">Professor FileName YearTerm Download</p>
                                  {% for exam in exam_list %}
                                       {% if exam.exam_type == 5 %}
-                                      <p id="tex">Professor FileName Year Term Download</p>
+                                      
                                       <p id="first">{{ exam.course.name }}</p> 
                                       <p id="second">{{ exam.file.name }}</p> 
-                                      <p id="third">{{ exam.created_at | timesince}} ago </p>
-                                      <p id="forth">{{ exam.created_at | timesince}} ago</p>
-                                      <p id="fifth"> 
+                                      <p id="third">{{ exam.year}},{{ exam.semester}} </p>
+                                     
+                                      <p id="forth"> 
                                         <a href="{% url "courses:download_course" name=exam.file.name %}">Download File</a>
                                       </p>
                                       <br>
@@ -444,12 +448,13 @@
                             <div id="mysix">
 
                               {% for feedback in feedback_list %}
+                              <div id="eachfeed">
                               <p>content: {{ feedback.content }} </p><br>
                               <p>Grade: {{ feedback.grade }} <br>
                                 Created at: {{ feedback.created_at | timesince}} ago </p><br>
                                 <br>
 
-
+                                </div>
                                 {% endfor %}
                               </div>
 
