@@ -1,13 +1,11 @@
+.chosen-container{
+  position: relative;
+  left: 0px;
+  top:5px;
+  width: 50% !important;
 
-
-.chosen-container {
-  display: inline-block;
-  font-size: 14px;
-  position: absolute;
-  right: 350px;
-  top: 25px;
-  vertical-align: middle; }
-  .chosen-container .chosen-drop {
+}
+.chosen-container .chosen-drop {
     background: #fff;
     border: 1px solid #ccc;
     border-bottom-right-radius: 4px;
@@ -234,7 +232,8 @@
       width: 12px;
       cursor: pointer; }
       .chosen-container-multi .chosen-choices .search-choice .search-choice-close:hover {
-        background-position: right -11px; }
+        background-position: right -11px;
+         }
   .chosen-container-multi .chosen-choices .search-choice-focus {
     background: #d4d4d4; }
     .chosen-container-multi .chosen-choices .search-choice-focus .search-choice-close {

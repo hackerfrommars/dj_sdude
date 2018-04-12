@@ -115,7 +115,7 @@ def list_course(request, id):
     feedback_list = Feedback.objects.filter(course=id)
     context = {
         "exam_list": exam_list,
-        "course_id": id,
+        "course_name": course.name,
         'prof_list': prof_list,
         "course_list": course_list,
         "feedback_list": feedback_list,

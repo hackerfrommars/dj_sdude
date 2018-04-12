@@ -8,6 +8,7 @@
   box-shadow: 0 5px #999;
   font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
   height: 45px;
+  /*margin-top: 150px;*/
   /*margin-right: 2px;*/
 }
 
@@ -15,7 +16,7 @@
     background-color: #fff;
 }
 #add_button .btn span {
-  font-size: 1.1vw;
+  font-size: 1.3vw;
 }
 #show_button .btn{
   cursor: pointer;
@@ -39,7 +40,7 @@
   position: relative;
   width: 75%;
   left: 13%;
-
+  /*background-color: black;*/
 }
 .container h1 {
   position: all;
@@ -53,7 +54,7 @@
 /* add exams form style */
 #syllabuses, #assignments, #quizes, #midterms, #finals{
   position: relative;
-  top: 25%;
+  top: 15%;
   margin: auto;
   /*margin-top: 300px;*/
   width: 40%;
@@ -251,24 +252,180 @@
 */
 #exam, #myfirst, #mysecond, #mythree, #myfour, #myfive, #mysix  {
       display: none;
-      border-style: outset;
+      /*border-style: outset;*/
       padding-left: 5px;
+      /*border-radius: 3px;*/
+      /*border: 3px solid;*/
+      padding-top: 5px;
+      margin-bottom: 5px;
+      /*background-color: black;*/
+
+
       
 
     }
+  #mnmn{
+    border-style: outset;
+      border-radius: 3px;
+
+  }
+
 #first, #second, #third, #forth, #fifth{
    float:left;
-  border: 1.5px solid;
+  border: 1px solid;
   font-weight: normal;
   border-radius: 3px;
-  margin-right: 25px;
-  width: 130px;
-  height: 23px;
+  margin-right: 5px;
+  width: 24%;
+  height: 24px;
+  padding-top: 2px;
+  text-align: center;
+  overflow: hidden;
+  color:#343A40;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 
 
 }
 #tex{
-  word-spacing: 105px;
+  word-spacing: 145px;
+  font-size: 1.3vw;
+}
+@media (max-width: 1200px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 105px;
+    color: red;
+  }
+}
+@media (max-width: 1100px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 120px;
+    color: red;
+  }
+}
+@media (max-width: 1000px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 87px;
+    color: green;
+    /*font-size: 0.8vw;*/
+  }
+  #first, #second, #third, #forth, #fifth{
+   /*float:left;*/
+  /*border: 1.5px solid;*/
+  /*font-weight: normal;*/
+  /*border-radius: 3px;*/
+  margin-right: 5px;
+  width: 23%;
+  height: 24px;
+  font-size: 1.4vw;
+
 
 }
 
+}
+@media (max-width: 800px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 85px;
+    color: blue;
+  }
+  #first, #second, #third, #forth, #fifth{
+   /*float:left;*/
+  /*border: 1.5px solid;*/
+  /*font-weight: normal;*/
+  /*border-radius: 3px;*/
+  margin-right: 5px;
+  width: 23%;
+  height: 24px;
+
+
+}
+}
+@media (max-width: 700px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 78px;
+    color: purple;
+  }
+}
+@media (max-width: 650px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 67px;
+    color: grey;
+  }
+  #first, #second, #third, #forth, #fifth{
+   /*float:left;*/
+  /*border: 1.5px solid;*/
+  /*font-weight: normal;*/
+  /*border-radius: 3px;*/
+  margin-right: 5px;
+  width: 23%;
+  height: 24px;
+
+
+}
+}
+@media (max-width: 500px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 50px;
+    color: yellow;
+  }
+}
+@media (max-width: 400px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 36px;
+    color: pink;
+  }
+  #first, #second, #third, #forth, #fifth{
+   /*float:left;*/
+  /*border: 1.5px solid;*/
+  /*font-weight: normal;*/
+  /*border-radius: 3px;*/
+  margin-right: 5px;
+  width: 21%;
+  height: 14px;
+
+
+}
+}
+@media (max-width: 300px) {
+  
+  #tex{
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    word-spacing: 30px;
+    color: orange;
+  }
+}
