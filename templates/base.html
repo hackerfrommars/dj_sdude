@@ -13,14 +13,14 @@
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
   <!-- Custom styles for this template -->
-  
   <title>SDUDE coursepage</title>
 
   <!-- Bootstrap core CSS-->
   <link href="{% static 'v/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   <script src="{% static 'v/vendor/jquery/3.1.1/jquery.min.js' %}"></script>
-    <script src="{% static 'v/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'v/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
   <!-- Custom fonts for this template-->
   <link href="{% static 'v/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
@@ -40,17 +40,21 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-      <br>
-      <br>
+        <br>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="select your course">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
-            <select class="chosen-select"  onchange="location = this.options[this.selectedIndex].value;">
+          <a class="nav-link" >
 
-            {% for course in course_list %}
-            <option value="/courses/{{ course.id }}">{{ course.name }}</option>
-            {% endfor %}
-          </select>
-          </form>
+            <h6 style="color:#118c8b; font-family: 'Poppins', sans-serif;">Choose subject name</h6>
+            <form class="form-inline my-2 my-lg-0 mr-lg-2" style="width: 440px;">
+
+              <select class="chosen-select"  onchange="location = this.options[this.selectedIndex].value;">
+
+                {% for course in course_list %}
+                <option value="/courses/{{ course.id }}">{{ course.name }}</option>
+                {% endfor %}
+              </select>
+            </form>
+          </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
@@ -71,112 +75,153 @@
       </ul>
       
       <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-          <a class="nav-link "  href="#"  >Notifications
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+
             <i class="fa fa-fw fa-bell"></i>
+            <span class="d-lg-none">Alerts
+              <span class="badge badge-pill badge-warning"><span class="notification_count">0</span> New</span>
+            </span>
+            <span class="indicator d-none d-lg-block notification_count" style="margin-left: 3px; color: #f14d49; font-size: 1.2vw; font-weight: bold;">
+              0
+            </span>
           </a>
-          </li>
-      <li class="nav-item" >
-          <a class="nav-link " data-toggle="modal" data-target="#change_passw">Change Password
-            <i class="fa fa-lock"></i>
-          </a>
-          </li> 
-        
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+            <h6 class="dropdown-header">New Alerts:</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-danger">
+                <strong>
+                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="#">View all alerts</a>
+          </div>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link " data-toggle="modal" data-target="#change_passw">Change Password
+          <i class="fa fa-lock"></i>
+        </a>
+      </li> 
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>
     </div>
   </nav>
-<!--     password detail with javascript -->
- <form method="POST" action="/main/" >
+  <!--     password detail with javascript -->
+  <form method="POST" action="/main/" >
     <div class="modal fade" id="change_passw" tabindex="-1" role="dialog"  aria-hidden="true">
       <div class="modal-dialog" role="document">
-      <div class="modal-content" id="modal">
-            <div class="modal-header">
+        <div class="modal-content" id="modal">
+          <div class="modal-header">
             <h5 class="modal-title" >change password</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
 
-        <div class="modal-body">  
-    {% csrf_token %}
-    <div class="form-group">
-      <div class="input-group">
-     <input type="password" class="form-control" placeholder="old password" {{ password_change_form.old_password }}
+          <div class="modal-body">  
+            {% csrf_token %}
+            <div class="form-group">
+              <div class="input-group">
+              <input type="password" class="form-control" name="old_password" autofocus
+              required id="id_old_password" placeholder="old password"/>
+             </div>
+           </div>
+           <div class="form-group">
+            <div class="input-group">
+              <input type="password" class="form-control" name="new_password1" autofocus
+              required id="id_new_password1"  placeholder="new password"/> 
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <input type="password" class="form-control" name="new_password2" autofocus
+              required id="id_new_password2"  placeholder="confirm password"/>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <button id="change_pass" class="btn btn-success btn-lg" type="submit" value="Change Password">change</button>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="input-group">
-        <input type="password" class="form-control" placeholder="new password"    {{ password_change_form.new_password1 }}
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="input-group">
-        <input type="password" class="form-control" placeholder="confirm password" {{ password_change_form.new_password2 }}
-      </div>
-    </div>
-    <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <button id="change_pass" class="btn btn-success btn-lg" type="submit" value="Change Password">change</button>
     </div>
   </div>
-</div>
-</div>
-</div>
-</div>
+
+
 </form>
 
 
-  <div class="content-wrapper">
-    <div class="container-fluid">
-      <!-- Breadcrumbs-->
-{% block content %}
-{% endblock%}     
- </div>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <!-- Breadcrumbs-->
+    {% block content %}
+
+    {% endblock%}     
+  </div>
+</div>
+<!-- /.container-fluid-->
+<!-- /.content-wrapper-->
+
+<!-- /.container-fluid-->
+<!-- /.content-wrapper-->
+<footer class="sticky-footer">
+  <div class="container">
+    <div class="text-center">
+      <small>Copyright © Your Website 2018</small>
     </div>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
-        </div>
+  </div>
+</footer>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fa fa-angle-up"></i>
+</a>
+<!-- Logout Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
       </div>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
-        </div>
-      </div>
-    </footer>
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fa fa-angle-up"></i>
-    </a>
-    <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="/logout">Logout</a>
-          </div>
-        </div>
+      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="/logout">Logout</a>
       </div>
     </div>
-    <!-- Bootstrap core JavaScript-->
+  </div>
+</div>
+    
+    
+
     <script src="{% static 'v/vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'v/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <!-- Core plugin JavaScript-->
@@ -192,13 +237,64 @@
     <script src="{% static 'j/js/sb-admin-charts.min.js' %}"></script>
 
     
-<script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script>
+<script src="https:/
+
+/code.jquery.com/jquery-migrate-3.0.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
 
 
     <script src="{% static 'js/base_js.js' %}"></script>
+<script>
+  Notification.requestPermission();
+</script>
+<script>
+  var notification_count = 0;
+  var first_visit = true;
+  $(document).ready(function () {
+    get_notification_update();
+    setInterval(get_notification_update, 10000);
+  });
 
-</div>
+  function get_notification_update() {
+    $.ajax({
+      url: '/questions/notification_update',
+      data: {
+      },
+      dataType: 'json',
+      success: function (data) {
+        var len = data.length
+        if (len > 0) {
+          $('.notification_count').html('');
+          $('.notification_count').html('' + len);
+          console.log(first_visit);
+          if(!first_visit){
+            for (var i = notification_count; i < len; i++) {
+              data1 = {
+                msg: data[i].question
+              };
+              var e = new Notification("Hey, someone answered your question.", {
+                body: data1.msg,
+                icon: "https://i.imgur.com/3rhFqqF.jpg"
+              });
+              e.onclick = function () {
+                location.href = ("http://127.0.0.1:8000/questions/question/%d/", data[i].id);
+                e.close();
+              };
+            }
+          }
+          else{
+            first_visit = false;
+          }
+          notification_count = len;
+        }
+      }
+    });
+  }
+</script>
+
+
+
+
 </body>
 
 </html>

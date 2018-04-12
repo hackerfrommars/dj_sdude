@@ -21,6 +21,8 @@ from django.contrib.sites.shortcuts import get_current_site
 from questions.models import Answer, Question
 from django.db.models import Count
 import json
+# from django.core.mail import EmailMessage
+from django.core.mail import send_mail
 
 def home_page(request):
 
@@ -49,13 +51,17 @@ def home_page(request):
 
             current_site = get_current_site(request)
             subject = 'Activate Your SDUDE Account'
+            to_email = signup_form.cleaned_data.get('email')
             message = render_to_string('accounts/account_activation_email.html', {
                 'user': user,
                 'domain': current_site.domain,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': account_activation_token.make_token(user),
             })
-            user.email_user(subject, message)
+            # user.email_user(subject, message)
+            # email = EmailMessage(subject, message, to=[to_email])
+            # email.send()
+            send_mail(subject, message, "sarah.hiyandao@gmail.com", [to_email], fail_silently=False)
             return redirect('/signup/account_activation_sent')
         else:
             return HttpResponse("not valid form")
@@ -109,7 +115,7 @@ def list_course(request, id):
     feedback_list = Feedback.objects.filter(course=id)
     context = {
         "exam_list": exam_list,
-        "course_id": id,
+        "course_name": course.name,
         'prof_list': prof_list,
         "course_list": course_list,
         "feedback_list": feedback_list,

@@ -27,3 +27,17 @@ class Answer(models.Model):
             content=self.content,
             question_pk=self.to_question.pk
         )
+
+
+class Notification(models.Model):
+    question_id = models.ForeignKey(Question, null=False)
+    is_active = models.BooleanField(default=True)
+    user_id = models.ForeignKey(User, null=False)
+
+
+    def as_json(self):
+        return dict(
+            notification_id=self.id,
+            id=self.question_id.pk,
+            question=self.question_id.content
+        )
