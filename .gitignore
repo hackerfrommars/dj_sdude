@@ -5,3 +5,5 @@ db.sqlite3
 .DS_Store
 .idea
 migrations/
+
+dj_sdude/settings\.py

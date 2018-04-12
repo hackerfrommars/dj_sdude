@@ -92,13 +92,13 @@
   border: 2.5px solid #773344;
   color:#773344;
 }
-#view_q h5{
+#view_q h6{
   color: #f14d49;
   top:0px;
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: center;
 }
-#view_q h5:hover{
+#view_q h6:hover{
   color: #773344;
   top:0px;
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
