@@ -118,7 +118,8 @@ def list_course(request, id):
         "course_name": course.name,
         'prof_list': prof_list,
         "course_list": course_list,
-        "feedback_list": feedback_list,
+        "feedback_list": feedback_list,  
+        "course_id": id
     }
     exam_form = ExamForm()
     feedback_form = FeedbackForm()
