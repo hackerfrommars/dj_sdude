@@ -1,14 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Notification</title>
-</head>
-<body>
-    You have {{ notification_count }} notifications:<br>
-    {% for notification in notification_list %}
-        Someone answered your question: <a href="{% url "questions:delete_notification" id=notification.id %}">{{ notification.question_id.content }}</a><br>
-    {% endfor %}
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
 
-</body>
-</html>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+<link href="{% static 'css/quesans_style.css' %}" rel="stylesheet">
+
+
+
+<br>
+<div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            
+            <h3>
+                
+                You have   <i class="fa fa-bell-o" style="font-size:24px; color:#f14d49;"> {{ notification_count }}</i>   notifications:
+            </h3>
+
+        </div>
+        <div class="col-sm-3">
+        </div>
+    </div>
+<br>
+<br>
+<div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+        {% for notification in notification_list %}
+
+        <div class="question_specific" pk="{{ question.pk }}" id="answer_detail">
+            <h6>
+                <i class="fa fa-comment-o" style="font-size:24px"></i>
+                Someone answered your question: <a href="{% url "questions:delete_notification" id=notification.id %}"><br><i style="color:#118c8b;">{{ notification.question_id.content }}</i></a><br>
+                <hr>
+            </h6>
+            
+            </div>
+            <div id="{{ question.pk }}" style="background-color: white; color: #343A40; border-radius: 6px;">
+     <!-- <p>xfghghg</p>
+                                            <p class="cancel" type="submit" style="vertical-align:middle">
+                                                <span>cancel</span></p> -->
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="col-sm-2">
+                                        </div>
+                                    </div>     
+    
+
+{% endblock %}
