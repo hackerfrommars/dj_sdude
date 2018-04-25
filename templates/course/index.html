@@ -69,6 +69,7 @@
                         <form>
                           <h6 >Find your professor</h6>
                           <select class="chosen-teacher" style="display: none !important;" name="professor" required id="id_professor">
+                            <option value="">---</option>
                             {% for prof in prof_list %}
                             <option value="{{ prof.pk }}">{{ prof.name }}</option>
                             {% endfor %}
@@ -113,6 +114,7 @@
                           <div class="modal-body">
 <h6 >Find your professor</h6>
                             <select class="chosen-teacher" style="width: 200px;" name="professor" required id="id_professor">
+                              <option value="">---</option>
                               {% for prof in prof_list %}
                               <option value="{{ prof.pk }}">{{ prof.name }}</option>
                               {% endfor %}
@@ -158,6 +160,7 @@
                           <div class="modal-body">
                             <h6 >Find your professor</h6>
                             <select class="chosen-teacher" style="width: 200px; display: none;" name="professor" required id="id_professor">
+                              <option value="">---</option>
                               {% for prof in prof_list %}
                               <option value="{{ prof.pk }}">{{ prof.name }}</option>
                               {% endfor %}
@@ -204,6 +207,7 @@
                           <div class="modal-body">
                             <h6 >Find your professor</h6>
                             <select class="chosen-teacher" style="width: 200px; display: none;" name="professor" required id="id_professor">
+                              <option value="">---</option>
                               {% for prof in prof_list %}
                               <option value="{{ prof.pk }}">{{ prof.name }}</option>
                               {% endfor %}
@@ -249,6 +253,7 @@
                           <div class="modal-body">
                             <h6 >Find your professor</h6>
                             <select class="chosen-teacher" style="width: 200px; display: none;" name="professor" required id="id_professor">
+                              <option value="">---</option>
                               {% for prof in prof_list %}
                               <option value="{{ prof.pk }}">{{ prof.name }}</option>
                               {% endfor %}
@@ -297,6 +302,7 @@
                                 <h6 >Find your professor</h6>
                                 </div>
                                 <div class="col-sm-8"> <select class="chosen-teacher" style="width: 200px; display: none;" name="professor" required id="id_professor"> 
+                                  <option value="">---</option>
                                   {% for prof in prof_list %}
                                   <option value="{{ prof.pk }}">{{ prof.name }}</option>
                                   {% endfor %}
@@ -304,7 +310,7 @@
                               </div> </div><br>
                               <div class="row">
                                 <div class="col-sm-4">
-                                  <h6 style="color: #fff;">Point Your Grade </h6>
+                                  <h6 style="color: #000;">Point Your Grade </h6>
                                 </div> 
                                 <div class="col-sm-8">
                                   <h6>{{ feedback_form.grade }} </h6>

@@ -48,7 +48,7 @@
             <form class="form-inline my-2 my-lg-0 mr-lg-2" style="width: 440px;">
 
               <select class="chosen-select"  onchange="location = this.options[this.selectedIndex].value;">
-
+                <option value="">---</option>
                 {% for course in course_list %}
                 <option value="/courses/{{ course.id }}">{{ course.name }}</option>
                 {% endfor %}
@@ -56,21 +56,43 @@
             </form>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Components</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
-              <a href="navbar.html">Navbar</a>
-            </li>
-            <li>
-              <a href="cards.html">Cards</a>
-            </li>
-          </ul>
+        <li class="nav-item">
+          
+
+            <h6 class="text-center">Course News</h6>
+            <div class="dropdown-divider"></div>
+
+              
+              <div class="dropdown-header">DataBase Management <span class="small float-right text-muted">  11:21 AM</span></div>
+              <a href="#">add new feedback</a>
+              <div class="dropdown-header">DataBase Management <span class="small float-right text-muted">  11:21 AM</span></div>
+              <a href="#">add new feedback</a>
+              
+
+            
+            <div class="dropdown-divider"></div>
+
+
+            <h6 class="text-center">Question News</h6>
+            <div class="dropdown-divider"></div>
+              <div class="dropdown-header">What was it? <span class="small float-right text-muted">  11:21 AM</span></div>
+              <a href="#">add new answer</a>
+              <div class="dropdown-header">What was it? <span class="small float-right text-muted">  11:21 AM</span></div>
+              <a href="#">add new answer</a>
+            
+            <div class="dropdown-divider"></div>
+
+
+            <h6 class="text-center">Internship News</h6>
+            <div class="dropdown-divider"></div>
+              <div class="dropdown-header">Google<span class="small float-right text-muted">  11:21 AM</span></div>
+              <a href="#">add new internship</a>
+              <div class="dropdown-header">Google<span class="small float-right text-muted">  11:21 AM</span></div>
+              <a href="#">add new internship</a>
+            
+            <div class="dropdown-divider"></div>
+            
         </li>
-        
         
       </ul>
       

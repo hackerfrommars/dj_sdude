@@ -20,6 +20,24 @@
 	color:#f14d49;
 	font-family:'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
 }
-
+.dropdown-header {
+    color: #f14d49;
+    
+    padding-top:5px;
+    padding-bottom: 0px; 
+}
+.text-center {
+    color: #727272;
+}
+a {
+    color: white;
+    margin-left: 10px;
+    padding-top:0px;
+    padding-bottom: 0px; 
+}
+a:hover {
+    color:black;
+    
+}
 
 
