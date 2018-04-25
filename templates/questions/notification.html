@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notification</title>
+</head>
+<body>
+    You have {{ notification_count }} notifications:<br>
+    {% for notification in notification_list %}
+        Someone answered your question: <a href="{% url "questions:delete_notification" id=notification.id %}">{{ notification.question_id.content }}</a><br>
+    {% endfor %}
+
+</body>
+</html>
