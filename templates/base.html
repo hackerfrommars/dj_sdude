@@ -245,40 +245,37 @@
             $('.dropdown-menu').html('<h6 class="dropdown-header">New Alerts:</h6>');
             for (var j = 0; j < len; j++) {
                 $('.dropdown-menu').append('<div class="dropdown-divider"></div>');
-                $('.dropdown-menu').append('<a class="dropdown-item" href="#">');
+                $('.dropdown-menu').append('<a class="dropdown-item" href="/questions/notification/delete/'+ data[j].notification_id + '/">');
                 $('.dropdown-menu').append('<span class="text-success"><strong><i class="fa fa-long-arrow-up fa-fw"></i>Notification:</strong></span>');
                 $('.dropdown-menu').append('<div class="dropdown-message small">Someone answered your questions: ' + data[j].question + '</div></a>');
           }
           if(!first_visit){
+                console.log("not_count: " + notification_count);
+                console.log("len: " + len);
+                console.log("----------");
             for (var i = notification_count; i < len; i++) {
               data1 = {
                 msg: data[i].question
               };
               var e = new Notification("Hey, someone answered your question.", {
                 body: data1.msg,
-                icon: "https://i.imgur.com/3rhFqqF.jpg"
+                icon: "https://cn.pling.com/cache/85x85-crop/img/5/9/6/b/878c3fe5a7eef2d6766dd3532e3773501ae9.png"
               });
               e.onclick = function () {
                 location.href = ("http://127.0.0.1:8000/questions/question/%d/", data[i].id);
                 e.close();
               }
             }
+            notification_count = len;
           }
           else{
             first_visit = false;
-          }
           notification_count = len;
         }
       }
-    });
+    }});
   }
 </script>
-
-
-
-
-
-
 
 </body>
 
