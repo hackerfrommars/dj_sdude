@@ -20,24 +20,22 @@
 	color:#f14d49;
 	font-family:'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
 }
-.dropdown-header {
-    color: #f14d49;
-    
-    padding-top:5px;
-    padding-bottom: 0px; 
+.modal-dialog {
+    margin: 12px 12px 12px 12px;
 }
-.text-center {
-    color: #727272;
+.text-center  h5{
+    color:#118c8b;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
-a {
-    color: white;
-    margin-left: 10px;
-    padding-top:0px;
-    padding-bottom: 0px; 
-}
-a:hover {
-    color:black;
-    
+.modal-body a{
+    color:#343A40;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
 }
 
 
