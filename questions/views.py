@@ -111,6 +111,21 @@ def notification_page(request, pk):
     notification.save()
     return redirect("/questions/question/" + str(question_id.id) + "/")
 
+@login_required(login_url='/')
+def notification_list(request):
+    course_list = Course.objects.all()
+    question_list = Question.objects.all()
+    notification_list = Notification.objects.filter(user_id=request.user, is_active=True)
+    context = {
+        "course_list": course_list,
+        "question_list": question_list,
+        "title": "Questions Page",
+        "notification_list": notification_list,
+        "notification_count": len(notification_list)
+    }
+    form = PasswordChangeForm(request.user)
+    context['password_change_form'] = form
+    return render(request, "questions/notification.html", context)
 
 @login_required(login_url='/')
 def notification_update(request):
@@ -121,3 +136,12 @@ def notification_update(request):
         return HttpResponse(json.dumps(notification_json), content_type='application/json')
     else:
         return HttpResponse('')
+
+@login_required(login_url='/')
+def delete_notification(request, id):
+    notification = get_object_or_404(Notification, user_id=request.user, id=id)
+    q_id = notification.question_id.id
+    notification.is_active = False
+    notification.save()
+    return redirect("/questions/question/" + str(q_id) + "/")
+
