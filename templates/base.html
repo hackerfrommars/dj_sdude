@@ -260,10 +260,14 @@
             $('.dropdown-menu').html('<h6 class="dropdown-header">New Alerts:</h6>');
             for (var j = 0; j < len; j++) {
                 $('.dropdown-menu').append('<div class="dropdown-divider"></div>');
-                $('.dropdown-menu').append('<a class="dropdown-item" href="/questions/notification/delete/'+ data[j].notification_id + '/">');
+                
                 $('.dropdown-menu').append('<span class="text-success"><strong><i class="fa fa-long-arrow-up fa-fw"></i>Notification:</strong></span>');
-                $('.dropdown-menu').append('<div class="dropdown-message small">Someone answered your questions: ' + data[j].question + '</div></a>');
+                $('.dropdown-menu').append('<a style="color:#343A40;" href="/questions/notification/delete/'+ data[j].notification_id + '/"><div class="dropdown-message small">Someone answered your questions: ' + data[j].question + '</div></a>');
+
           }
+            $('.dropdown-menu').append('<div class="dropdown-divider"></div>');
+            $('.dropdown-menu').append('<a class="dropdown-item small"  href="/questions/notifications"><h6>View all alerts</h6></a>');
+            
           if(!first_visit){
                 console.log("not_count: " + notification_count);
                 console.log("len: " + len);
