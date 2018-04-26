@@ -15,7 +15,7 @@
   border: 1px solid #495e7b;
   box-shadow: 0 5px #999;
   font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
-  height: 45px;
+  height: 43px;
   /*margin-top: 150px;*/
   /*margin-right: 2px;*/
 }
@@ -39,6 +39,7 @@
   /*height: 30px;*/
   /*background-color: red;*/
 
+
 }
 #each{
   border: 1.5px solid black;
@@ -49,12 +50,11 @@
   margin-bottom: 2px;
   /*text-align: center;*/
 }
-
 #card .btn:hover {
     background-color: #495e7b;
 }
 #show_button .btn span {
-  font-size: 1.6vw;
+  font-size: 1.568vw;
 }
 
 .container h1 {
@@ -63,6 +63,7 @@
   left: 13%;
   font-size: 2.5vw;
   margin-bottom:  40px;
+  /*background-color: red;*/
 
   
 }
@@ -103,6 +104,10 @@
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+.card-body{
+  /*background-color: red;*/
+  padding-left: 0px;
+}
 
 /*//это чтобы все данные предметов были невидимы при первом запуске страницы
 */
@@ -124,6 +129,7 @@
   #mnmn{
     border-style: outset;
       border-radius: 3px;
+      /*background-color: red;*/
       /*margin-left: 50px;*/
 
   }
@@ -131,7 +137,7 @@
 
 #first, #second, #third, #forth, #fifth{
    float:left;
-  border: 1px solid;
+  /*border: 1px solid;*/
   font-weight: normal;
   border-radius: 3px;
   margin-right: 5px;
@@ -157,6 +163,7 @@
   border-radius: 5px;
   margin-right: 5px;
   padding-left: 10px;
+  /*background-color: red;*/
 }
 @media (max-width: 1200px) {
   
@@ -276,7 +283,7 @@
 
 
 }
-.card-footer p{
+.card-footer {
     font-size: 1.2vw;
   }
 
@@ -290,9 +297,10 @@
     word-spacing: 50px;
     color: yellow;
   }
-  .card-footer p{
+  .card-footer {
     font-size: 1.2vw;
   }
+  
 }
 @media (max-width: 400px) {
   
@@ -318,7 +326,7 @@
 
 
 }
-.card-footer p{
+.card-footer {
     font-size: 1.2vw;
   }
 }
