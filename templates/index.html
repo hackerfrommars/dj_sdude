@@ -23,7 +23,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static 'css/agency.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    
 
   </head>
 
@@ -54,7 +54,7 @@
               <a class="nav-link js-scroll-trigger" href="#team">Team</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Online</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">Registration</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#page-top" id="login-button">Sign In</a>
@@ -81,7 +81,7 @@
               <span class="input-group-addon">
               <span class="glyphicon glyphicon-user"></span>
               </span>
-              <input type="text" class="form-control" placeholder="E-mail"
+              <input type="text" class="form-control" placeholder="Username"
             {{ login_form.username | add_class:"login_form"}}
             </div>
           </div>
@@ -98,7 +98,7 @@
           </div>
 
           <div class="form-group text-center">
-            <button class="btn btn-success btn-lg" type="submit" name="action" value="Login" style="vertical-align:middle"><span>log in </span></button>
+            <button class="btn btn-success" type="submit" name="action" value="Login" style="vertical-align:middle"><span>log in </span></button>
             <a href="#" class="btn btn-link" id="forgot">forget Password</a>
           </div>
 
@@ -117,23 +117,13 @@
           <span class="close-btn" style="color: #fff;">&times;</span>
 
       <div class="modal-heading">
-        <h2 class="text-center">New Password</h2>
+        <h4 style="color: white;" class="text-center">Forget Password</h4> 
       </div>
       <div class="modal-body">
 
-            {%  csrf_token  %}
-          <div class="form-group">
-            <div class="input-group">
-              <span class="input-group-addon">
-              <span class="glyphicon glyphicon-user"></span>
-              </span>
-              <input type="text" class="form-control" placeholder="E-mail">
-            </div>
-          </div>
-          </br>
-          <div class="form-group text-center">
-            <button class="btn btn-success btn-lg" type="submit" name="action" value="Login" style="vertical-align:middle"><span>get new password</span></button>
-          </div>
+          <div class="dropdown-divider">
+              </div>
+          <h5 style="color: white; text-align: center;">Write to sdu.dude.user@gmail.com via your SDU mail and get new password</h5>
 
       </div>
     </div>
@@ -208,7 +198,7 @@
             <div class="team-member">
               <img class="mx-auto rounded-circle" src="{% static 'img/team/1.jpg' %}" alt="">
               <h4>Akerke Makhmut</h4>
-              <p class="text-muted">Lead Designer</p>
+              <p class="text-muted"> Designer</p>
               <ul class="list-inline social-buttons">
                 <li class="list-inline-item">
                   <a href="#">
@@ -232,7 +222,7 @@
             <div class="team-member">
               <img class="mx-auto rounded-circle" src="{% static 'img/team/2.jpg' %}" alt="">
               <h4>Yerbolat Amangeldi</h4>
-              <p class="text-muted">Lead Developer</p>
+              <p class="text-muted"> Developer</p>
               <ul class="list-inline social-buttons">
                 <li class="list-inline-item">
                   <a href="#">
@@ -256,7 +246,7 @@
             <div class="team-member">
               <img class="mx-auto rounded-circle" src="{% static 'img/team/3.jpg'%}" alt="">
               <h4>Marzhan Bokenova</h4>
-              <p class="text-muted">Lead Scrum Master</p>
+              <p class="text-muted"> Scrum Master</p>
               <ul class="list-inline social-buttons">
                 <li class="list-inline-item">
                   <a href="#">
