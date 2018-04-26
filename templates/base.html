@@ -108,10 +108,10 @@
             </span>
           </a>
           <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-            <h6 class="dropdown-header">New Alerts:</h6>
+            <h6 class="dropdown-header" style="color: #f14d49;">No New Alerts:</h6>
 
 
-            <a class="dropdown-item small" href="#">View all alerts</a>
+            
           </div>
         </li>
       <li class="nav-item">
@@ -262,7 +262,7 @@
             $('.notification_count').html('' + len);
             console.log(first_visit);
             $('.dropdown-menu').html('');
-            $('.dropdown-menu').html('<h6 class="dropdown-header">New Alerts:</h6>');
+            $('.dropdown-menu').html('<h6 class="dropdown-header" style="color: #f14d49;">New Alerts:</h6>');
             for (var j = 0; j < len; j++) {
                 $('.dropdown-menu').append('<div class="dropdown-divider"></div>');
                 
