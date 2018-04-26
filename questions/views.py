@@ -31,6 +31,7 @@ def main_page(request):
         "course_list": course_list,
         "question_list": question_list,
         "title": "Questions Page",
+        "username": request.user.username
     }
     if request.method == 'POST' and request.POST['submit'] == 'Create Question':
         question_form = QuestionForm(request.POST)
@@ -67,6 +68,7 @@ def question_page(request, id):
         "question": question,
         "answer_list": answer_list,
         "title": "Questions Page",
+        "username": request.user.username
     }
     if request.method == 'POST' and request.POST['submit'] == 'Create Comment':
         answer_form = AnswerForm(request.POST)
@@ -121,7 +123,8 @@ def notification_list(request):
         "question_list": question_list,
         "title": "Questions Page",
         "notification_list": notification_list,
-        "notification_count": len(notification_list)
+        "notification_count": len(notification_list),
+        "username": request.user.username
     }
     form = PasswordChangeForm(request.user)
     context['password_change_form'] = form
@@ -132,6 +135,7 @@ def notification_update(request):
     notifications = get_list_or_404(Notification, user_id=request.user, is_active=True)
     lng = len(notifications)
     notification_json = [ob.as_json() for ob in notifications]
+    # print(notification_json)
     if lng > 0:
         return HttpResponse(json.dumps(notification_json), content_type='application/json')
     else:
