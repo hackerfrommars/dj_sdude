@@ -19,7 +19,8 @@ def main_page(request):
     internship_list = Internship.objects.all()
     context = {
         "title": "Main Page",
-        "internship_list": internship_list
+        "internship_list": internship_list,
+        "username": request.user.username
     }
     course_list = Course.objects.all()
     context['course_list'] = course_list

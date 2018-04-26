@@ -90,6 +90,12 @@
       </ul>
       
       <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <i class="fa fa-user-circle-o" style="font-size: 20px;"></i>
+              username: <span style="color:#f14d49;">{{ username }}  </span></a>
+              
+          </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
 
@@ -112,7 +118,8 @@
         <a class="nav-link " data-toggle="modal" data-target="#change_passw">Change Password
           <i class="fa fa-lock"></i>
         </a>
-      </li> 
+      </li>
+          
 
       <li class="nav-item">
         <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
@@ -226,9 +233,7 @@
     <script src="{% static 'j/js/sb-admin-charts.min.js' %}"></script>
 
     
-<script src="https:/
-
-/code.jquery.com/jquery-migrate-3.0.1.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
 
 

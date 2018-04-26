@@ -81,7 +81,8 @@ def main_page(request):
     context = {
         "course_list": course_list,
         "title": "Main Page",
-        "internship_list": internship_list
+        "internship_list": internship_list,
+        "username": request.user.username
     }
 
     if request.method == 'POST':
@@ -119,7 +120,8 @@ def list_course(request, id):
         'prof_list': prof_list,
         "course_list": course_list,
         "feedback_list": feedback_list,  
-        "course_id": id
+        "course_id": id,
+        "username": request.user.username
     }
     exam_form = ExamForm()
     feedback_form = FeedbackForm()
