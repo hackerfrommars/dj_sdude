@@ -57,12 +57,12 @@
           </a>
         </li>
         <li class="nav-item">
-        <div class="modal-dialog" >
+        <div class="modal-dialog" id="log_design">
     <div class="modal-content">
     <div class="text-center">
       <h5>Latest Event</h5>
     </div>
-      <div class="modal-body">
+      <div class="modal-body" id="log_body">
 
       </div>
       
@@ -296,27 +296,27 @@
         var len = data.length
         if (len > 0) {
             {#alert(len);#}
-            $('.modal-body').html('');
+            $('#log_body').html('');
             for (var j = 0; j < len; j++) {
-            $('.modal-body').append('<div class="dropdown-divider"></div>');
+            $('#log_body').append('<div class="dropdown-divider"></div>');
             if(data[j].log_type == 4){
-                $('.modal-body').append('<a href="/questions/">' + 'New question has been added' + '</a>');
+                $('#log_body').append('<a href="/questions/">' + 'New question has been added' + '</a>');
             }
             else if(data[j].log_type == 2){
-                $('.modal-body').append('<a href="/internship/">' + 'New internship has been added' + '</a>');
+                $('#log_body').append('<a href="/internship/">' + 'New internship has been added' + '</a>');
             }
             else if(data[j].log_type == 1){
-                $('.modal-body').append('<a href="/courses/' + data[j].log_ref + '">' + 'New exam has been added' + '</a>');
+                $('#log_body').append('<a href="/courses/' + data[j].log_ref + '">' + 'New exam has been added' + '</a>');
             }
             else if(data[j].log_type == 3){
-                $('.modal-body').append('<a href="#">' + 'New feedback has been added' + '</a>');
+                $('#log_body').append('<a href="#">' + 'New feedback has been added' + '</a>');
             }
             var millis = Date.parse(data[j].log_time);
             var myDate = new Date(millis).toDateString();
             var myTime = new Date(millis).toLocaleTimeString()
 
 
-            $('.modal-body').append('<div class="text-right" style="font-size: 8px; font-weight: bold;">' + myDate + ' ' + myTime + '</div>');
+            $('#log_body').append('<div class="text-right" style="font-size: 8px; font-weight: bold;">' + myDate + ' ' + myTime + '</div>');
             }
           }
       }
