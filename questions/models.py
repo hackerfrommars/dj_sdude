@@ -41,3 +41,28 @@ class Notification(models.Model):
             id=self.question_id.pk,
             question=self.question_id.content
         )
+
+
+class Log(models.Model):
+    EXAM = 1
+    INTERNSHIP = 2
+    FEEDBACK = 3
+    QUESTION = 4
+    LOG_CHOICES = (
+        (EXAM, 1),
+        (INTERNSHIP, 2),
+        (FEEDBACK, 3),
+        (QUESTION, 4)
+    )
+    log_type = models.IntegerField(choices=LOG_CHOICES, max_length=1)
+    log_time = models.DateTimeField(auto_now_add=True)
+    log_ref = models.IntegerField()
+
+
+    def as_json(self):
+        return dict(
+            log_id=self.id,
+            log_type=self.log_type,
+            log_time=self.log_time.isoformat(),
+            log_ref=self.log_ref
+        )
