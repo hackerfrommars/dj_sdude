@@ -48,7 +48,8 @@ section{
 section h2.section-heading{
 	font-size:40px;
 	margin-top:0;
-	margin-bottom:15px;
+	margin-bottom:30px;
+	color: white;
 }
 section h3.section-subheading {
   font-size: 25px;
@@ -99,7 +100,7 @@ img::-moz-selection{background:0 0}
 	background-color:#ffffff;
 	font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif}
 #mainNav .navbar-brand{
-	color:#495e7b;
+	color:white;
 	font-family:'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
 }
 #mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover{
@@ -107,11 +108,11 @@ img::-moz-selection{background:0 0}
 		background-color: #000000;
 }
 #mainNav .navbar-nav .nav-item .nav-link{
-	font-size:90%;
-	font-weight:400;
+	font-size:100%;
+	font-weight:bold;
 	padding:.75em 0;
 	letter-spacing:1px;
-	color:#495e7b;
+	color:white;
 	font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
 }
 #mainNav .navbar-nav .nav-item .nav-link:hover{
@@ -128,10 +129,11 @@ img::-moz-selection{background:0 0}
 		border:none;background-color:transparent
 	}
 	#mainNav .navbar-brand{
-		font-size:1.75em;
+		font-size:2.3em;
 		-webkit-transition:all .3s;
 		-moz-transition:all .3s;
 		transition:all .3s
+		color:white;
 	}
 	#mainNav .navbar-nav .nav-item .nav-link{
 		padding:1.1em 1em!important
@@ -149,7 +151,7 @@ img::-moz-selection{background:0 0}
 header.masthead{
 	text-align:center;
 	color:#fff;
-	background-image:url(../img/header-bg.jpg);
+	background-image:url(../img/4249310-library.jpg);
 	background-repeat:no-repeat;
 	background-attachment:scroll;
 	background-position:center center;
@@ -190,7 +192,7 @@ header.masthead .intro-text .intro-heading {
 .team-member h4{margin-top:25px;margin-bottom:0;text-transform:none}.team-member p{margin-top:0}
 section#contact{
 	background-color:#495e7b;
-	background-image:url(../img/map-image.png);
+	background-image:url(../img/mapamundi.jpg);
 	background-repeat:no-repeat;
 	background-attachment:scroll;
 	background-position:center center;

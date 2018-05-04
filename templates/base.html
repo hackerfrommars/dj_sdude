@@ -40,7 +40,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <br>
+        
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="select your course">
           <a class="nav-link" >
 
@@ -57,12 +57,12 @@
           </a>
         </li>
         <li class="nav-item">
-        <div class="modal-dialog" >
+        <div class="modal-dialog" id="log_design">
     <div class="modal-content">
     <div class="text-center">
       <h5>Latest Event</h5>
     </div>
-      <div class="modal-body">
+      <div class="modal-body" id="log_body">
 
       </div>
       
@@ -77,6 +77,12 @@
       </ul>
       
       <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <i class="fa fa-user-circle-o" style="font-size: 20px;"></i>
+              username: <span style="color:#f14d49;">{{ username }}  </span></a>
+              
+          </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
 
@@ -89,10 +95,10 @@
             </span>
           </a>
           <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-            <h6 class="dropdown-header">New Alerts:</h6>
+            <h6 class="dropdown-header" style="color: #f14d49;">No New Alerts:</h6>
 
 
-            <a class="dropdown-item small" href="#">View all alerts</a>
+            
           </div>
         </li>
       <li class="nav-item">
@@ -100,7 +106,7 @@
           <i class="fa fa-lock"></i>
         </a>
       </li>
-          <li class="nav-item">username: {{ username }}</li>
+          
 
       <li class="nav-item">
         <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
@@ -214,9 +220,7 @@
     <script src="{% static 'j/js/sb-admin-charts.min.js' %}"></script>
 
     
-<script src="https:/
-
-/code.jquery.com/jquery-migrate-3.0.1.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.js" ></script>
 
 
@@ -247,7 +251,7 @@
             $('.notification_count').html('' + len);
             console.log(first_visit);
             $('.dropdown-menu').html('');
-            $('.dropdown-menu').html('<h6 class="dropdown-header">New Alerts:</h6>');
+            $('.dropdown-menu').html('<h6 class="dropdown-header" style="color: #f14d49;">New Alerts:</h6>');
             for (var j = 0; j < len; j++) {
                 $('.dropdown-menu').append('<div class="dropdown-divider"></div>');
                 
@@ -296,27 +300,27 @@
         var len = data.length
         if (len > 0) {
             {#alert(len);#}
-            $('.modal-body').html('');
+            $('#log_body').html('');
             for (var j = 0; j < len; j++) {
-            $('.modal-body').append('<div class="dropdown-divider"></div>');
+            $('#log_body').append('<div class="dropdown-divider"></div>');
             if(data[j].log_type == 4){
-                $('.modal-body').append('<a href="/questions/">' + 'New question has been added' + '</a>');
+                $('#log_body').append('<a href="/questions/">' + 'New question has been added' + '</a>');
             }
             else if(data[j].log_type == 2){
-                $('.modal-body').append('<a href="/internship/">' + 'New internship has been added' + '</a>');
+                $('#log_body').append('<a href="/internship/">' + 'New internship has been added' + '</a>');
             }
             else if(data[j].log_type == 1){
-                $('.modal-body').append('<a href="/courses/' + data[j].log_ref + '">' + 'New exam has been added' + '</a>');
+                $('#log_body').append('<a href="/courses/' + data[j].log_ref + '">' + 'New exam has been added' + '</a>');
             }
             else if(data[j].log_type == 3){
-                $('.modal-body').append('<a href="#">' + 'New feedback has been added' + '</a>');
+                $('#log_body').append('<a href="#">' + 'New feedback has been added' + '</a>');
             }
             var millis = Date.parse(data[j].log_time);
             var myDate = new Date(millis).toDateString();
             var myTime = new Date(millis).toLocaleTimeString()
 
 
-            $('.modal-body').append('<div class="text-right" style="font-size: 8px; font-weight: bold;">' + myDate + ' ' + myTime + '</div>');
+            $('#log_body').append('<div class="text-right" style="font-size: 8px; font-weight: bold;">' + myDate + ' ' + myTime + '</div>');
             }
           }
       }
