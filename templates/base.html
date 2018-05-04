@@ -63,19 +63,6 @@
       <h5>Latest Event</h5>
     </div>
       <div class="modal-body">
-        <div class="dropdown-divider"></div>
-        <a href="#">Add new FeedBack on DataBase</a>
-        <div class="text-right" style="font-size: 8px; font-weight: bold;">11:00</div>
-        <div class="dropdown-divider"></div>
-        <a href="#">Add new FeedBack on DataBase</a>
-        <div class="text-right" style="font-size: 8px; font-weight: bold;">11:00</div>
-        <div class="dropdown-divider"></div>
-        <a href="#">Add new FeedBack on DataBase</a>
-        <div class="text-right" style="font-size: 8px; font-weight: bold;">11:00</div>
-        <div class="dropdown-divider"></div>
-        <a href="#">Add new FeedBack on DataBase</a>
-        <div class="text-right" style="font-size: 8px; font-weight: bold;">11:00</div>
-        <div class="dropdown-divider"></div>
 
       </div>
       
@@ -246,7 +233,9 @@
   var first_visit = true;
   $(document).ready(function () {
     get_notification_update();
+    get_log_update();
     setInterval(get_notification_update, 10000);
+    setInterval(get_log_update, 10000);
   });
 
   function get_notification_update() {
@@ -270,8 +259,7 @@
                 $('.dropdown-menu').append('<a style="color:#343A40;" href="/questions/notification/delete/'+ data[j].notification_id + '/"><div class="dropdown-message small">Someone answered your questions: ' + data[j].question + '</div></a>');
 
           }
-            $('.dropdown-menu').append('<div class="dropdown-divider"></div>');
-            $('.dropdown-menu').append('<a class="dropdown-item small"  href="/questions/notifications"><h6>View all alerts</h6></a>');
+
             
           if(!first_visit){
                 console.log("not_count: " + notification_count);
@@ -296,11 +284,49 @@
             first_visit = false;
           notification_count = len;
         }
+            $('.dropdown-menu').append('<div class="dropdown-divider"></div>');
+            $('.dropdown-menu').append('<a class="dropdown-item small"  href="/questions/notifications"><h6>View all alerts</h6></a>');
       }
     }});
   }
-</script>
 
+  function get_log_update() {
+    $.ajax({
+      url: '/questions/log_update',
+      data: {
+      },
+      dataType: 'json',
+      success: function (data) {
+        var len = data.length
+        if (len > 0) {
+            {#alert(len);#}
+            $('.modal-body').html('');
+            for (var j = 0; j < len; j++) {
+            $('.modal-body').append('<div class="dropdown-divider"></div>');
+            if(data[j].log_type == 4){
+                $('.modal-body').append('<a href="/questions/">' + 'New question has been added' + '</a>');
+            }
+            else if(data[j].log_type == 2){
+                $('.modal-body').append('<a href="/internship/">' + 'New internship has been added' + '</a>');
+            }
+            else if(data[j].log_type == 1){
+                $('.modal-body').append('<a href="/courses/' + data[j].log_ref + '">' + 'New exam has been added' + '</a>');
+            }
+            else if(data[j].log_type == 3){
+                $('.modal-body').append('<a href="#">' + 'New feedback has been added' + '</a>');
+            }
+            var millis = Date.parse(data[j].log_time);
+            var myDate = new Date(millis).toDateString();
+            var myTime = new Date(millis).toLocaleTimeString()
+
+
+            $('.modal-body').append('<div class="text-right" style="font-size: 8px; font-weight: bold;">' + myDate + ' ' + myTime + '</div>');
+            }
+          }
+      }
+    });
+  }
+</script>
 </body>
 
 </html>

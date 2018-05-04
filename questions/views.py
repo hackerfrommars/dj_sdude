@@ -20,7 +20,7 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.core import serializers
 
 from courses.models import Course
-from .models import Question, Answer, Notification
+from .models import Question, Answer, Notification, Log
 
 
 @login_required(login_url='/')
@@ -113,6 +113,7 @@ def notification_page(request, pk):
     notification.save()
     return redirect("/questions/question/" + str(question_id.id) + "/")
 
+
 @login_required(login_url='/')
 def notification_list(request):
     course_list = Course.objects.all()
@@ -130,6 +131,7 @@ def notification_list(request):
     context['password_change_form'] = form
     return render(request, "questions/notification.html", context)
 
+
 @login_required(login_url='/')
 def notification_update(request):
     notifications = get_list_or_404(Notification, user_id=request.user, is_active=True)
@@ -141,6 +143,7 @@ def notification_update(request):
     else:
         return HttpResponse('')
 
+
 @login_required(login_url='/')
 def delete_notification(request, id):
     notification = get_object_or_404(Notification, user_id=request.user, id=id)
@@ -149,3 +152,14 @@ def delete_notification(request, id):
     notification.save()
     return redirect("/questions/question/" + str(q_id) + "/")
 
+
+@login_required(login_url='/')
+def log_update(request):
+    logs = Log.objects.all().order_by('-log_time')[:4]
+    lng = len(logs)
+    log_json = [ob.as_json() for ob in logs]
+    # print(notification_json)
+    if lng > 0:
+        return HttpResponse(json.dumps(log_json), content_type='application/json')
+    else:
+        return HttpResponse('')
